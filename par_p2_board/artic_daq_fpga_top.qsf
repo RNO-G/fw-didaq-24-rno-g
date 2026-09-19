@@ -524,7 +524,6 @@ set_global_assignment -name SIGNALTAP_FILE stp2.stp
 set_global_assignment -name SIGNALTAP_FILE tap_jesd.stp
 set_global_assignment -name IP_FILE ../src/altera_p2_board/pll/sysref_pll.ip
 set_instance_assignment -name INPUT_TERMINATION "OCT 100 OHMS" -to clk_gts_ref[*]
-set_global_assignment -name IP_FILE GTS_system_PLL.ip
 set_global_assignment -name IP_FILE ../src/altera_p2_board/pll/GTS_system_PLL.ip
 set_instance_assignment -name XCVR_S10_REFCLK_TERM_TRISTATE TRISTATE_ON -to clk_gts_pll_ref[0]
 set_instance_assignment -name XCVR_S10_REFCLK_TERM_TRISTATE TRISTATE_ON -to clk_gts_pll_ref[1]
@@ -545,3 +544,4 @@ set_global_assignment -name SIGNALTAP_FILE tap_spiSlave.stp
 set_global_assignment -name SEARCH_PATH ../src
 set_global_assignment -name SEARCH_PATH ../src/didaq_acq_and_trig
 set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/dedispersion.vhd
+set_global_assignment -name PROJECT_IP_REGENERATION_POLICY ALWAYS_REGENERATE_IP
