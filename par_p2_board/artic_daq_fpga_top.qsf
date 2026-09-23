@@ -545,3 +545,4 @@ set_global_assignment -name SEARCH_PATH ../src
 set_global_assignment -name SEARCH_PATH ../src/didaq_acq_and_trig
 set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/dedispersion.vhd
 set_global_assignment -name PROJECT_IP_REGENERATION_POLICY ALWAYS_REGENERATE_IP
+set_global_assignment -name IP_FILE ../src/altera_p2_board/niosv/ip/niosv_pd/niosv_pd_tectonics_ser_debug_1.ip

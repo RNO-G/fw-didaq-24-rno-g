@@ -470,8 +470,8 @@ component niosv_pd is
         reset_reset_n                                          : in  std_logic;         
         clk_clk                                                : in  std_logic;         
 
-        pd_debug_uart_txd                                      : out std_logic;                                         
-        pd_debug_uart_rxd                                      : in  std_logic;       
+        --pd_debug_uart_txd                                      : out std_logic;                                         
+        --pd_debug_uart_rxd                                      : in  std_logic;       
         
         --qspi_flash_dclk                                        : out   std_logic;                  
         --qspi_flash_ncs                                         : out   std_logic;                  
@@ -487,15 +487,25 @@ component niosv_pd is
         i2c_master_0_avl_mm_readdatavalid                      : in  std_logic;             
         i2c_master_0_avl_reset_reset                           : out std_logic;                                         
         
-        ser_debug_master_address                               : in  std_logic_vector(31 downto 0);
-        ser_debug_master_waitrequest                           : out std_logic;                                       
-        ser_debug_master_write                                 : in  std_logic;            
-        ser_debug_master_writedata                             : in  std_logic_vector(31 downto 0);
-        ser_debug_master_read                                  : in  std_logic;            
-        ser_debug_master_readdata                              : out std_logic_vector(31 downto 0);                   
-        ser_debug_master_readdatavalid                         : out std_logic;                                       
-        ser_debug_master_byteenable                            : in  std_logic_vector(3 downto 0);
-        ser_debug_master_reset_reset                           : out std_logic;                                       
+        tectonics_ser_debug_0_avalon_master_address             : in  std_logic_vector(31 downto 0);
+        tectonics_ser_debug_0_avalon_master_waitrequest         : out std_logic;                                       
+        tectonics_ser_debug_0_avalon_master_write               : in  std_logic;            
+        tectonics_ser_debug_0_avalon_master_writedata           : in  std_logic_vector(31 downto 0);
+        tectonics_ser_debug_0_avalon_master_read                : in  std_logic;            
+        tectonics_ser_debug_0_avalon_master_readdata            : out std_logic_vector(31 downto 0);                   
+        tectonics_ser_debug_0_avalon_master_readdatavalid       : out std_logic;                                       
+        tectonics_ser_debug_0_avalon_master_byteenable          : in  std_logic_vector(3 downto 0);
+        tectonics_ser_debug_0_reset_sink_reset                  : out std_logic;   
+
+        tectonics_ser_debug_1_avalon_master_address             : in  std_logic_vector(31 downto 0);
+        tectonics_ser_debug_1_avalon_master_waitrequest         : out std_logic;                                       
+        tectonics_ser_debug_1_avalon_master_write               : in  std_logic;            
+        tectonics_ser_debug_1_avalon_master_writedata           : in  std_logic_vector(31 downto 0);
+        tectonics_ser_debug_1_avalon_master_read                : in  std_logic;            
+        tectonics_ser_debug_1_avalon_master_readdata            : out std_logic_vector(31 downto 0);                   
+        tectonics_ser_debug_1_avalon_master_readdatavalid       : out std_logic;                                       
+        tectonics_ser_debug_1_avalon_master_byteenable          : in  std_logic_vector(3 downto 0);
+        tectonics_ser_debug_1_reset_sink_reset                  : out std_logic;  		  
                                                                                                                                      
         spi_master_0_avl_mm_address                            : out std_logic_vector(7 downto 0);                  
         spi_master_0_avl_mm_chipselect                         : out std_logic;                                     
@@ -849,7 +859,17 @@ signal ser_debug_master_readdata        : std_logic_vector(31 downto 0);
 signal ser_debug_master_readdatavalid   : std_logic;                    
 signal ser_debug_master_byteenable      : std_logic_vector(3 downto 0); 
 signal ser_debug_master_reset_reset     : std_logic;                    
-                                        
+                       
+signal ser_debug2_master_address         : std_logic_vector(31 downto 0);
+signal ser_debug2_master_waitrequest     : std_logic;                    
+signal ser_debug2_master_write           : std_logic;                    
+signal ser_debug2_master_writedata       : std_logic_vector(31 downto 0);
+signal ser_debug2_master_read            : std_logic;                    
+signal ser_debug2_master_readdata        : std_logic_vector(31 downto 0);
+signal ser_debug2_master_readdatavalid   : std_logic;                    
+signal ser_debug2_master_byteenable      : std_logic_vector(3 downto 0); 
+signal ser_debug2_master_reset_reset     : std_logic; 
+							  
 signal i2c_master_avl_reset_reset       : std_logic;    
 signal i2c_master_avl_address           : std_logic_vector(7 downto 0);                     
 signal i2c_master_avl_chipselect        : std_logic;                                        
@@ -1142,23 +1162,34 @@ inst_nios_pd : niosv_pd
         reset_reset_n                                          => sys_reset_n,
         clk_clk                                                => clk_avl,
         
-        pd_debug_uart_txd                                      => sbc_uart_txd,
-        pd_debug_uart_rxd                                      => sbc_uart_rxd, 
+        --pd_debug_uart_txd                                      => sbc_uart_txd,
+        --pd_debug_uart_rxd                                      => sbc_uart_rxd, 
         
         --qspi_flash_dclk                                        => aux_qspi_flash_dclk,   
         --qspi_flash_ncs                                         => aux_qspi_flash_ncs, 
         --qspi_flash_data                                        => aux_qspi_flash_data,
-               
-        ser_debug_master_reset_reset                           => ser_debug_master_reset_reset,
-        ser_debug_master_address                               => ser_debug_master_address,      
-        ser_debug_master_waitrequest                           => ser_debug_master_waitrequest,  
-        ser_debug_master_write                                 => ser_debug_master_write,        
-        ser_debug_master_writedata                             => ser_debug_master_writedata,    
-        ser_debug_master_read                                  => ser_debug_master_read,         
-        ser_debug_master_readdata                              => ser_debug_master_readdata,     
-        ser_debug_master_readdatavalid                         => ser_debug_master_readdatavalid,
-        ser_debug_master_byteenable                            => ser_debug_master_byteenable,           
+              
+
+        tectonics_ser_debug_0_reset_sink_reset                  => ser_debug_master_reset_reset,
+        tectonics_ser_debug_0_avalon_master_address             => ser_debug_master_address,      
+        tectonics_ser_debug_0_avalon_master_waitrequest         => ser_debug_master_waitrequest,  
+        tectonics_ser_debug_0_avalon_master_write               => ser_debug_master_write,        
+        tectonics_ser_debug_0_avalon_master_writedata           => ser_debug_master_writedata,    
+        tectonics_ser_debug_0_avalon_master_read                => ser_debug_master_read,         
+        tectonics_ser_debug_0_avalon_master_readdata            => ser_debug_master_readdata,     
+        tectonics_ser_debug_0_avalon_master_readdatavalid       => ser_debug_master_readdatavalid,
+        tectonics_ser_debug_0_avalon_master_byteenable          => ser_debug_master_byteenable,           
         
+        tectonics_ser_debug_1_reset_sink_reset                  => ser_debug2_master_reset_reset,
+        tectonics_ser_debug_1_avalon_master_address             => ser_debug2_master_address,      
+        tectonics_ser_debug_1_avalon_master_waitrequest         => ser_debug2_master_waitrequest,  
+        tectonics_ser_debug_1_avalon_master_write               => ser_debug2_master_write,        
+        tectonics_ser_debug_1_avalon_master_writedata           => ser_debug2_master_writedata,    
+        tectonics_ser_debug_1_avalon_master_read                => ser_debug2_master_read,         
+        tectonics_ser_debug_1_avalon_master_readdata            => ser_debug2_master_readdata,     
+        tectonics_ser_debug_1_avalon_master_readdatavalid       => ser_debug2_master_readdatavalid,
+        tectonics_ser_debug_1_avalon_master_byteenable          => ser_debug2_master_byteenable,  
+		  
         i2c_master_0_avl_reset_reset                           => i2c_master_avl_reset_reset,
         i2c_master_0_avl_mm_address                            => i2c_master_avl_address,      
         i2c_master_0_avl_mm_chipselect                         => i2c_master_avl_chipselect,   
@@ -1697,7 +1728,33 @@ inst_tectonics_ser_debug : tectonics_ser_debug
       ser_rx                       =>  usb_uart_ser_in                     
                                                            
    );                                                       
-                                                                                         
+         
+inst_tectonics_ser_debug2 : tectonics_ser_debug
+   generic map(
+   
+      g_arst_pol           => '1',
+      g_ser_debug_mult_sim => g_ser_debug_mult_sim                            
+   )        
+   port map(
+   
+      arst                         => ser_debug2_master_reset_reset,                    
+      clk                          => clk_avl,                   
+      
+      -- Interface to the Avalon fabfic for writing as master device                                                     
+      avl_mstr_port_waitrequest    => ser_debug2_master_waitrequest,   
+      avl_mstr_port_byteenable     => ser_debug2_master_byteenable,       
+      avl_mstr_port_writedata      => ser_debug2_master_writedata,   
+      avl_mstr_port_address        => ser_debug2_master_address,         
+      avl_mstr_port_write          => ser_debug2_master_write,     
+      avl_mstr_port_read           => ser_debug2_master_read,          
+      avl_mstr_port_readdata       => ser_debug2_master_readdata,      
+      avl_mstr_port_readdatavalid  => ser_debug2_master_readdatavalid, 
+                                                                                                                     
+      -- The serial interface                                                                                                             
+      ser_tx                       =>  sbc_uart_txd,                     
+      ser_rx                       =>  sbc_uart_rxd                     
+                                                           
+   );  			
 
 -- This should be fine to use this async reset.
 adc_data_buffer_rstn <= not spi_slave_avl_reset_reset; 
