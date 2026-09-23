@@ -263,8 +263,10 @@ entity spi_slave_reg_intfc is
       --  
       capture_ctrl           	: out std_logic_vector(31 downto 0);      
       capture_stat           	: in  std_logic_vector(31 downto 0); 
-      trigger_ctrl1				: out std_logic_vector(31 downto 0);  
-		trigger_ctrl2				: out std_logic_vector(31 downto 0);   
+      trigger_ctrl1				: out std_logic_vector(31 downto 0);
+		trigger_mask1				: out std_logic_vector(31 downto 0);
+		trigger_ctrl2				: out std_logic_vector(31 downto 0);
+		trigger_mask2				: out std_logic_vector(31 downto 0);		
 		ptrigger_ctrl				: out std_logic_vector(31 downto 0); 
 		readout_ctrl				: out std_logic_vector(31 downto 0); 
 		posttrig_ctrl				: out std_logic_vector(31 downto 0); 
@@ -290,6 +292,8 @@ entity spi_slave_reg_intfc is
 		beam_trig_thresh7			: out   std_logic_vector(31 downto 0);
 		beam_trig_thresh8			: out   std_logic_vector(31 downto 0);
 		beam_trig_thresh9			: out   std_logic_vector(31 downto 0);
+		beam_trig_thresh10		: out   std_logic_vector(31 downto 0);
+		beam_trig_thresh11		: out   std_logic_vector(31 downto 0);
 		last_evt_evt_count		: in  std_logic_vector(31 downto 0);      
 		last_evt_trig_count		: in  std_logic_vector(31 downto 0);      
 		last_evt_deadtime			: in  std_logic_vector(31 downto 0);     
@@ -557,7 +561,9 @@ end component timing_gen;
                                                                      -- bit 1 = '1' for reads from avl, self clear when data retruns
    signal capture_ctrl_reg          	: std_logic_vector(31 downto 0);    
    signal trigger_ctrl1_reg				: std_logic_vector(31 downto 0); 
-	signal trigger_ctrl2_reg				: std_logic_vector(31 downto 0);  
+	signal trigger_mask1_reg				: std_logic_vector(31 downto 0);
+	signal trigger_ctrl2_reg				: std_logic_vector(31 downto 0); 
+	signal trigger_mask2_reg				: std_logic_vector(31 downto 0);	
 	signal ptrigger_ctrl_reg				: std_logic_vector(31 downto 0);
 	signal readout_ctrl_reg					: std_logic_vector(31 downto 0); 
 	signal posttrig_ctrl_reg				: std_logic_vector(31 downto 0);
@@ -583,6 +589,8 @@ end component timing_gen;
 	signal beam_trig_thresh7_reg			: std_logic_vector(31 downto 0);
 	signal beam_trig_thresh8_reg			: std_logic_vector(31 downto 0);
 	signal beam_trig_thresh9_reg			: std_logic_vector(31 downto 0);
+	signal beam_trig_thresh10_reg			: std_logic_vector(31 downto 0);
+	signal beam_trig_thresh11_reg			: std_logic_vector(31 downto 0);
 	signal scaler_sel_reg					: std_logic_vector(31 downto 0);
    
    
@@ -927,7 +935,9 @@ begin
 
 		capture_ctrl_reg           <= (others => '0');    
       trigger_ctrl1_reg				<= (others => '0'); 
+		trigger_mask1_reg				<= (others => '0'); 
 		trigger_ctrl2_reg				<= (others => '0');  
+		trigger_mask2_reg				<= (others => '0');
 		ptrigger_ctrl_reg				<= (others => '0');
 		readout_ctrl_reg				<= (others => '0'); 
 		posttrig_ctrl_reg				<= (others => '0');
@@ -953,6 +963,8 @@ begin
 		beam_trig_thresh7_reg		<= (others => '0');
 		beam_trig_thresh8_reg		<= (others => '0');
 		beam_trig_thresh9_reg		<= (others => '0');
+		beam_trig_thresh10_reg		<= (others => '0');
+		beam_trig_thresh11_reg		<= (others => '0');
 		scaler_sel_reg					<= (others => '0');
       
    elsif clk'event and clk = '1' then  
@@ -1043,8 +1055,12 @@ begin
       ---added didaq specific UC:
 		if spi_wr_strb_bus(c_trigger_ctrl_1_addr ) = '1' then trigger_ctrl1_reg <= spi_reg_write_data(31 downto 0); end if;
       if avl_wr_strb_bus(c_trigger_ctrl_1_addr ) = '1' then trigger_ctrl1_reg <= alv_slv_reg_wr_data(31 downto 0); end if;
+		if spi_wr_strb_bus(c_trigger_mask_1_addr ) = '1' then trigger_mask1_reg <= spi_reg_write_data(31 downto 0); end if;
+      if avl_wr_strb_bus(c_trigger_mask_1_addr ) = '1' then trigger_mask1_reg <= alv_slv_reg_wr_data(31 downto 0); end if;	
 		if spi_wr_strb_bus(c_trigger_ctrl_2_addr ) = '1' then trigger_ctrl2_reg <= spi_reg_write_data(31 downto 0); end if;
-      if avl_wr_strb_bus(c_trigger_ctrl_2_addr ) = '1' then trigger_ctrl2_reg <= alv_slv_reg_wr_data(31 downto 0); end if;	
+      if avl_wr_strb_bus(c_trigger_ctrl_2_addr ) = '1' then trigger_ctrl2_reg <= alv_slv_reg_wr_data(31 downto 0); end if;
+		if spi_wr_strb_bus(c_trigger_mask_2_addr ) = '1' then trigger_mask2_reg <= spi_reg_write_data(31 downto 0); end if;
+      if avl_wr_strb_bus(c_trigger_mask_2_addr ) = '1' then trigger_mask2_reg <= alv_slv_reg_wr_data(31 downto 0); end if;		
 		if spi_wr_strb_bus(c_phased_trig_ctrl_addr ) = '1' then ptrigger_ctrl_reg <= spi_reg_write_data(31 downto 0); end if;
       if avl_wr_strb_bus(c_phased_trig_ctrl_addr ) = '1' then ptrigger_ctrl_reg <= alv_slv_reg_wr_data(31 downto 0); end if;	
 		if spi_wr_strb_bus(c_trigger_thresh_00_addr ) = '1' then coinc_trigger_thresh0_reg <= spi_reg_write_data(31 downto 0); end if;
@@ -1091,6 +1107,10 @@ begin
       if avl_wr_strb_bus(c_beam_thresh_8_addr ) = '1' then beam_trig_thresh8_reg <= alv_slv_reg_wr_data(31 downto 0); end if;	
 		if spi_wr_strb_bus(c_beam_thresh_9_addr ) = '1' then beam_trig_thresh9_reg <= spi_reg_write_data(31 downto 0); end if;
       if avl_wr_strb_bus(c_beam_thresh_9_addr ) = '1' then beam_trig_thresh9_reg <= alv_slv_reg_wr_data(31 downto 0); end if;	
+		if spi_wr_strb_bus(c_beam_thresh_10_addr ) = '1' then beam_trig_thresh10_reg <= spi_reg_write_data(31 downto 0); end if;
+      if avl_wr_strb_bus(c_beam_thresh_10_addr ) = '1' then beam_trig_thresh10_reg <= alv_slv_reg_wr_data(31 downto 0); end if;	
+		if spi_wr_strb_bus(c_beam_thresh_11_addr ) = '1' then beam_trig_thresh11_reg <= spi_reg_write_data(31 downto 0); end if;
+      if avl_wr_strb_bus(c_beam_thresh_11_addr ) = '1' then beam_trig_thresh11_reg <= alv_slv_reg_wr_data(31 downto 0); end if;	
 		if spi_wr_strb_bus(c_scaler_select_addr ) = '1' then scaler_sel_reg <= spi_reg_write_data(31 downto 0); end if;
       if avl_wr_strb_bus(c_scaler_select_addr ) = '1' then scaler_sel_reg <= alv_slv_reg_wr_data(31 downto 0); end if;
 		if spi_wr_strb_bus(c_readout_ctrl_addr ) = '1' then readout_ctrl_reg <= spi_reg_write_data(31 downto 0); end if;
@@ -1141,7 +1161,9 @@ clk_pll_sync      <= pll_ctrl_stat_reg(1);
 clk_pll_clkin_sel <= pll_ctrl_stat_reg(2);
 capture_ctrl           <= capture_ctrl_reg;    
 trigger_ctrl1				<= trigger_ctrl1_reg; 
-trigger_ctrl2				<= trigger_ctrl2_reg;  
+trigger_mask1				<= trigger_mask1_reg; 
+trigger_ctrl2				<= trigger_ctrl2_reg; 
+trigger_mask2				<= trigger_mask2_reg; 
 ptrigger_ctrl				<= ptrigger_ctrl_reg;
 readout_ctrl				<= readout_ctrl_reg; 
 posttrig_ctrl				<= posttrig_ctrl_reg;
@@ -1167,6 +1189,8 @@ beam_trig_thresh6		<= beam_trig_thresh6_reg;
 beam_trig_thresh7		<= beam_trig_thresh7_reg;
 beam_trig_thresh8		<= beam_trig_thresh8_reg;
 beam_trig_thresh9		<= beam_trig_thresh9_reg;
+beam_trig_thresh10	<= beam_trig_thresh10_reg;
+beam_trig_thresh11	<= beam_trig_thresh11_reg;
 scaler_sel				<= scaler_sel_reg;
 
 adc_pdwn_stby <= adc_pdwn_stby_reg;
@@ -1286,7 +1310,9 @@ begin
             when c_adc_23_fifo_data_reg_addr   => tx_spi_data_sr <= adc_23_fifo_data; sbc_adc_fifo_rd_ack(23) <= '1';      
             
 				when c_trigger_ctrl_1_addr			=> tx_spi_data_sr <= trigger_ctrl1_reg; 
-				when c_trigger_ctrl_2_addr			=> tx_spi_data_sr <= trigger_ctrl2_reg;  
+				when c_trigger_mask_1_addr			=> tx_spi_data_sr <= trigger_mask1_reg; 
+				when c_trigger_ctrl_2_addr			=> tx_spi_data_sr <= trigger_ctrl2_reg; 
+				when c_trigger_mask_2_addr			=> tx_spi_data_sr <= trigger_mask2_reg; 	
 				when c_phased_trig_ctrl_addr		=> tx_spi_data_sr <=	ptrigger_ctrl_reg;
 				when c_trigger_thresh_00_addr		=> tx_spi_data_sr <= coinc_trigger_thresh0_reg;
 				when c_trigger_thresh_01_addr		=> tx_spi_data_sr <= coinc_trigger_thresh1_reg;
@@ -1310,6 +1336,8 @@ begin
 				when c_beam_thresh_7_addr 			=> tx_spi_data_sr <= beam_trig_thresh7_reg;
 				when c_beam_thresh_8_addr 			=> tx_spi_data_sr <= beam_trig_thresh8_reg;
 				when c_beam_thresh_9_addr 			=> tx_spi_data_sr <= beam_trig_thresh9_reg;
+				when c_beam_thresh_10_addr 		=> tx_spi_data_sr <= beam_trig_thresh10_reg;
+				when c_beam_thresh_11_addr 		=> tx_spi_data_sr <= beam_trig_thresh11_reg;
 				when c_lastevt_event_counter_addr		=> tx_spi_data_sr <= last_evt_evt_count;		
 				when c_lastevt_trig_counter_addr			=> tx_spi_data_sr <= last_evt_trig_count;	
 				when c_lastevt_deadtime_counter_addr	=> tx_spi_data_sr <= last_evt_deadtime;	
@@ -1462,7 +1490,9 @@ begin
             when c_adc_23_fifo_data_reg_addr   => alv_slv_reg_rd_data <= adc_23_fifo_data; avl_adc_fifo_rd_ack(23) <= '1';    
 
 				when c_trigger_ctrl_1_addr			=> alv_slv_reg_rd_data <= trigger_ctrl1_reg; 
-				when c_trigger_ctrl_2_addr			=> alv_slv_reg_rd_data <= trigger_ctrl2_reg;  
+				when c_trigger_mask_1_addr			=> alv_slv_reg_rd_data <= trigger_mask1_reg; 
+				when c_trigger_ctrl_2_addr			=> alv_slv_reg_rd_data <= trigger_ctrl2_reg;
+				when c_trigger_mask_2_addr			=> alv_slv_reg_rd_data <= trigger_mask2_reg; 		
 				when c_phased_trig_ctrl_addr		=> alv_slv_reg_rd_data <=	ptrigger_ctrl_reg;
 				when c_trigger_thresh_00_addr		=> alv_slv_reg_rd_data <= coinc_trigger_thresh0_reg;
 				when c_trigger_thresh_01_addr		=> alv_slv_reg_rd_data <= coinc_trigger_thresh1_reg;
@@ -1486,6 +1516,8 @@ begin
 				when c_beam_thresh_7_addr 			=> alv_slv_reg_rd_data <= beam_trig_thresh7_reg;
 				when c_beam_thresh_8_addr 			=> alv_slv_reg_rd_data <= beam_trig_thresh8_reg;
 				when c_beam_thresh_9_addr 			=> alv_slv_reg_rd_data <= beam_trig_thresh9_reg;
+				when c_beam_thresh_10_addr 			=> alv_slv_reg_rd_data <= beam_trig_thresh10_reg;
+				when c_beam_thresh_11_addr 			=> alv_slv_reg_rd_data <= beam_trig_thresh11_reg;
 				when c_lastevt_event_counter_addr		=> alv_slv_reg_rd_data <= last_evt_evt_count;		
 				when c_lastevt_trig_counter_addr			=> alv_slv_reg_rd_data <= last_evt_trig_count;	
 				when c_lastevt_deadtime_counter_addr	=> alv_slv_reg_rd_data <= last_evt_deadtime;	

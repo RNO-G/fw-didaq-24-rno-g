@@ -77,7 +77,7 @@ use ieee.std_logic_unsigned.all;
 
 entity artic_daq_fpga_top is
    generic(
-      g_chip_rev             : std_logic_vector(31 downto 0) := X"7EA7002E";
+      g_chip_rev             : std_logic_vector(31 downto 0) := X"7EA80030";
       g_sample_width         : natural := 8;  -- Set to 8 or 9
       g_ser_debug_mult_sim   : natural := 1   -- will use faster baud rate by this factor
    );   
@@ -365,9 +365,11 @@ component spi_slave_reg_intfc is
       clk_pll_clkin_sel                  : out std_logic;
                                                                                    
       capture_ctrl           : out std_logic_vector(31 downto 0);      
-      capture_stat           : in  std_logic_vector(31 downto 0); 
+		capture_stat           : in  std_logic_vector(31 downto 0); 
       trigger_ctrl1				: out std_logic_vector(31 downto 0);  
-		trigger_ctrl2				: out std_logic_vector(31 downto 0);   
+		trigger_mask1				: out std_logic_vector(31 downto 0);
+		trigger_ctrl2				: out std_logic_vector(31 downto 0); 
+		trigger_mask2				: out std_logic_vector(31 downto 0);		
 		ptrigger_ctrl				: out std_logic_vector(31 downto 0); 
 		readout_ctrl				: out std_logic_vector(31 downto 0); 
 		posttrig_ctrl				: out std_logic_vector(31 downto 0); 
@@ -393,6 +395,8 @@ component spi_slave_reg_intfc is
 		beam_trig_thresh7		: out   std_logic_vector(31 downto 0);
 		beam_trig_thresh8		: out   std_logic_vector(31 downto 0);
 		beam_trig_thresh9		: out   std_logic_vector(31 downto 0);
+		beam_trig_thresh10	: out   std_logic_vector(31 downto 0);
+		beam_trig_thresh11	: out   std_logic_vector(31 downto 0);
 		last_evt_evt_count		: in  std_logic_vector(31 downto 0);      
 		last_evt_trig_count		: in  std_logic_vector(31 downto 0);      
 		last_evt_deadtime		: in  std_logic_vector(31 downto 0);     
@@ -762,9 +766,12 @@ component didaq_acq_and_trig is
       adc_22_fifo_data                   : out std_logic_vector(31 downto 0);                                           
       adc_23_fifo_data                   : out std_logic_vector(31 downto 0);  	
 		capture_ctrl_reg_i         : in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
-		capture_stat_reg_o         : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      				capture_stat               : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      
-		trigger_ctrl1_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
+		capture_stat_reg_o         : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      				
+		--capture_stat               : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      
+		trigger_ctrl1_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed) 
+		trigger_mask1_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed) 
 		trigger_ctrl2_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
+		trigger_mask2_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed) 
 		ptrigger_ctrl_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed) 
 		readout_ctrl_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain 
 		posttrig_ctrl_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)
@@ -790,6 +797,8 @@ component didaq_acq_and_trig is
 		beam_trig_thresh7_reg_i		: in   std_logic_vector(31 downto 0);
 		beam_trig_thresh8_reg_i		: in   std_logic_vector(31 downto 0);
 		beam_trig_thresh9_reg_i		: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh10_reg_i		: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh11_reg_i		: in   std_logic_vector(31 downto 0);
 		--event metadata:
 		last_evt_evt_count_reg_o	: out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)     
 		last_evt_trig_count_reg_o	: out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)     
@@ -943,7 +952,9 @@ type threshold_array_data_type          is array (0 to 11) of std_logic_vector(3
 signal capture_ctrl_reg          : std_logic_vector(31 downto 0);      
 signal capture_stat_reg          :  std_logic_vector(31 downto 0); 
 signal trigger_ctrl1_reg			:  std_logic_vector(31 downto 0);  
-signal trigger_ctrl2_reg			:  std_logic_vector(31 downto 0);   
+signal trigger_mask1_reg			:  std_logic_vector(31 downto 0);
+signal trigger_ctrl2_reg			:  std_logic_vector(31 downto 0);
+signal trigger_mask2_reg			:  std_logic_vector(31 downto 0);   
 signal ptrigger_ctrl_reg			:  std_logic_vector(31 downto 0); 
 signal readout_ctrl_reg				:  std_logic_vector(31 downto 0); 
 signal posttrig_ctrl_reg			:  std_logic_vector(31 downto 0); 
@@ -1442,8 +1453,10 @@ inst_spi_slave_reg_intfc : spi_slave_reg_intfc
       -- Interface to the RX ADC data buffer module
 		capture_ctrl       => capture_ctrl_reg,     
 		capture_stat       => capture_stat_reg,        
-		trigger_ctrl1		 => trigger_ctrl1_reg,	 
-		trigger_ctrl2		 => trigger_ctrl2_reg,		  
+		trigger_ctrl1		 => trigger_ctrl1_reg,	
+		trigger_mask1		 => trigger_mask1_reg,		
+		trigger_ctrl2		 => trigger_ctrl2_reg,
+		trigger_mask2		 => trigger_mask2_reg,			
 		ptrigger_ctrl		 => ptrigger_ctrl_reg,	 
 		readout_ctrl		=> readout_ctrl_reg,	
 		posttrig_ctrl		=> posttrig_ctrl_reg,
@@ -1469,6 +1482,8 @@ inst_spi_slave_reg_intfc : spi_slave_reg_intfc
 		beam_trig_thresh7		=> beam_trig_thresh_regs(7),
 		beam_trig_thresh8		=> beam_trig_thresh_regs(8),
 		beam_trig_thresh9		=> beam_trig_thresh_regs(9),
+		beam_trig_thresh10	=> beam_trig_thresh_regs(10),
+		beam_trig_thresh11	=> beam_trig_thresh_regs(11),
 		--event metadata:
 		last_evt_evt_count	=>   open, 
 		last_evt_trig_count	=>   last_evt_trig_count_reg,   
@@ -1765,8 +1780,10 @@ inst_adc_data_and_trig_handler : didaq_acq_and_trig
 
 		capture_ctrl_reg_i       => capture_ctrl_reg,     
 		capture_stat_reg_o       => capture_stat_reg,        
-		trigger_ctrl1_reg_i		 => trigger_ctrl1_reg,	 
-		trigger_ctrl2_reg_i		 => trigger_ctrl2_reg,		  
+		trigger_ctrl1_reg_i		 => trigger_ctrl1_reg,
+		trigger_mask1_reg_i		 => trigger_mask1_reg,		
+		trigger_ctrl2_reg_i		 => trigger_ctrl2_reg,	
+		trigger_mask2_reg_i		 => trigger_mask2_reg,		
 		ptrigger_ctrl_reg_i		 => ptrigger_ctrl_reg,	 
 		readout_ctrl_reg_i		=> readout_ctrl_reg,	
 		posttrig_ctrl_reg_i		=> posttrig_ctrl_reg,
@@ -1792,6 +1809,8 @@ inst_adc_data_and_trig_handler : didaq_acq_and_trig
 		beam_trig_thresh7_reg_i		=> beam_trig_thresh_regs(7),
 		beam_trig_thresh8_reg_i		=> beam_trig_thresh_regs(8),
 		beam_trig_thresh9_reg_i		=> beam_trig_thresh_regs(9),
+		beam_trig_thresh10_reg_i	=> beam_trig_thresh_regs(10),
+		beam_trig_thresh11_reg_i	=> beam_trig_thresh_regs(11),
 		--event metadata:
 		last_evt_evt_count_reg_o	=>   open, 
 		last_evt_trig_count_reg_o	=>   last_evt_trig_count_reg,   

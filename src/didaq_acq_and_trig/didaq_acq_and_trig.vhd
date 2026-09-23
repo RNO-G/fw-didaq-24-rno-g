@@ -71,9 +71,12 @@ entity didaq_acq_and_trig is
       adc_23_fifo_data                   : out std_logic_vector(31 downto 0);  
 		
 		capture_ctrl_reg_i         : in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
-		capture_stat_reg_o         : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      				capture_stat               : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      
+		capture_stat_reg_o         : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      				
+		--capture_stat               : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      
 		trigger_ctrl1_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
+		trigger_mask1_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
 		trigger_ctrl2_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
+		trigger_mask2_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
 		ptrigger_ctrl_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed) 
 		readout_ctrl_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain 
 		posttrig_ctrl_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)
@@ -89,16 +92,18 @@ entity didaq_acq_and_trig is
 		coinc_trigger_thresh9_reg_i : in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)	
 		coinc_trigger_thresh10_reg_i: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)
 		coinc_trigger_thresh11_reg_i: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed) 
-		beam_trig_thresh0_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh1_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh2_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh3_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh4_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh5_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh6_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh7_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh8_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh9_reg_i		: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh0_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh1_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh2_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh3_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh4_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh5_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh6_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh7_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh8_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh9_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh10_reg_i		: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh11_reg_i		: in   std_logic_vector(31 downto 0);
 		--event metadata:
 		last_evt_evt_count_reg_o	: out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)     
 		last_evt_trig_count_reg_o	: out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)     
@@ -139,8 +144,8 @@ constant pre_trig_depth : integer := 192;
 type wfm_data_type is array (0 to 23) of std_logic_vector(31 downto 0);   
 type pre_trig_wfm_data_type is array(0 to 23, 0 to pre_trig_depth-1) of std_logic_vector(31 downto 0);
 type trig_data_type is array (0 to 23) of std_logic_vector(63 downto 0);  
-type coinc_threshold_type is array(0 to 23) of std_logic_vector(7 downto 0);
-type beam_threshold_type is array(0 to 9) of std_logic_vector(15 downto 0);                 
+type coinc_threshold_type is array(0 to 23) of std_logic_vector(15 downto 0);
+type beam_threshold_type is array(11 downto 0) of std_logic_vector(15 downto 0);                 
 type ram_address_type is array(0 to 23) of std_logic_vector(9 downto 0);                 
                
 --
@@ -179,16 +184,20 @@ signal capture_ctrl_trig_domain_mf		: std_logic_vector(31 downto 0);
 signal capture_ctrl_trig_domain			: std_logic_vector(31 downto 0);
 signal trigger_ctrl1_trig_domain_mf 	: std_logic_vector(31 downto 0);
 signal trigger_ctrl1_trig_domain    	: std_logic_vector(31 downto 0);
+signal trigger_mask1_trig_domain_mf 	: std_logic_vector(31 downto 0);
+signal trigger_mask1_trig_domain    	: std_logic_vector(31 downto 0);
 signal trigger_ctrl2_trig_domain_mf 	: std_logic_vector(31 downto 0);
 signal trigger_ctrl2_trig_domain    	: std_logic_vector(31 downto 0);
+signal trigger_mask2_trig_domain_mf 	: std_logic_vector(31 downto 0);
+signal trigger_mask2_trig_domain    	: std_logic_vector(31 downto 0);
 signal ptrigger_ctrl_trig_domain_mf 	: std_logic_vector(31 downto 0);
 signal ptrigger_ctrl_trig_domain    	: std_logic_vector(31 downto 0);
 signal coinc_trig_threshold_mf		: coinc_threshold_type;
 signal coinc_trig_threshold			: coinc_threshold_type;
-signal beam_trig_threshold_mf			: beam_threshold_type;
-signal beam_trig_threshold				: beam_threshold_type;
-signal beam_servo_threshold_mf		: beam_threshold_type;
-signal beam_servo_threshold			: beam_threshold_type;
+signal beam_trig_threshold_mf			: beam_threshold_type := (others=>(others=>'0'));
+signal beam_trig_threshold				: beam_threshold_type := (others=>(others=>'0'));
+signal beam_servo_threshold_mf		: beam_threshold_type := (others=>(others=>'0'));
+signal beam_servo_threshold			: beam_threshold_type := (others=>(others=>'0'));
 
 signal posttrig_length_mf				: std_logic_vector(31 downto 0);
 signal posttrig_length					: std_logic_vector(31 downto 0);
@@ -207,9 +216,7 @@ signal internal_pps_trigclk	: std_logic_vector(2 downto 0); --lsb is mf
 signal internal_ext_risedge	: std_logic; --rising edge capture 
 signal internal_swtrg_riseedge: std_logic; --rising edge capture of sw trig
 signal internal_ext				: std_logic_vector(2 downto 0); --lsb is mf
-signal internal_coinc_trig		: std_logic_vector(1 downto 0); --left and right coinc. trig options
-signal internal_coinc_trig_mf	: std_logic_vector(1 downto 0); --left and right coinc. trig options
-signal internal_phased_trig	: std_logic;
+
 signal internal_pps_counter	: std_logic_vector(15 downto 0);
 signal internal_clock_counter : std_logic_vector (31 downto 0);
 signal internal_clock_per_pps_counter_latched : std_logic_vector(31 downto 0); --//rolling count of wr clk cycles per pps cycle
@@ -217,16 +224,34 @@ signal internal_clock_per_pps_counter_latched : std_logic_vector(31 downto 0); -
 signal internal_event_counter	: std_logic_vector(31 downto 0);
 signal last_event_pps_counter	  : std_logic_vector(15 downto 0);
 signal last_event_clock_counter : std_logic_vector (31 downto 0);
-signal last_coinc_trig_hit_pattern_trig_clk : std_logic_vector(23 downto 0);	
-signal last_coinc_trig_hit_pattern_wr_clk : std_logic_vector(23 downto 0);	
 
-signal internal_last_beam_pattern_trig_clk : std_logic_vector(9 downto 0);
-signal internal_last_beam_pattern_wr_clk_latched : std_logic_vector(9 downto 0);
-signal beam_trigs_for_scalers : std_logic_vector(9 downto 0); 
-signal beam_servos_for_scalers : std_logic_vector(9 downto 0); 
+signal internal_coinc_trig		: std_logic_vector(1 downto 0); --left and right coinc. trig options
+signal internal_coinc_trig_last		: std_logic_vector(1 downto 0); --left and right coinc. trig options
+signal coinc_hit_pattern_trig_clk : std_logic_vector(23 downto 0);
+signal coinc_hit_pattern_wr_clk : std_logic_vector(23 downto 0);
+signal coinc_hit_pattern_wr_clk_latched : std_logic_vector(23 downto 0);
+
+signal internal_phased_trig	: std_logic;
+signal internal_phased_trig_last	: std_logic;
+signal beam_pattern_trig_clk : std_logic_vector(11 downto 0);
+signal beam_pattern_wr_clk : std_logic_vector(11 downto 0);
+signal beam_pattern_wr_clk_latched : std_logic_vector(11 downto 0);
+
+signal beam_trigs_for_scalers : std_logic_vector(11 downto 0) := (others=>'0'); 
+signal beam_servos_for_scalers : std_logic_vector(11 downto 0) := (others=>'0'); 
 
 signal coinc_trig0_hit_singles : std_logic_vector(11 downto 0);
 signal coinc_trig1_hit_singles : std_logic_vector(11 downto 0);
+signal coinc_hit_singles : std_logic_vector(23 downto 0);
+
+signal psu_trig_thresholds : std_logic_vector(12*16-1 downto 0) := (others=>'1');
+signal psu_servo_thresholds : std_logic_vector(12*16-1 downto 0) := (others=> '1');
+
+signal psu_scalers : std_logic_vector(25 downto 0) := (others=>'0');
+signal psu_beam_pattern : std_logic_vector(11 downto 0) := (others=>'0');
+
+signal psu_coinc_ch_data_24 : std_logic_vector(24*8*8-1 downto 0) := (others=>'0');
+signal psu_coinc_trig_thresholds : std_logic_vector(24*16-1 downto 0) := (others=>'0');
 
 begin
 ----------------------------------------------------------------
@@ -287,7 +312,13 @@ begin
 		last_event_trigger_type <= (others=>'0');
 		internal_trigger_or <= '0';
 		internal_trigger_state <= "00";
-		internal_coinc_trig <= (others=>'0');
+		internal_coinc_trig_last <= (others=>'0');
+		internal_phased_trig_last <= '0';
+		coinc_hit_pattern_wr_clk <= (others=>'0');
+		coinc_hit_pattern_wr_clk_latched <= (others=>'0');
+		beam_pattern_wr_clk <= (others=>'0');
+		beam_pattern_wr_clk_latched <= (others=>'0');
+		
 	--//software run reset
 	elsif clk_wr'event and clk_wr = '1' and capture_ctrl_wr_domain(16) = '1' then	
 		internal_trigger<= (others=>'0');
@@ -295,31 +326,56 @@ begin
 		last_event_trigger_type <= (others=>'0');
 		internal_trigger_or <= '0';
 		internal_trigger_state <= "00";
-		internal_coinc_trig <= (others=>'0');
-		
+		internal_coinc_trig_last <= (others=>'0');
+		internal_coinc_trig_last <= (others=>'0');
+		internal_phased_trig_last <= '0';
+		coinc_hit_pattern_wr_clk <= (others=>'0');
+		coinc_hit_pattern_wr_clk_latched <= (others=>'0');
+		beam_pattern_wr_clk <= (others=>'0');
+		beam_pattern_wr_clk_latched <= (others=>'0');
+	
 	elsif clk_wr'event and clk_wr = '1' then	
 		
-		internal_coinc_trig <= internal_coinc_trig_mf; --//from coinc. trig modules
-		
-		internal_trigger_last <= internal_trigger;
 		internal_trigger <= "00" & (internal_pps_risedge and capture_ctrl_wr_domain(24)) &
 											(internal_ext_risedge and capture_ctrl_wr_domain(25)) &
 											internal_coinc_trig(0) & internal_coinc_trig(1) & internal_phased_trig &
 											internal_swtrg_riseedge; 
+		internal_trigger_last <= internal_trigger;
+		
+		internal_coinc_trig_last <= internal_coinc_trig;
+		internal_phased_trig_last <= internal_phased_trig;
+
+		coinc_hit_pattern_wr_clk <= coinc_hit_pattern_trig_clk;
+		beam_pattern_wr_clk <= beam_pattern_trig_clk;
 		
 		case internal_trigger_state is
 			when "00" => --accept triggers
 										  
 				internal_trigger_or <= '0';	
-				last_event_trigger_type <= last_event_trigger_type;
-				
+
 				if internal_trigger > 0 and internal_event_busy = '0' then
 					internal_trigger_state <= internal_trigger_state + 1;
+					last_event_trigger_type <= internal_trigger;
+					
+					if internal_coinc_trig_last(0) = '1' or internal_coinc_trig_last(1) = '1' then
+						coinc_hit_pattern_wr_clk_latched <= coinc_hit_pattern_wr_clk;
+					else
+						coinc_hit_pattern_wr_clk_latched <= (others=>'0');
+					end if;
+					
+					if internal_phased_trig_last = '1' then
+						beam_pattern_wr_clk_latched <= beam_pattern_wr_clk;
+					else
+						beam_pattern_wr_clk_latched <= (others=>'0');
+					end if;
+					
+					else
+						last_event_trigger_type <= last_event_trigger_type;
 				end if;
 			
 			when "01" =>  --sends event trigger, pulsed for two clock cycles
 				internal_trigger_or <= '1'; --trigger event
-				last_event_trigger_type <= internal_trigger_last;
+				last_event_trigger_type <= last_event_trigger_type;
 				internal_trigger_state <= internal_trigger_state + 1;
 
 			when "10" => 	
@@ -435,10 +491,8 @@ begin
 		internal_pps_counter		<= (others=>'0');
 		last_event_clock_counter<= (others=>'0');
 		last_event_pps_counter	<= (others=>'0');
-		last_coinc_trig_hit_pattern_wr_clk <= (others=>'0');
 		internal_clock_per_pps_counter_latched  <= (others=>'0');
-		internal_last_beam_pattern_wr_clk_latched <= (others=>'0');
-		
+
 	--//software run reset
 	elsif (clk_wr'event and clk_wr = '1') and capture_ctrl_wr_domain(16) = '1' then	
 		internal_event_counter 	<= (others=>'0');
@@ -446,9 +500,7 @@ begin
 		internal_pps_counter		<= (others=>'0');
 		last_event_clock_counter<= (others=>'0');
 		last_event_pps_counter	<= (others=>'0');
-		last_coinc_trig_hit_pattern_wr_clk <= (others=>'0');
 		internal_clock_per_pps_counter_latched  <= (others=>'0');
-		internal_last_beam_pattern_wr_clk_latched <= (others=>'0');
 
 	elsif clk_wr'event and clk_wr = '1' then
 		--increment/reset timing counters on rising edge of pps
@@ -462,13 +514,11 @@ begin
 			internal_clock_counter <= internal_clock_counter + 1; 
 		end if;
 		
-		--latch meta data on trigger that initiates event
+		--latch counter meta data on trigger that initiates event
 		if internal_trigger_state = "10" then 
 			last_event_clock_counter <= internal_clock_counter;
 			last_event_pps_counter <= internal_pps_counter;
 			internal_event_counter <= internal_event_counter + 1;
-			last_coinc_trig_hit_pattern_wr_clk <= last_coinc_trig_hit_pattern_trig_clk;
-			internal_last_beam_pattern_wr_clk_latched <= internal_last_beam_pattern_trig_clk;
 		end if;
 	end if;
 end process;
@@ -524,8 +574,8 @@ begin
 		last_evt_deadtime_reg_o		<= (others=>'0');    
 		last_evt_clkcount_reg_o		<= last_event_clock_counter;   
 		last_evt_ppscount_reg_o		<= x"0000" & last_event_pps_counter;    
-		last_evt_metamisc1_reg_o	<= x"00" & last_coinc_trig_hit_pattern_wr_clk;     
-		last_evt_metamisc2_reg_o	<= x"0000" & "000000" & internal_last_beam_pattern_wr_clk_latched; --//beam trigger details here eventually
+		last_evt_metamisc1_reg_o	<= x"00" & coinc_hit_pattern_wr_clk_latched;     
+		last_evt_metamisc2_reg_o	<= x"0000" & "0000" & beam_pattern_wr_clk_latched; --//beam trigger details here eventually
 		last_evt_trig_adr_reg_o		<= x"00" & last_event_trigger_type & "000000" & last_event_trigger_ram_wr_adr;
 		capture_stat_reg_o			<= x"000000" & "000000" & internal_event_ready & internal_event_busy;
 	end if;
@@ -647,8 +697,12 @@ begin
 		capture_ctrl_trig_domain			<= (others => '0');
 		trigger_ctrl1_trig_domain_mf 	<= (others => '0');
 		trigger_ctrl1_trig_domain    	<= (others => '0');
+		trigger_mask1_trig_domain_mf 	<= (others => '0');
+		trigger_mask1_trig_domain    	<= (others => '0');
 		trigger_ctrl2_trig_domain_mf 	<= (others => '0');
 		trigger_ctrl2_trig_domain    	<= (others => '0');
+		trigger_mask2_trig_domain_mf 	<= (others => '0');
+		trigger_mask2_trig_domain    	<= (others => '0');
 		ptrigger_ctrl_trig_domain_mf 	<= (others => '0');
 		ptrigger_ctrl_trig_domain    	<= (others => '0');
 		internal_pps_trigclk				<= (others => '0');
@@ -659,7 +713,7 @@ begin
 			internal_trig_data(i)				<= (others => '0');
 			internal_trig_data_mf(i)			<= (others => '0');
 		end loop;
-		for i in 0 to 9 loop
+		for i in 0 to 11 loop
 			beam_trig_threshold_mf(i)			<= (others => '0');
 			beam_trig_threshold(i)				<= (others => '0');
 			beam_servo_threshold_mf(i)			<= (others => '0');
@@ -673,35 +727,39 @@ begin
 		
 		trigger_ctrl1_trig_domain_mf 	<= trigger_ctrl1_reg_i;
 		trigger_ctrl1_trig_domain 		<= trigger_ctrl1_trig_domain_mf;
+		trigger_mask1_trig_domain_mf 	<= trigger_mask1_reg_i;
+		trigger_mask1_trig_domain 		<= trigger_mask1_trig_domain_mf;
 		trigger_ctrl2_trig_domain_mf 	<= trigger_ctrl2_reg_i;
 		trigger_ctrl2_trig_domain 		<= trigger_ctrl2_trig_domain_mf;
+		trigger_mask2_trig_domain_mf 	<= trigger_mask2_reg_i;
+		trigger_mask2_trig_domain 		<= trigger_mask2_trig_domain_mf;
 		ptrigger_ctrl_trig_domain_mf 	<= ptrigger_ctrl_reg_i;
 		ptrigger_ctrl_trig_domain 		<= ptrigger_ctrl_trig_domain_mf;
 		
-		coinc_trig_threshold_mf(0)	<= coinc_trigger_thresh0_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(1)	<= coinc_trigger_thresh0_reg_i(23 downto 16);
- 		coinc_trig_threshold_mf(2)	<= coinc_trigger_thresh1_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(3)	<= coinc_trigger_thresh1_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(4)	<= coinc_trigger_thresh2_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(5)	<= coinc_trigger_thresh2_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(6)	<= coinc_trigger_thresh3_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(7)	<= coinc_trigger_thresh3_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(8)	<= coinc_trigger_thresh4_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(9)	<= coinc_trigger_thresh4_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(10)	<= coinc_trigger_thresh5_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(11)	<= coinc_trigger_thresh5_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(12)	<= coinc_trigger_thresh6_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(13)	<= coinc_trigger_thresh6_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(14)	<= coinc_trigger_thresh7_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(15)	<= coinc_trigger_thresh7_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(16)	<= coinc_trigger_thresh8_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(17)	<= coinc_trigger_thresh8_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(18)	<= coinc_trigger_thresh9_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(19)	<= coinc_trigger_thresh9_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(20)	<= coinc_trigger_thresh10_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(21)	<= coinc_trigger_thresh10_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(22)	<= coinc_trigger_thresh11_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(23)	<= coinc_trigger_thresh11_reg_i(23 downto 16);
+		coinc_trig_threshold_mf(0)	<= coinc_trigger_thresh0_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(1)	<= coinc_trigger_thresh0_reg_i(31 downto 16);
+ 		coinc_trig_threshold_mf(2)	<= coinc_trigger_thresh1_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(3)	<= coinc_trigger_thresh1_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(4)	<= coinc_trigger_thresh2_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(5)	<= coinc_trigger_thresh2_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(6)	<= coinc_trigger_thresh3_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(7)	<= coinc_trigger_thresh3_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(8)	<= coinc_trigger_thresh4_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(9)	<= coinc_trigger_thresh4_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(10)	<= coinc_trigger_thresh5_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(11)	<= coinc_trigger_thresh5_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(12)	<= coinc_trigger_thresh6_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(13)	<= coinc_trigger_thresh6_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(14)	<= coinc_trigger_thresh7_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(15)	<= coinc_trigger_thresh7_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(16)	<= coinc_trigger_thresh8_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(17)	<= coinc_trigger_thresh8_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(18)	<= coinc_trigger_thresh9_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(19)	<= coinc_trigger_thresh9_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(20)	<= coinc_trigger_thresh10_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(21)	<= coinc_trigger_thresh10_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(22)	<= coinc_trigger_thresh11_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(23)	<= coinc_trigger_thresh11_reg_i(31 downto 16);
 		for i in 0 to 23 loop
 			coinc_trig_threshold(i)	<= coinc_trig_threshold_mf(i);
 			internal_trig_data(i) <= internal_trig_data_mf(i);
@@ -729,13 +787,61 @@ begin
 		beam_servo_threshold_mf(8) 	<= beam_trig_thresh8_reg_i(31 downto 16);
 		beam_trig_threshold_mf(9) 		<= beam_trig_thresh9_reg_i(15 downto 0);
 		beam_servo_threshold_mf(9) 	<= beam_trig_thresh9_reg_i(31 downto 16);
-		for i in 0 to 9 loop
+		beam_trig_threshold_mf(10) 	<= beam_trig_thresh10_reg_i(15 downto 0);
+		beam_servo_threshold_mf(10) 	<= beam_trig_thresh10_reg_i(31 downto 16);
+		beam_trig_threshold_mf(11) 	<= beam_trig_thresh11_reg_i(15 downto 0);
+		beam_servo_threshold_mf(11) 	<= beam_trig_thresh11_reg_i(31 downto 16);
+		for i in 0 to 11 loop
 			beam_trig_threshold(i)	<= beam_trig_threshold_mf(i);
 			beam_servo_threshold(i)	<= beam_servo_threshold_mf(i);
 		end loop;
 	end if;
 end process;
 --------------------------------------
+
+xWaveformMap : for i in 0 to 23 generate
+	psu_coinc_ch_data_24((i+1)*8*8-1 downto i*8*8) <= internal_trig_data(i);
+	psu_coinc_trig_thresholds((i+1)*16-1 downto i*16) <= coinc_trig_threshold(i);
+end generate;
+
+inst_coinc_pow_trig : entity work.coinc_triggers_24_ch
+	generic map(
+		NUM_CHANNELS => 24,
+		SAMPLE_LENGTH => 8,
+		NUM_SAMPLES => 8
+		)
+	port map(
+		rst_i						=> not arstn,
+		clk_i						=> clk_trig,
+		ch_data_i				=> psu_coinc_ch_data_24,
+		ch_data_valid_i		=> (others=>'1'),
+
+		trig_0_enable_i		=> trigger_ctrl1_trig_domain(0),
+		trig_0_out_en_i		=> trigger_ctrl1_trig_domain(1),
+		trig_0_ch_mask_i		=> trigger_mask1_trig_domain(23 downto 0),
+
+		trig_1_enable_i		=> trigger_ctrl2_trig_domain(0),
+		trig_1_out_en_i		=> trigger_ctrl2_trig_domain(1),
+		trig_1_ch_mask_i		=> trigger_mask2_trig_domain(23 downto 0),
+
+		trig_0_coinc_window_i	=>	trigger_ctrl1_trig_domain(11 downto 7),
+		trig_1_coinc_window_i	=> trigger_ctrl2_trig_domain(11 downto 7),
+		trig_0_num_coinc_i		=> trigger_ctrl1_trig_domain(6 downto 2),	
+		trig_1_num_coinc_i		=> trigger_ctrl2_trig_domain(6 downto 2),
+
+		trig_0_num_over_t_i => trigger_ctrl1_trig_domain(15 downto 12),
+		trig_1_num_over_t_i => trigger_ctrl2_trig_domain(15 downto 12),
+
+		trig_thresholds_i	=> psu_coinc_trig_thresholds,
+
+		trig_bits_o			=> coinc_hit_singles,
+		trig_0_o				=> internal_coinc_trig(0),
+		trig_metadata_o	=> coinc_hit_pattern_trig_clk,
+		trig_1_o				=> internal_coinc_trig(1)
+	);
+	
+
+/*
 inst_coinc_trig0 : entity work.coinc_trig
 	port map(
 		arstn        => arstn,
@@ -809,35 +915,89 @@ inst_coinc_trig1 : entity work.coinc_trig
 		last_trigger_hit_pattern_o	=> last_coinc_trig_hit_pattern_trig_clk(23 downto 12),
 		singles_o	 => coinc_trig1_hit_singles, --//for scalers. Note that singles are still active even if channel masked from trig
 		trig_o		 => internal_coinc_trig_mf(1));
+*/
 --------------------------------------
-inst_beam_trig : entity work.beamforming_trig
-	port map(
-		arstn        => arstn,
-      clk			 => clk_trig,							
-		data0			 => internal_trig_data(0),	--8 samples of 8 bit data
-		data1			 => internal_trig_data(1),					
-		data2			 => internal_trig_data(2),
-		data3			 => internal_trig_data(3),	
-		beamform_en	 => ptrigger_ctrl_trig_domain(1 downto 0),
-		beam_mask	 => ptrigger_ctrl_trig_domain(27 downto 16),
-		chan_mask	 => ptrigger_ctrl_trig_domain(15 downto 12),
-		gain_ctrl_sel=> ptrigger_ctrl_trig_domain(8),
-		pow_width_sel=> ptrigger_ctrl_trig_domain(4),
-		thresh0	 	 => beam_servo_threshold(0) & beam_trig_threshold(0),
-		thresh1	 	 => beam_servo_threshold(1) & beam_trig_threshold(1),
-		thresh2	 	 => beam_servo_threshold(2) & beam_trig_threshold(2),
-		thresh3	 	 => beam_servo_threshold(3) & beam_trig_threshold(3),
-		thresh4	 	 => beam_servo_threshold(4) & beam_trig_threshold(4),
-		thresh5	 	 => beam_servo_threshold(5) & beam_trig_threshold(5),
-		thresh6	 	 => beam_servo_threshold(6) & beam_trig_threshold(6),
-		thresh7	 	 => beam_servo_threshold(7) & beam_trig_threshold(7),
-		thresh8	 	 => beam_servo_threshold(8) & beam_trig_threshold(8),
-		thresh9	 	 => beam_servo_threshold(9) & beam_trig_threshold(9),
-		last_trigger_beam_power => open,
-		last_trigger_hit_pattern_o => internal_last_beam_pattern_trig_clk,
-		beamtrigs_o	 => beam_trigs_for_scalers,
-		beamservos_o => beam_servos_for_scalers,
-		trig_o		 => internal_phased_trig );
+
+--inst_beam_trig : entity work.beamforming_trig
+--	port map(
+--		arstn        => arstn,
+--      clk			 => clk_trig,							
+--		data0			 => internal_trig_data(0),	--8 samples of 8 bit data
+--		data1			 => internal_trig_data(1),					
+--		data2			 => internal_trig_data(2),
+--		data3			 => internal_trig_data(3),	
+--		beamform_en	 => ptrigger_ctrl_trig_domain(1 downto 0),
+--		beam_mask	 => ptrigger_ctrl_trig_domain(27 downto 16),
+--		chan_mask	 => ptrigger_ctrl_trig_domain(15 downto 12),
+--		gain_ctrl_sel=> ptrigger_ctrl_trig_domain(8),
+--		pow_width_sel=> ptrigger_ctrl_trig_domain(4),
+--		thresh0	 	 => beam_servo_threshold(0) & beam_trig_threshold(0),
+--		thresh1	 	 => beam_servo_threshold(1) & beam_trig_threshold(1),
+--		thresh2	 	 => beam_servo_threshold(2) & beam_trig_threshold(2),
+--		thresh3	 	 => beam_servo_threshold(3) & beam_trig_threshold(3),
+--		thresh4	 	 => beam_servo_threshold(4) & beam_trig_threshold(4),
+--		thresh5	 	 => beam_servo_threshold(5) & beam_trig_threshold(5),
+--		thresh6	 	 => beam_servo_threshold(6) & beam_trig_threshold(6),
+--		thresh7	 	 => beam_servo_threshold(7) & beam_trig_threshold(7),
+--		thresh8	 	 => beam_servo_threshold(8) & beam_trig_threshold(8),
+--		thresh9	 	 => beam_servo_threshold(9) & beam_trig_threshold(9),
+--		last_trigger_beam_power => open,
+--		last_trigger_hit_pattern_o => internal_last_beam_pattern_trig_clk,
+--		beamtrigs_o	 => beam_trigs_for_scalers,
+--		beamservos_o => beam_servos_for_scalers,
+--		trig_o		 => internal_phased_trig );
+--		
+	 power : entity work.power_trigger
+    generic map(
+        station_number      => x"0b",
+        SAMPLE_LENGTH       => 8,
+		  NUM_SAMPLES         => 8, 
+		  NUM_PA_CHANNELS     => 4, 
+		  INTERP_FACTOR       => 2, 
+        INT_SAMPLE_LENGTH   => 8,
+        NUM_POWERS          => 4, 
+        POWER_LENGTH        => 16, 
+        SWAP_CHANNELS       => '1' 
+    )
+    port map(
+            rst_i			        => not arstn,
+        
+            clk_data_i	            => clk_trig,
+            ch0_data_i	            => internal_trig_data(0),
+            ch1_data_i  	         => internal_trig_data(1), 
+            ch2_data_i	            => internal_trig_data(2), 
+            ch3_data_i	            => internal_trig_data(3),
+            data_valid_i            => "1111",
+
+            clk_reg_i               => clk_trig,
+            enable_i                => ptrigger_ctrl_trig_domain(0),
+            beam_mask_i             => ptrigger_ctrl_trig_domain(27 downto 16),
+            channel_mask_i          => ptrigger_ctrl_trig_domain(15 downto 12),
+            trig_thresholds_i       => psu_trig_thresholds,
+            servo_thresholds_i      => psu_servo_thresholds,
+
+            trig_bits_o             => psu_scalers,
+            trig_o                  => internal_phased_trig,
+            trig_metadata_o         => psu_beam_pattern,
+            power_o => open
+        );
+		  
+
+psu_trig_thresholds <= beam_trig_threshold(11) & beam_trig_threshold(10) & beam_trig_threshold(9) 
+								& beam_trig_threshold(8) & beam_trig_threshold(7) & beam_trig_threshold(6)
+								& beam_trig_threshold(5) & beam_trig_threshold(4) & beam_trig_threshold(3)
+								& beam_trig_threshold(2) & beam_trig_threshold(1) & beam_trig_threshold(0);
+
+psu_servo_thresholds <= beam_servo_threshold(11) & beam_servo_threshold(10) & beam_servo_threshold(9) 
+								& beam_servo_threshold(8) & beam_servo_threshold(7) & beam_servo_threshold(6)
+								& beam_servo_threshold(5) & beam_servo_threshold(4) & beam_servo_threshold(3)
+								& beam_servo_threshold(2) & beam_servo_threshold(1) & beam_servo_threshold(0);
+
+beam_pattern_trig_clk <= psu_beam_pattern(11 downto 0);
+beam_trigs_for_scalers(11 downto 0) <= psu_scalers(12 downto 1);
+beam_servos_for_scalers(11 downto 0) <= psu_scalers(25 downto 14);
+
+	
 --------------------------------------		
 inst_scalers : entity work.scalers_top
 	port map(
@@ -845,8 +1005,8 @@ inst_scalers : entity work.scalers_top
 		clk_i						=> clk_trig,
 		rdclk_i					=> clk_rd,
 		gate_i					=> internal_pps_trigclk(2),
-		coinc_trig_singles 	=> coinc_trig1_hit_singles & coinc_trig0_hit_singles,
-		coinc_trigs				=> internal_coinc_trig_mf,
+		coinc_trig_singles 	=> coinc_hit_singles,
+		coinc_trigs				=> internal_coinc_trig,
 		beam_trigs  			=> beam_trigs_for_scalers,
 		beam_trig_servos 		=> beam_servos_for_scalers,
 		total_beam_trig		=> internal_phased_trig,
