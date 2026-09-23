@@ -8,6 +8,8 @@
 -- EMAIL         ejo@uchicago.edu
 -- DATE:         7/2017
 --
+--	* RK - added scalers for beams 10-11, scaler pps moved to 91
+--
 -- DESCRIPTION:  manage board scalers and readout of scalers 
 --               
 ---------------------------------------------------------------------------------
@@ -28,8 +30,8 @@ entity scalers_top is
 
 		coinc_trig_singles : in   std_logic_vector(23 downto 0);
 		coinc_trigs			: in 	std_logic_Vector(1 downto 0);
-		beam_trigs  : in std_logic_vector(9 downto 0);
-		beam_trig_servos : in std_logic_Vector(9 downto 0);
+		beam_trigs  : in std_logic_vector(11 downto 0);
+		beam_trig_servos : in std_logic_Vector(11 downto 0);
 		total_beam_trig : in std_logic; --phased trig total
 		clkcounts_per_pps_i : std_logic_Vector(31 downto 0);
 		
@@ -69,13 +71,13 @@ end component;
 begin
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
---//scaler 82 is the `scaler pps' -- sanity check that the scalers are updating
+--//scaler 91 is the `scaler pps' -- sanity check that the scalers are updating
 proc_scaler_pps : process(clk_i, refresh_clk_1Hz)
 begin
 	if arst_i = '1' then
-		internal_scaler_array(82) <= (others=>'0');
+		internal_scaler_array(91) <= (others=>'0');
 	elsif rising_edge(clk_i) and refresh_clk_1Hz = '1' then
-		internal_scaler_array(82) <= internal_scaler_array(82) + 1;
+		internal_scaler_array(91) <= internal_scaler_array(91) + 1;
 	end if;
 end process;
 ---------------------------------------------
@@ -119,7 +121,7 @@ Coinc100mHzGated : for i in 0 to 1 generate
 		scaler_o => internal_scaler_array(i+50));
 end generate;
 --------------------------------------------- 52
-BeamTrig100mHz : for i in 0 to 9 generate
+BeamTrig100mHz : for i in 0 to 11 generate
 	xBeamTrig100mHz : scaler
 	port map(
 		rst_i => arst_i,
@@ -128,48 +130,48 @@ BeamTrig100mHz : for i in 0 to 9 generate
 		count_i => beam_trigs(i),
 		scaler_o => internal_scaler_array(i+52));
 end generate;
---------------------------------------------- 62
-BeamTrig100mHzGated : for i in 0 to 9 generate
+--------------------------------------------- 64
+BeamTrig100mHzGated : for i in 0 to 11 generate
 	xBeamTrig100mHzGated : scaler
 	port map(
 		rst_i => arst_i,
 		clk_i => clk_i,
 		refresh_i => refresh_clk_100mHz,
 		count_i => beam_trigs(i) and gate_i,
-		scaler_o => internal_scaler_array(i+62));
+		scaler_o => internal_scaler_array(i+64));
 end generate;
---------------------------------------------- 72
-BeamServo1Hz : for i in 0 to 9 generate
+--------------------------------------------- 76
+BeamServo1Hz : for i in 0 to 11 generate
 	xBeamServo1Hz : scaler
 	port map(
 		rst_i => arst_i,
 		clk_i => clk_i,
 		refresh_i => refresh_clk_1Hz,
 		count_i => beam_trig_servos(i),
-		scaler_o => internal_scaler_array(i+72));
+		scaler_o => internal_scaler_array(i+76));
 end generate;
---------------------------------------------- 82
+--------------------------------------------- 88
 TotalBeamTrig100mHz : scaler
 	port map(
 		rst_i => arst_i,
 		clk_i => clk_i,
 		refresh_i => refresh_clk_100mHz,
 		count_i => total_beam_trig,
-		scaler_o => internal_scaler_array(84));
+		scaler_o => internal_scaler_array(88));
 TotalBeamTrig100mHzGated : scaler
 	port map(
 		rst_i => arst_i,
 		clk_i => clk_i,
 		refresh_i => refresh_clk_100mHz,
 		count_i => total_beam_trig and gate_i,
-		scaler_o => internal_scaler_array(85));
+		scaler_o => internal_scaler_array(89));
 TotalBeamTrig1Hz : scaler
 	port map(
 		rst_i => arst_i,
 		clk_i => clk_i,
 		refresh_i => refresh_clk_1Hz,
 		count_i => total_beam_trig,
-		scaler_o => internal_scaler_array(86));
+		scaler_o => internal_scaler_array(90));
 
 -------------------------------------		
 proc_save_scalers : process(arst_i, rdclk_i)
@@ -233,7 +235,9 @@ begin
 				when x"28" => scaler_to_read_o <= latched_scaler_array(81) & latched_scaler_array(80);		
 				when x"29" => scaler_to_read_o <= latched_scaler_array(83) & latched_scaler_array(82);	
 				when x"2A" => scaler_to_read_o <= latched_scaler_array(85) & latched_scaler_array(84);		
-				when x"2B" => scaler_to_read_o <= latched_scaler_array(87) & latched_scaler_array(86);		
+				when x"2B" => scaler_to_read_o <= latched_scaler_array(87) & latched_scaler_array(86);	
+				when x"2C" => scaler_to_read_o <= latched_scaler_array(89) & latched_scaler_array(88);
+				when x"2D" => scaler_to_read_o <= latched_scaler_array(91) & latched_scaler_array(90);
 
 				when x"2F" => scaler_to_read_o <= clkcounts_per_pps_i;		
 
