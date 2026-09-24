@@ -45,7 +45,7 @@ set_global_assignment -entity "alt_sync_fifo_wr32_rd32_1024_deep_la" -library "a
 
 
 set_global_assignment -library "fifo_1941" -name VERILOG_FILE [file join $::quartus(qip_path) "fifo_1941/synth/alt_sync_fifo_wr32_rd32_1024_deep_la_fifo_1941_pll2gla.v"]
-set_global_assignment -library "alt_sync_fifo_wr32_rd32_1024_deep_la" -name VHDL_FILE [file join $::quartus(qip_path) "synth/alt_sync_fifo_wr32_rd32_1024_deep_la.vhd"]
+set_global_assignment -library "alt_sync_fifo_wr32_rd32_1024_deep_la" -name VERILOG_FILE [file join $::quartus(qip_path) "synth/alt_sync_fifo_wr32_rd32_1024_deep_la.v"]
 
 
 set_global_assignment -entity "alt_sync_fifo_wr32_rd32_1024_deep_la_fifo_1941_pll2gla" -library "fifo_1941" -name IP_TOOL_NAME "fifo"

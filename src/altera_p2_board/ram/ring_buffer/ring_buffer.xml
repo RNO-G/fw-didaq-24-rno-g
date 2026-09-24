@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2026.04.17.14:35:18"
- outputDirectory="C:/Users/erico/Desktop/projects/terra_terra/didaq_subclass1_dual_gtsclk_field/src/altera_p2_board/ram/ring_buffer/">
+ date="2026.08.25.16:17:15"
+ outputDirectory="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/ram/ring_buffer/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -139,17 +139,17 @@
   <parameter name="AUTO_WRCLOCK_CLOCK_RATE" value="-1" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\ram\ring_buffer\synth\ring_buffer.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\ram\ring_buffer\synth\ring_buffer.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\ram\ring_buffer\synth\ring_buffer.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\ram\ring_buffer\synth\ring_buffer.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="C:/Users/erico/Desktop/projects/terra_terra/didaq_subclass1_dual_gtsclk_field/src/altera_p2_board/ram/ring_buffer.ip" />
+       path="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/ram/ring_buffer.ip" />
   </sourceFiles>
   <childSourceFiles>
    <file
@@ -240,12 +240,12 @@
   <parameter name="GUI_WIDTH_ECCENCPARITY" value="8" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\ram\ring_buffer\ram_2port_2060\synth\ring_buffer_ram_2port_2060_r5ei7sq.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\ram\ring_buffer\ram_2port_2060\synth\ring_buffer_ram_2port_2060_r5ei7sq.v"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\ram\ring_buffer\ram_2port_2060\synth\ring_buffer_ram_2port_2060_r5ei7sq.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\ram\ring_buffer\ram_2port_2060\synth\ring_buffer_ram_2port_2060_r5ei7sq.v"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>

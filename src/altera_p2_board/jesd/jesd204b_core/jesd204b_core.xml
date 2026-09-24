@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2026.04.02.13:41:58"
- outputDirectory="C:/Users/erico/Desktop/projects/terra_terra/didaq_test_subclass0/src/altera_p2_board/jesd/jesd204b_core/">
+ date="2026.08.25.16:17:33"
+ outputDirectory="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/jesd/jesd204b_core/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -509,17 +509,17 @@
   <parameter name="AUTO_JESD204_RX_AVS_CLK_CLOCK_RATE" value="-1" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\synth\jesd204b_core.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\synth\jesd204b_core.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\synth\jesd204b_core.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\synth\jesd204b_core.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="C:/Users/erico/Desktop/projects/terra_terra/didaq_test_subclass0/src/altera_p2_board/jesd/jesd204b_core.ip" />
+       path="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/jesd/jesd204b_core.ip" />
   </sourceFiles>
   <childSourceFiles>
    <file
@@ -1726,12 +1726,12 @@
   <parameter name="rx_adapt_simplex" value="1" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_400\synth\jesd204b_core_intel_jesd204b_gts_400_4ahcqsa.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_400\synth\jesd204b_core_intel_jesd204b_gts_400_4ahcqsa.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_400\synth\jesd204b_core_intel_jesd204b_gts_400_4ahcqsa.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_400\synth\jesd204b_core_intel_jesd204b_gts_400_4ahcqsa.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -2805,102 +2805,102 @@
   <parameter name="rx_adapt_simplex" value="0" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\j204b_gts_phy_adapter_jesd204b_core_intel_jesd204b_gts_phy_191_f3hmcmy.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\j204b_gts_phy_adapter_jesd204b_core_intel_jesd204b_gts_phy_191_f3hmcmy.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\jesd204b_core_intel_jesd204b_gts_phy_191_f3hmcmy.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\jesd204b_core_intel_jesd204b_gts_phy_191_f3hmcmy.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_8b10b_dec_top.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_8b10b_dec_top.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_8b10b_dec.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_8b10b_dec.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_rx_mlpcs.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_rx_mlpcs.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_rx_pcs.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_rx_pcs.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_wa.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_wa.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_xn_8b10b_dec.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_xn_8b10b_dec.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_sip_rst_seq_rx.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_sip_rst_seq_rx.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_rx_mlpcs.ocp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_rx_mlpcs.ocp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_wys_lut.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_wys_lut.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_bit_synchronizer.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_bit_synchronizer.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\altera_std_synchronizer_nocut.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\altera_std_synchronizer_nocut.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_rstctrl.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_rstctrl.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_pipeline.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_pipeline.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\j204b_gts.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\j204b_gts.sdc"
        attributes="NO_SDC_PROMOTION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\j204b_gts_phy_adapter_jesd204b_core_intel_jesd204b_gts_phy_191_f3hmcmy.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\j204b_gts_phy_adapter_jesd204b_core_intel_jesd204b_gts_phy_191_f3hmcmy.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\jesd204b_core_intel_jesd204b_gts_phy_191_f3hmcmy.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\jesd204b_core_intel_jesd204b_gts_phy_191_f3hmcmy.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_8b10b_dec_top.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_8b10b_dec_top.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_8b10b_dec.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_8b10b_dec.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_rx_mlpcs.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_rx_mlpcs.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_rx_pcs.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_rx_pcs.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_wa.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_wa.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_xn_8b10b_dec.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_xn_8b10b_dec.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_sip_rst_seq_rx.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_sip_rst_seq_rx.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_rx_mlpcs.ocp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\phy\j204b_gts_rx_mlpcs.ocp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_wys_lut.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_wys_lut.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_bit_synchronizer.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_bit_synchronizer.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\altera_std_synchronizer_nocut.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\altera_std_synchronizer_nocut.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_rstctrl.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_rstctrl.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_pipeline.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\common\j204b_gts_pipeline.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\j204b_gts.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\j204b_gts.sdc"
        attributes="NO_SDC_PROMOTION" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -3945,120 +3945,120 @@
   <parameter name="N_PRIME" value="8" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_base.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_base.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_csr.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_csr.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_ctl.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_ctl.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_descrambler.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_descrambler.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_char_val.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_char_val.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_cs.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_cs.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_data_store.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_data_store.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_dec.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_dec.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_enc.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_enc.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_fifo_hard.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_fifo_hard.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_fifo.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_fifo.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_frame_align.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_frame_align.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_fs_char_replace.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_fs_char_replace.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_lane_align.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_lane_align.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_wo_ecc_fifo.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_wo_ecc_fifo.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_rx_regmap.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_rx_regmap.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\common\j204b_gts_pipeline.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\common\j204b_gts_pipeline.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\j204b_gts_rx_base.ocp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\j204b_gts_rx_base.ocp"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_base.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_base.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_csr.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_csr.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_ctl.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_ctl.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_descrambler.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_descrambler.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_char_val.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_char_val.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_cs.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_cs.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_data_store.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_data_store.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_dec.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_dec.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_enc.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_enc.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_fifo_hard.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_fifo_hard.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_fifo.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_ecc_fifo.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_frame_align.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_frame_align.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_fs_char_replace.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_fs_char_replace.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_lane_align.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_lane_align.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_wo_ecc_fifo.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll_wo_ecc_fifo.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_gts_rx_dll.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_rx_regmap.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\rx\j204b_rx_regmap.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\common\j204b_gts_pipeline.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\common\j204b_gts_pipeline.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\j204b_gts_rx_base.ocp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_rx_191\synth\j204b_gts_rx_base.ocp"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -4079,12 +4079,12 @@
    name="intel_jesd204_clock_reset_bridge">
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204_clock_reset_bridge_191\synth\clock_reset_bridge\intel_jesd204_clock_reset_bridge.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204_clock_reset_bridge_191\synth\clock_reset_bridge\intel_jesd204_clock_reset_bridge.v"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204_clock_reset_bridge_191\synth\clock_reset_bridge\intel_jesd204_clock_reset_bridge.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204_clock_reset_bridge_191\synth\clock_reset_bridge\intel_jesd204_clock_reset_bridge.v"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -7084,12 +7084,12 @@
   <parameter name="prof10_CH_SRC_FLUX_EN_HW" value="1" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\jesd204b_core_intel_jesd204b_gts_phy_intel_directphy_gts_191_x7bynya.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\jesd204b_core_intel_jesd204b_gts_phy_intel_directphy_gts_191_x7bynya.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\jesd204b_core_intel_jesd204b_gts_phy_intel_directphy_gts_191_x7bynya.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\jesd204b_core_intel_jesd204b_gts_phy_intel_directphy_gts_191_x7bynya.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -10585,12 +10585,12 @@
   <parameter name="prof10_CH_SRC_FLUX_EN_HW" value="1" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\jesd204b_core_intel_jesd204b_gts_phy_intel_directphy_gts_191_lvsxkwq.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\jesd204b_core_intel_jesd204b_gts_phy_intel_directphy_gts_191_lvsxkwq.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\jesd204b_core_intel_jesd204b_gts_phy_intel_directphy_gts_191_lvsxkwq.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_jesd204b_gts_phy_191\synth\jesd204b_core_intel_jesd204b_gts_phy_intel_directphy_gts_191_lvsxkwq.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -14086,144 +14086,144 @@
   <parameter name="prof10_CH_SRC_FLUX_EN_HW" value="1" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\sip_async_mapping.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\sip_async_mapping.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_avmm.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_avmm.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_csr_wrap.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_csr_wrap.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_ccg.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_ccg.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_3.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_3.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_5_sl.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_5_sl.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_std_synchronizer_nocut.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_std_synchronizer_nocut.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_eq_5_ena.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_eq_5_ena.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_neq_5_ena.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_neq_5_ena.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_wys_lut.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_wys_lut.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_sip_csr.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_sip_csr.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_tx_dsk_gen.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_tx_dsk_gen.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_rx_deskew.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_rx_deskew.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_word_delay.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_word_delay.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_mlab.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_mlab.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_xcvr_resync_std.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_xcvr_resync_std.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_data_sync.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_data_sync.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\alt_xcvr_resync_etile.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\alt_xcvr_resync_etile.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\altera_std_synchronizer_nocut_etile.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\altera_std_synchronizer_nocut_etile.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_ccqah4q.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_ccqah4q.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_ccqah4q_sip.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_ccqah4q_sip.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_ccqah4q_sip.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_ccqah4q_sip.sdc"
        attributes="NO_SDC_PROMOTION ENTITY_NAME=jesd204b_core_intel_directphy_gts_900_ccqah4q_sip" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\xcvr_sdc_utils.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\xcvr_sdc_utils.tcl"
        attributes=" ENTITY_NAME=jesd204b_core_intel_directphy_gts_900_ccqah4q_sip" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\sip_async_mapping.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\sip_async_mapping.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_avmm.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_avmm.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_csr_wrap.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_csr_wrap.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_ccg.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_ccg.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_3.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_3.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_5_sl.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_5_sl.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_std_synchronizer_nocut.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_std_synchronizer_nocut.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_eq_5_ena.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_eq_5_ena.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_neq_5_ena.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_neq_5_ena.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_wys_lut.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_wys_lut.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_sip_csr.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_sip_csr.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_tx_dsk_gen.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_tx_dsk_gen.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_rx_deskew.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_rx_deskew.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_word_delay.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_word_delay.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_mlab.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_mlab.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_xcvr_resync_std.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_xcvr_resync_std.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_data_sync.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_data_sync.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\alt_xcvr_resync_etile.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\alt_xcvr_resync_etile.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\altera_std_synchronizer_nocut_etile.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\altera_std_synchronizer_nocut_etile.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_ccqah4q.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_ccqah4q.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_ccqah4q_sip.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_ccqah4q_sip.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_ccqah4q_sip.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_ccqah4q_sip.sdc"
        attributes="NO_SDC_PROMOTION ENTITY_NAME=jesd204b_core_intel_directphy_gts_900_ccqah4q_sip" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\xcvr_sdc_utils.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\xcvr_sdc_utils.tcl"
        attributes=" ENTITY_NAME=jesd204b_core_intel_directphy_gts_900_ccqah4q_sip" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -17719,144 +17719,144 @@
   <parameter name="prof10_CH_SRC_FLUX_EN_HW" value="1" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\sip_async_mapping.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\sip_async_mapping.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_avmm.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_avmm.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_csr_wrap.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_csr_wrap.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_ccg.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_ccg.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_3.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_3.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_5_sl.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_5_sl.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_std_synchronizer_nocut.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_std_synchronizer_nocut.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_eq_5_ena.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_eq_5_ena.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_neq_5_ena.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_neq_5_ena.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_wys_lut.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_wys_lut.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_sip_csr.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_sip_csr.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_tx_dsk_gen.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_tx_dsk_gen.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_rx_deskew.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_rx_deskew.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_word_delay.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_word_delay.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_mlab.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_mlab.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_xcvr_resync_std.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_xcvr_resync_std.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_data_sync.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_data_sync.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\alt_xcvr_resync_etile.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\alt_xcvr_resync_etile.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\altera_std_synchronizer_nocut_etile.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\altera_std_synchronizer_nocut_etile.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_6idpasa.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_6idpasa.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_6idpasa_sip.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_6idpasa_sip.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_6idpasa_sip.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_6idpasa_sip.sdc"
        attributes="NO_SDC_PROMOTION ENTITY_NAME=jesd204b_core_intel_directphy_gts_900_6idpasa_sip" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\xcvr_sdc_utils.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\xcvr_sdc_utils.tcl"
        attributes=" ENTITY_NAME=jesd204b_core_intel_directphy_gts_900_6idpasa_sip" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\sip_async_mapping.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\sip_async_mapping.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_avmm.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_avmm.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_csr_wrap.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_csr_wrap.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_ccg.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_ccg.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_3.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_3.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_5_sl.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_gray_cntr_5_sl.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_std_synchronizer_nocut.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_std_synchronizer_nocut.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_eq_5_ena.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_eq_5_ena.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_neq_5_ena.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_neq_5_ena.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_wys_lut.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_wys_lut.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_sip_csr.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\intel_directphy_sip_csr.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_tx_dsk_gen.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_tx_dsk_gen.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_rx_deskew.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_rx_deskew.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_word_delay.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_word_delay.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_mlab.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\directphy_mlab.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_xcvr_resync_std.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_xcvr_resync_std.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_data_sync.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\dphy_gts_data_sync.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\alt_xcvr_resync_etile.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\alt_xcvr_resync_etile.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\altera_std_synchronizer_nocut_etile.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\altera_std_synchronizer_nocut_etile.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_6idpasa.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_6idpasa.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_6idpasa_sip.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_6idpasa_sip.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_6idpasa_sip.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_900_6idpasa_sip.sdc"
        attributes="NO_SDC_PROMOTION ENTITY_NAME=jesd204b_core_intel_directphy_gts_900_6idpasa_sip" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\xcvr_sdc_utils.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\xcvr_sdc_utils.tcl"
        attributes=" ENTITY_NAME=jesd204b_core_intel_directphy_gts_900_6idpasa_sip" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -18415,12 +18415,12 @@
   <parameter name="avmm1_addr_width" value="18" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_intel_adme_gts_900_5c56gqq.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_intel_adme_gts_900_5c56gqq.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_intel_adme_gts_900_5c56gqq.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_intel_adme_gts_900_5c56gqq.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -19647,12 +19647,12 @@
   <parameter name="ch6_xcvr_tx_protocol_hint" value="DISABLED" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_n_channel_superset_900_qebg4di.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_n_channel_superset_900_qebg4di.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_n_channel_superset_900_qebg4di.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_n_channel_superset_900_qebg4di.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -20201,12 +20201,12 @@
   <parameter name="avmm1_addr_width" value="18" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_intel_adme_gts_900_5c56gqq.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_intel_adme_gts_900_5c56gqq.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_intel_adme_gts_900_5c56gqq.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_intel_adme_gts_900_5c56gqq.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -21433,12 +21433,12 @@
   <parameter name="ch6_xcvr_tx_protocol_hint" value="DISABLED" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_n_channel_superset_900_lxxn6ma.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_n_channel_superset_900_lxxn6ma.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_n_channel_superset_900_lxxn6ma.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_directphy_gts_900\synth\jesd204b_core_intel_directphy_gts_n_channel_superset_900_lxxn6ma.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -21987,24 +21987,24 @@
   <parameter name="avmm1_addr_width" value="18" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_adme_gts_100\synth\jesd204b_core_intel_adme_gts_100_hlahszy.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_adme_gts_100\synth\jesd204b_core_intel_adme_gts_100_hlahszy.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_adme_gts_100\synth\alt_xcvr_avmm_arb.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_adme_gts_100\synth\alt_xcvr_avmm_arb.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_adme_gts_100\synth\alt_xcvr_arbiter.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_adme_gts_100\synth\alt_xcvr_arbiter.sv"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_adme_gts_100\synth\jesd204b_core_intel_adme_gts_100_hlahszy.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_adme_gts_100\synth\jesd204b_core_intel_adme_gts_100_hlahszy.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_adme_gts_100\synth\alt_xcvr_avmm_arb.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_adme_gts_100\synth\alt_xcvr_avmm_arb.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\intel_adme_gts_100\synth\alt_xcvr_arbiter.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\intel_adme_gts_100\synth\alt_xcvr_arbiter.sv"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -23233,156 +23233,156 @@
   <parameter name="ch6_xcvr_tx_protocol_hint" value="DISABLED" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\SM_SRC_VLIW_MIF.mif"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\SM_SRC_VLIW_MIF.mif"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_2100_h2bmroi.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_2100_h2bmroi.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_addr_gen.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_addr_gen.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_csr.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_csr.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_flow_ctrl.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_flow_ctrl.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane2lane.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane2lane.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_rst_sequence_fsm.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_rst_sequence_fsm.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_wrapper.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_wrapper.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_monitor.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_monitor.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_stagger_block.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_stagger_block.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_synchronizers.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_synchronizers.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\sopc_synchronizer.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\sopc_synchronizer.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_avmm_decoder.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_avmm_decoder.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_common_ptp_top.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_common_ptp_top.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ff_macro_init.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ff_macro_init.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sdc"
        attributes="NO_SDC_PROMOTION ENTITY_NAME=tennm_sm_hssi_pld_chnl_dp_sip_atom" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_lavmm_arbiter.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_lavmm_arbiter.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_arbiter.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_arbiter.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_rx.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_rx.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx_rx.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx_rx.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\n_channel_superset_top_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\n_channel_superset_top_wrapper.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi.std_func.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi.std_func.sv"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\SM_SRC_VLIW_MIF.mif"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\SM_SRC_VLIW_MIF.mif"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_2100_h2bmroi.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_2100_h2bmroi.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_addr_gen.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_addr_gen.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_csr.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_csr.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_flow_ctrl.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_flow_ctrl.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane2lane.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane2lane.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_rst_sequence_fsm.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_rst_sequence_fsm.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_wrapper.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_wrapper.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_monitor.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_monitor.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_stagger_block.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_stagger_block.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_synchronizers.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_synchronizers.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\sopc_synchronizer.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\sopc_synchronizer.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_avmm_decoder.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_avmm_decoder.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_common_ptp_top.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_common_ptp_top.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ff_macro_init.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ff_macro_init.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sdc"
        attributes="NO_SDC_PROMOTION ENTITY_NAME=tennm_sm_hssi_pld_chnl_dp_sip_atom" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_lavmm_arbiter.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_lavmm_arbiter.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_arbiter.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_arbiter.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_rx.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_rx.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx_rx.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx_rx.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\n_channel_superset_top_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\n_channel_superset_top_wrapper.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi.std_func.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi.std_func.sv"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -25094,156 +25094,156 @@
   <parameter name="ch6_xcvr_tx_protocol_hint" value="DISABLED" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\SM_SRC_VLIW_MIF.mif"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\SM_SRC_VLIW_MIF.mif"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_2100_4jxhtba.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_2100_4jxhtba.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_addr_gen.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_addr_gen.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_csr.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_csr.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_flow_ctrl.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_flow_ctrl.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane2lane.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane2lane.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_rst_sequence_fsm.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_rst_sequence_fsm.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_wrapper.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_wrapper.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_monitor.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_monitor.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_stagger_block.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_stagger_block.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_synchronizers.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_synchronizers.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\sopc_synchronizer.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\sopc_synchronizer.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_avmm_decoder.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_avmm_decoder.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_common_ptp_top.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_common_ptp_top.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ff_macro_init.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ff_macro_init.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sdc"
        attributes="NO_SDC_PROMOTION ENTITY_NAME=tennm_sm_hssi_pld_chnl_dp_sip_atom" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_lavmm_arbiter.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_lavmm_arbiter.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_arbiter.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_arbiter.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_rx.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_rx.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx_rx.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx_rx.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\n_channel_superset_top_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\n_channel_superset_top_wrapper.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi.std_func.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi.std_func.sv"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\SM_SRC_VLIW_MIF.mif"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\SM_SRC_VLIW_MIF.mif"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_2100_4jxhtba.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_2100_4jxhtba.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_addr_gen.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_addr_gen.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_csr.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_csr.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_flow_ctrl.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_flow_ctrl.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane2lane.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane2lane.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_rst_sequence_fsm.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_rst_sequence_fsm.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_wrapper.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_lane_wrapper.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_monitor.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_monitor.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_stagger_block.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_stagger_block.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_synchronizers.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\intel_src_synchronizers.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\sopc_synchronizer.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\sopc_synchronizer.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_avmm_decoder.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_avmm_decoder.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_common_ptp_top.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ncss_common_ptp_top.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ff_macro_init.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\ff_macro_init.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom.sdc"
        attributes="NO_SDC_PROMOTION ENTITY_NAME=tennm_sm_hssi_pld_chnl_dp_sip_atom" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_lavmm_arbiter.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_lavmm_arbiter.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_arbiter.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_arbiter.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_rx.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_rx.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx_rx.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi_pld_chnl_dp_sip_atom_mux_tx_rx.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\n_channel_superset_top_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\n_channel_superset_top_wrapper.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi.std_func.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\tennm_sm_hssi.std_func.sv"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -27761,12 +27761,12 @@
   <parameter name="ch3_tx_pll_f_out_hz" value="0" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_hal_top_2100_mkorooy.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_hal_top_2100_mkorooy.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_hal_top_2100_mkorooy.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_hal_top_2100_mkorooy.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -30214,12 +30214,12 @@
   <parameter name="ch3_tx_pll_f_out_hz" value="0" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_hal_top_2100_obpnyoy.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_hal_top_2100_obpnyoy.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_hal_top_2100_obpnyoy.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\n_channel_superset_2100\synth\jesd204b_core_n_channel_superset_hal_top_2100_obpnyoy.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -32667,60 +32667,60 @@
   <parameter name="ch3_tx_pll_f_out_hz" value="0" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_2100_p4w2ruq.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_2100_p4w2ruq.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary_p4w2ruq.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary_p4w2ruq.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hal_top_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hal_top_wrapper.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\mc.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\mc.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_hal_coreip.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_hal_coreip.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\chptp.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\chptp.sv"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_2100_p4w2ruq.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_2100_p4w2ruq.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary_p4w2ruq.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary_p4w2ruq.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hal_top_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hal_top_wrapper.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\mc.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\mc.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_hal_coreip.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_hal_coreip.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\chptp.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\chptp.sv"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -35168,60 +35168,60 @@
   <parameter name="ch3_tx_pll_f_out_hz" value="0" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_2100_nxxghuq.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_2100_nxxghuq.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary_nxxghuq.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary_nxxghuq.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hal_top_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hal_top_wrapper.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\mc.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\mc.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_hal_coreip.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_hal_coreip.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\chptp.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\chptp.sv"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_2100_nxxghuq.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_2100_nxxghuq.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary_nxxghuq.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary_nxxghuq.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hal_top_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hal_top_wrapper.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\hip_sip_boundary.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\mc.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\mc.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_hal_coreip.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_hal_coreip.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\shared_ptp.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\chptp.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\chptp.sv"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -35859,12 +35859,12 @@
   <parameter name="ch_tx_dl_enable" value="DISABLE" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_one_lane_hal_2100_c7tzbta.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_one_lane_hal_2100_c7tzbta.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_one_lane_hal_2100_c7tzbta.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_one_lane_hal_2100_c7tzbta.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -36432,12 +36432,12 @@
   <parameter name="ch_tx_dl_enable" value="DISABLE" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_one_lane_hal_2100_c7tzbta.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_one_lane_hal_2100_c7tzbta.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_one_lane_hal_2100_c7tzbta.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\hal_top_2100\synth\jesd204b_core_hal_top_one_lane_hal_2100_c7tzbta.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -37005,18 +37005,18 @@
   <parameter name="ch_tx_dl_enable" value="DISABLE" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_2100_35gmzui.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_2100_35gmzui.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\one_lane_hal_top.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\one_lane_hal_top.sv.terp"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_2100_35gmzui.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_2100_35gmzui.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\one_lane_hal_top.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\one_lane_hal_top.sv.terp"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -37425,12 +37425,12 @@
   <parameter name="ch_pcs_l_fec_rx_en_atom" value="FALSE" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_pcs_hal_2100_ij4zeoi.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_pcs_hal_2100_ij4zeoi.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_pcs_hal_2100_ij4zeoi.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_pcs_hal_2100_ij4zeoi.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -37550,12 +37550,12 @@
   <parameter name="ch_fec_l_tx_en" value="FALSE" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_fec_hal_2100_hmiwnzy.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_fec_hal_2100_hmiwnzy.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_fec_hal_2100_hmiwnzy.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_fec_hal_2100_hmiwnzy.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -37751,12 +37751,12 @@
   <parameter name="ch_pldif_l_dr_enabled" value="DR_ENABLED" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_pldif_hal_2100_kovldoi.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_pldif_hal_2100_kovldoi.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_pldif_hal_2100_kovldoi.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_pldif_hal_2100_kovldoi.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -38290,12 +38290,12 @@
   <parameter name="ch_l_cdr_m_counter_atom" value="40" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_phy_hal_2100_cqvqhza.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_phy_hal_2100_cqvqhza.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_phy_hal_2100_cqvqhza.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\one_lane_hal_2100\synth\jesd204b_core_one_lane_hal_phy_hal_2100_cqvqhza.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -38421,30 +38421,30 @@
   <parameter name="ch_pcs_l_fec_rx_en_atom" value="FALSE" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\jesd204b_core_pcs_hal_2100_i6srn2q.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\jesd204b_core_pcs_hal_2100_i6srn2q.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\ch4_pcs.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\ch4_pcs.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\pcs_hal_coreip.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\pcs_hal_coreip.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\pcs_hal_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\pcs_hal_wrapper.sv.terp"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\jesd204b_core_pcs_hal_2100_i6srn2q.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\jesd204b_core_pcs_hal_2100_i6srn2q.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\ch4_pcs.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\ch4_pcs.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\pcs_hal_coreip.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\pcs_hal_coreip.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\pcs_hal_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pcs_hal_2100\synth\pcs_hal_wrapper.sv.terp"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -38563,30 +38563,30 @@
   <parameter name="ch_fec_l_tx_en" value="FALSE" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\jesd204b_core_fec_hal_2100_lxszoea.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\jesd204b_core_fec_hal_2100_lxszoea.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\ch4_fec.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\ch4_fec.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\fec_hal_coreip.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\fec_hal_coreip.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\fec_hal_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\fec_hal_wrapper.sv.terp"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\jesd204b_core_fec_hal_2100_lxszoea.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\jesd204b_core_fec_hal_2100_lxszoea.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\ch4_fec.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\ch4_fec.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\fec_hal_coreip.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\fec_hal_coreip.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\fec_hal_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\fec_hal_2100\synth\fec_hal_wrapper.sv.terp"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -38781,42 +38781,42 @@
   <parameter name="ch_pldif_l_dr_enabled" value="DR_ENABLED" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\jesd204b_core_pldif_hal_2100_4b63owa.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\jesd204b_core_pldif_hal_2100_4b63owa.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\pldif_hal_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\pldif_hal_wrapper.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\pldif_hal_coreip.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\pldif_hal_coreip.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\ch4_pldif.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\ch4_pldif.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\ch4_pldif_no_deskew.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\ch4_pldif_no_deskew.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\pldif_staticmux.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\pldif_staticmux.sv"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\jesd204b_core_pldif_hal_2100_4b63owa.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\jesd204b_core_pldif_hal_2100_4b63owa.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\pldif_hal_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\pldif_hal_wrapper.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\pldif_hal_coreip.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\pldif_hal_coreip.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\ch4_pldif.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\ch4_pldif.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\ch4_pldif_no_deskew.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\ch4_pldif_no_deskew.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\pldif_staticmux.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\pldif_hal_2100\synth\pldif_staticmux.sv"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -39349,36 +39349,36 @@
   <parameter name="ch_l_cdr_m_counter_atom" value="40" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\jesd204b_core_phy_hal_2100_anjxnha.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\jesd204b_core_phy_hal_2100_anjxnha.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\phy_staticmux.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\phy_staticmux.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\phy_hal_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\phy_hal_wrapper.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\phy_hal_coreip.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\phy_hal_coreip.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\ch4_phy.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\ch4_phy.sv"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\jesd204b_core_phy_hal_2100_anjxnha.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\jesd204b_core_phy_hal_2100_anjxnha.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\phy_staticmux.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\phy_staticmux.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\phy_hal_wrapper.sv.terp"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\phy_hal_wrapper.sv.terp"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\phy_hal_coreip.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\phy_hal_coreip.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\ch4_phy.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd204b_core\phy_hal_2100\synth\ch4_phy.sv"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>

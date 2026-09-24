@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2025.11.11.10:55:33"
- outputDirectory="F:/projects/uchicago/artic_data_sync/hw/src/tectonics_com_intfc/rtl/fifos/tic_uart_sync_tx_la_fifo_1k/">
+ date="2026.08.25.16:17:16"
+ outputDirectory="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/tectonics_com_intfc/rtl/fifos/tic_uart_sync_tx_la_fifo_1k/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -72,20 +72,20 @@
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="4" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\tectonics_com_intfc\rtl\fifos\tic_uart_sync_tx_la_fifo_1k\synth\tic_uart_sync_tx_la_fifo_1k.vhd"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\tectonics_com_intfc\rtl\fifos\tic_uart_sync_tx_la_fifo_1k\synth\tic_uart_sync_tx_la_fifo_1k.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\tectonics_com_intfc\rtl\fifos\tic_uart_sync_tx_la_fifo_1k\synth\tic_uart_sync_tx_la_fifo_1k.vhd"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\tectonics_com_intfc\rtl\fifos\tic_uart_sync_tx_la_fifo_1k\synth\tic_uart_sync_tx_la_fifo_1k.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="F:/projects/uchicago/artic_data_sync/hw/src/tectonics_com_intfc/rtl/fifos/tic_uart_sync_tx_la_fifo_1k.ip" />
+       path="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/tectonics_com_intfc/rtl/fifos/tic_uart_sync_tx_la_fifo_1k.ip" />
   </sourceFiles>
   <childSourceFiles>
-   <file path="F:/quartus/25.1.1_pro/ip/altera/megafunctions/fifo/fifo_hw.tcl" />
+   <file path="C:/altera_pro/25.1.1/ip/altera/megafunctions/fifo/fifo_hw.tcl" />
   </childSourceFiles>
   <messages>
    <message level="Info" culprit="tic_uart_sync_tx_la_fifo_1k">"Generating: tic_uart_sync_tx_la_fifo_1k"</message>
@@ -142,16 +142,16 @@
   <parameter name="GUI_Width" value="8" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\tectonics_com_intfc\rtl\fifos\tic_uart_sync_tx_la_fifo_1k\fifo_1941\synth\tic_uart_sync_tx_la_fifo_1k_fifo_1941_oyfkwki.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\tectonics_com_intfc\rtl\fifos\tic_uart_sync_tx_la_fifo_1k\fifo_1941\synth\tic_uart_sync_tx_la_fifo_1k_fifo_1941_oyfkwki.v"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\tectonics_com_intfc\rtl\fifos\tic_uart_sync_tx_la_fifo_1k\fifo_1941\synth\tic_uart_sync_tx_la_fifo_1k_fifo_1941_oyfkwki.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\tectonics_com_intfc\rtl\fifos\tic_uart_sync_tx_la_fifo_1k\fifo_1941\synth\tic_uart_sync_tx_la_fifo_1k_fifo_1941_oyfkwki.v"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
-   <file path="F:/quartus/25.1.1_pro/ip/altera/megafunctions/fifo/fifo_hw.tcl" />
+   <file path="C:/altera_pro/25.1.1/ip/altera/megafunctions/fifo/fifo_hw.tcl" />
   </sourceFiles>
   <childSourceFiles/>
   <instantiator instantiator="tic_uart_sync_tx_la_fifo_1k" as="fifo_0" />

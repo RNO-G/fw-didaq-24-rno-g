@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2025.12.05.09:18:56"
- outputDirectory="F:/projects/uchicago/artic_data_sync/hw/src/altera_p2_board/pll/io_pll_sysref/">
+ date="2026.08.25.16:17:20"
+ outputDirectory="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/pll/io_pll_sysref/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -141,21 +141,21 @@
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="4" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\pll\io_pll_sysref\synth\io_pll_sysref.vhd"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\io_pll_sysref\synth\io_pll_sysref.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\pll\io_pll_sysref\synth\io_pll_sysref.vhd"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\io_pll_sysref\synth\io_pll_sysref.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="F:/projects/uchicago/artic_data_sync/hw/src/altera_p2_board/pll/io_pll_sysref.ip" />
+       path="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/pll/io_pll_sysref.ip" />
   </sourceFiles>
   <childSourceFiles>
    <file
-       path="F:/quartus/25.1.1_pro/ip/altera/altera_iopll/top/altera_iopll_hw.tcl" />
+       path="C:/altera_pro/25.1.1/ip/altera/altera_iopll/top/altera_iopll_hw.tcl" />
   </childSourceFiles>
   <messages>
    <message level="Info" culprit="io_pll_sysref">"Generating: io_pll_sysref"</message>
@@ -1056,41 +1056,41 @@
   <parameter name="output_clock_frequency2" value="62.5 MHz" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa.v"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa_all_ip_params.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa_all_ip_params.tcl"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa_parameters.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa_parameters.tcl"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa.sdc"
        attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION READ_DURING_POST_SYN_AND_POST_FIT_TIMING_ANALYSIS" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa_pin_map.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa_pin_map.tcl"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa.v"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa_all_ip_params.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa_all_ip_params.tcl"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa_parameters.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa_parameters.tcl"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa.sdc"
        attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION READ_DURING_POST_SYN_AND_POST_FIT_TIMING_ANALYSIS" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa_pin_map.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\io_pll_sysref\altera_iopll_2000\synth\io_pll_sysref_altera_iopll_2000_dk3q3xa_pin_map.tcl"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="F:/quartus/25.1.1_pro/ip/altera/altera_iopll/top/altera_iopll_hw.tcl" />
+       path="C:/altera_pro/25.1.1/ip/altera/altera_iopll/top/altera_iopll_hw.tcl" />
   </sourceFiles>
   <childSourceFiles/>
   <instantiator instantiator="io_pll_sysref" as="iopll_0" />

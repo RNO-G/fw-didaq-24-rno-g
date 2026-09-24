@@ -467,6 +467,20 @@ set_global_assignment -name ENABLE_SIGNALTAP OFF
 set_global_assignment -name USE_SIGNALTAP_FILE tap_spiSlave.stp
 
 set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT WITH MAXIMUM PLACEMENT EFFORT"
+set_global_assignment -name VERILOG_FILE ../src/trigger_dev/rtl/flag_sync.v
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/waveform_storage.vhdl
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/upsampling.vhdl
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/single_event.vhdl
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/single_channel_ram.vhdl
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/signal_sync.vhdl
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/scalers_top.vhd
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/ram_control.vhdl
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/power_lut_8.vhdl
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/power_integration.vhdl
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/power_trigger.vhd
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/event_top.vhdl
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/coinc_trigger.vhdl
+set_global_assignment -name VHDL_FILE ../src/trigger_dev/rtl/beamforming.vhdl
 set_global_assignment -name QSYS_FILE ../src/altera_p2_board/niosv/niosv_pd.qsys
 set_global_assignment -name SDC_FILE artic_daq.sdc
 set_global_assignment -name IP_FILE ../src/altera_p2_board/niosv/ip/niosv_pd/niosv_pd_intel_generic_serial_flash_interface_top_0.ip
@@ -517,14 +531,10 @@ set_global_assignment -name IP_FILE ../src/altera_p2_board/io/ddro_6w.ip
 set_global_assignment -name IP_FILE ../src/altera_p2_board/io/ddro_1w.ip
 set_global_assignment -name VHDL_FILE ../src/artic_daq_fpga_top/rtl/artic_daq_fpga_p2_board_top.vhd
 set_global_assignment -name SDC_FILE artic_daq_late_timing_constraints.sdc
-set_global_assignment -name SIGNALTAP_FILE stp1.stp
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS INPUT TRI-STATED WITHOUT WEAK PULL-UP"
 set_global_assignment -name BOARD default
-set_global_assignment -name SIGNALTAP_FILE stp2.stp
-set_global_assignment -name SIGNALTAP_FILE tap_jesd.stp
 set_global_assignment -name IP_FILE ../src/altera_p2_board/pll/sysref_pll.ip
 set_instance_assignment -name INPUT_TERMINATION "OCT 100 OHMS" -to clk_gts_ref[*]
-set_global_assignment -name IP_FILE GTS_system_PLL.ip
 set_global_assignment -name IP_FILE ../src/altera_p2_board/pll/GTS_system_PLL.ip
 set_instance_assignment -name XCVR_S10_REFCLK_TERM_TRISTATE TRISTATE_ON -to clk_gts_pll_ref[0]
 set_instance_assignment -name XCVR_S10_REFCLK_TERM_TRISTATE TRISTATE_ON -to clk_gts_pll_ref[1]
@@ -541,7 +551,8 @@ set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/scalers_top.vhd
 set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/beamforming_trig.vhd
 set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/pow_lut.vhd
 set_global_assignment -name IP_FILE ../src/altera_p2_board/niosv/ip/niosv_pd/niosv_pd_intel_mailbox_client_0.ip
-set_global_assignment -name SIGNALTAP_FILE tap_spiSlave.stp
 set_global_assignment -name SEARCH_PATH ../src
 set_global_assignment -name SEARCH_PATH ../src/didaq_acq_and_trig
 set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/dedispersion.vhd
+set_global_assignment -name VHDL_INPUT_VERSION VHDL_2008
+set_global_assignment -name PROJECT_IP_REGENERATION_POLICY ALWAYS_REGENERATE_IP

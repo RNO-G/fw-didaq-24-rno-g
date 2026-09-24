@@ -40,7 +40,7 @@ set_instance_assignment -entity "jesd_gts_reset_sequencer_intel_srcss_gts_401_46
 set_global_assignment -library "intel_srcss_gts_401" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_srcss_gts_401/synth/intel_srcss_gts.sv"]
 set_global_assignment -library "intel_srcss_gts_401" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_srcss_gts_401/synth/intel_ss_synchronizers.sv"]
 set_global_assignment -library "intel_srcss_gts_401" -name VERILOG_FILE [file join $::quartus(qip_path) "intel_srcss_gts_401/synth/sopc_synchronizer.v"]
-set_global_assignment -library "jesd_gts_reset_sequencer" -name VHDL_FILE [file join $::quartus(qip_path) "synth/jesd_gts_reset_sequencer.vhd"]
+set_global_assignment -library "jesd_gts_reset_sequencer" -name VERILOG_FILE [file join $::quartus(qip_path) "synth/jesd_gts_reset_sequencer.v"]
 
 
 set_global_assignment -entity "jesd_gts_reset_sequencer_intel_srcss_gts_401_467auiy" -library "intel_srcss_gts_401" -name IP_TOOL_NAME "intel_srcss_gts"

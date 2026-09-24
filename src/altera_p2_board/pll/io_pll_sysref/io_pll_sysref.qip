@@ -48,7 +48,7 @@ set_instance_assignment -entity "io_pll_sysref_altera_iopll_2000_dk3q3xa" -libra
 set_instance_assignment -entity "io_pll_sysref_altera_iopll_2000_dk3q3xa" -library "altera_iopll_2000" -name TCL_ENTITY_FILE [file join $::quartus(qip_path) "altera_iopll_2000/synth/io_pll_sysref_altera_iopll_2000_dk3q3xa_parameters.tcl"]
 set_instance_assignment -entity "io_pll_sysref_altera_iopll_2000_dk3q3xa" -library "altera_iopll_2000" -name SDC_ENTITY_FILE [file join $::quartus(qip_path) "altera_iopll_2000/synth/io_pll_sysref_altera_iopll_2000_dk3q3xa.sdc"] -no_sdc_promotion  -no_auto_inst_discovery  -read_during_post_syn_and_post_fit_timing_analysis 
 set_instance_assignment -entity "io_pll_sysref_altera_iopll_2000_dk3q3xa" -library "altera_iopll_2000" -name TCL_ENTITY_FILE [file join $::quartus(qip_path) "altera_iopll_2000/synth/io_pll_sysref_altera_iopll_2000_dk3q3xa_pin_map.tcl"]
-set_global_assignment -library "io_pll_sysref" -name VHDL_FILE [file join $::quartus(qip_path) "synth/io_pll_sysref.vhd"]
+set_global_assignment -library "io_pll_sysref" -name VERILOG_FILE [file join $::quartus(qip_path) "synth/io_pll_sysref.v"]
 
 
 set_global_assignment -entity "io_pll_sysref_altera_iopll_2000_dk3q3xa" -library "altera_iopll_2000" -name IP_TOOL_NAME "altera_iopll"

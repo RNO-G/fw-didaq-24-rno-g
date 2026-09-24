@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2026.04.22.09:36:24"
- outputDirectory="C:/Users/erico/Desktop/projects/terra_terra/didaq_subclass1_dual_gtsclk_field/src/altera_p2_board/pll/main_pll/">
+ date="2026.08.25.16:17:20"
+ outputDirectory="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/pll/main_pll/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -111,17 +111,17 @@
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="4" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\pll\main_pll\synth\main_pll.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\main_pll\synth\main_pll.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\pll\main_pll\synth\main_pll.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\main_pll\synth\main_pll.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="C:/Users/erico/Desktop/projects/terra_terra/didaq_subclass1_dual_gtsclk_field/src/altera_p2_board/pll/main_pll.ip" />
+       path="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/pll/main_pll.ip" />
   </sourceFiles>
   <childSourceFiles>
    <file
@@ -1002,36 +1002,36 @@
   <parameter name="output_clock_frequency2" value="125.0 MHz" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy_all_ip_params.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy_all_ip_params.tcl"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy_parameters.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy_parameters.tcl"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy.sdc"
        attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION READ_DURING_POST_SYN_AND_POST_FIT_TIMING_ANALYSIS" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy_pin_map.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy_pin_map.tcl"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy.v"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy_all_ip_params.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy_all_ip_params.tcl"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy_parameters.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy_parameters.tcl"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy.sdc"
        attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION READ_DURING_POST_SYN_AND_POST_FIT_TIMING_ANALYSIS" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_subclass1_dual_gtsclk_field\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy_pin_map.tcl"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\main_pll\altera_iopll_2000\synth\main_pll_altera_iopll_2000_gvlz6cy_pin_map.tcl"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2025.12.05.11:06:37"
- outputDirectory="F:/projects/uchicago/artic_data_sync/hw/src/altera_p2_board/io/ddro_6w/">
+ date="2026.08.25.16:17:13"
+ outputDirectory="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/io/ddro_6w/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -79,23 +79,23 @@
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="4" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\io\ddro_6w\synth\ddro_6w.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\io\ddro_6w\synth\ddro_6w.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\io\ddro_6w\synth\ddro_6w.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\io\ddro_6w\synth\ddro_6w.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="F:/projects/uchicago/artic_data_sync/hw/src/altera_p2_board/io/ddro_6w.ip" />
+       path="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/io/ddro_6w.ip" />
   </sourceFiles>
   <childSourceFiles>
    <file
-       path="F:/quartus/25.1.1_pro/ip/altera/altera_gpio/altera_gpio_top/altera_gpio_hw.tcl" />
+       path="C:/altera_pro/25.1.1/ip/altera/altera_gpio/altera_gpio_top/altera_gpio_hw.tcl" />
    <file
-       path="F:/quartus/25.1.1_pro/ip/altera/altera_gpio/altera_gpio_core10_ph2/altera_gpio_core_hw.tcl" />
+       path="C:/altera_pro/25.1.1/ip/altera/altera_gpio/altera_gpio_core10_ph2/altera_gpio_core_hw.tcl" />
   </childSourceFiles>
   <messages>
    <message level="Info" culprit="ddro_6w">"Generating: ddro_6w"</message>
@@ -165,21 +165,21 @@
   <parameter name="gui_open_drain" value="false" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\io\ddro_6w\altera_gpio_2300\synth\ddro_6w_altera_gpio_2300_jrsykna.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\io\ddro_6w\altera_gpio_2300\synth\ddro_6w_altera_gpio_2300_jrsykna.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\io\ddro_6w\altera_gpio_2300\synth\ddro_6w_altera_gpio_2300_jrsykna.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\io\ddro_6w\altera_gpio_2300\synth\ddro_6w_altera_gpio_2300_jrsykna.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="F:/quartus/25.1.1_pro/ip/altera/altera_gpio/altera_gpio_top/altera_gpio_hw.tcl" />
+       path="C:/altera_pro/25.1.1/ip/altera/altera_gpio/altera_gpio_top/altera_gpio_hw.tcl" />
   </sourceFiles>
   <childSourceFiles>
    <file
-       path="F:/quartus/25.1.1_pro/ip/altera/altera_gpio/altera_gpio_core10_ph2/altera_gpio_core_hw.tcl" />
+       path="C:/altera_pro/25.1.1/ip/altera/altera_gpio/altera_gpio_core10_ph2/altera_gpio_core_hw.tcl" />
   </childSourceFiles>
   <instantiator instantiator="ddro_6w" as="gpio_0" />
   <messages>
@@ -243,17 +243,17 @@
   <parameter name="gui_open_drain" value="false" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\io\ddro_6w\altera_gpio_core10_ph2_2210\synth\altera_gpio.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\io\ddro_6w\altera_gpio_core10_ph2_2210\synth\altera_gpio.sv"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera_p2_board\io\ddro_6w\altera_gpio_core10_ph2_2210\synth\altera_gpio.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\io\ddro_6w\altera_gpio_core10_ph2_2210\synth\altera_gpio.sv"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="F:/quartus/25.1.1_pro/ip/altera/altera_gpio/altera_gpio_core10_ph2/altera_gpio_core_hw.tcl" />
+       path="C:/altera_pro/25.1.1/ip/altera/altera_gpio/altera_gpio_core10_ph2/altera_gpio_core_hw.tcl" />
   </sourceFiles>
   <childSourceFiles/>
   <instantiator instantiator="ddro_6w_altera_gpio_2300_jrsykna" as="core" />

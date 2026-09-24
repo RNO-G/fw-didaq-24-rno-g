@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2026.03.31.12:57:43"
- outputDirectory="C:/Users/erico/Desktop/projects/terra_terra/didaq_test_subclass0/src/altera_p2_board/pll/GTS_system_PLL/">
+ date="2026.08.25.16:17:18"
+ outputDirectory="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/pll/GTS_system_PLL/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -96,17 +96,17 @@
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="4" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\pll\GTS_system_PLL\synth\GTS_system_PLL.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\GTS_system_PLL\synth\GTS_system_PLL.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\pll\GTS_system_PLL\synth\GTS_system_PLL.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\GTS_system_PLL\synth\GTS_system_PLL.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="C:/Users/erico/Desktop/projects/terra_terra/didaq_test_subclass0/src/altera_p2_board/pll/GTS_system_PLL.ip" />
+       path="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/pll/GTS_system_PLL.ip" />
   </sourceFiles>
   <childSourceFiles>
    <file
@@ -175,12 +175,12 @@
   <parameter name="enables_refclk" value="true" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\pll\GTS_system_PLL\intel_systemclk_gts_510\synth\GTS_system_PLL_intel_systemclk_gts_510_q56bxpa.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\GTS_system_PLL\intel_systemclk_gts_510\synth\GTS_system_PLL_intel_systemclk_gts_510_q56bxpa.sv"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\pll\GTS_system_PLL\intel_systemclk_gts_510\synth\GTS_system_PLL_intel_systemclk_gts_510_q56bxpa.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\GTS_system_PLL\intel_systemclk_gts_510\synth\GTS_system_PLL_intel_systemclk_gts_510_q56bxpa.sv"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
@@ -278,12 +278,12 @@
   <parameter name="syspll_l_sys_pll_f_pfd_hz" value="100000000" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\pll\GTS_system_PLL\intel_systemclk_gts_510\synth\GTS_system_PLL_intel_systemclk_gts_spll_hal_510_4qpunya.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\GTS_system_PLL\intel_systemclk_gts_510\synth\GTS_system_PLL_intel_systemclk_gts_spll_hal_510_4qpunya.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\pll\GTS_system_PLL\intel_systemclk_gts_510\synth\GTS_system_PLL_intel_systemclk_gts_spll_hal_510_4qpunya.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\GTS_system_PLL\intel_systemclk_gts_510\synth\GTS_system_PLL_intel_systemclk_gts_spll_hal_510_4qpunya.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles/>
@@ -378,18 +378,18 @@
   <parameter name="syspll_l_sys_pll_f_pfd_hz" value="100000000" />
   <generatedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\pll\GTS_system_PLL\spll_hal_2100\synth\spll_hal_top.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\GTS_system_PLL\spll_hal_2100\synth\spll_hal_top.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\pll\GTS_system_PLL\spll_hal_2100\synth\GTS_system_PLL_spll_hal_2100_qol5lrq.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\GTS_system_PLL\spll_hal_2100\synth\GTS_system_PLL_spll_hal_2100_qol5lrq.sv"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\pll\GTS_system_PLL\spll_hal_2100\synth\spll_hal_top.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\GTS_system_PLL\spll_hal_2100\synth\spll_hal_top.sv"
        attributes="" />
    <file
-       path="C:\Users\erico\Desktop\projects\terra_terra\didaq_test_subclass0\src\altera_p2_board\pll\GTS_system_PLL\spll_hal_2100\synth\GTS_system_PLL_spll_hal_2100_qol5lrq.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\pll\GTS_system_PLL\spll_hal_2100\synth\GTS_system_PLL_spll_hal_2100_qol5lrq.sv"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>

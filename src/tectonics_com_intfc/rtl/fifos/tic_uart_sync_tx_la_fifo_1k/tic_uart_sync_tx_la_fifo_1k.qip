@@ -45,7 +45,7 @@ set_global_assignment -entity "tic_uart_sync_tx_la_fifo_1k" -library "tic_uart_s
 
 
 set_global_assignment -library "fifo_1941" -name VERILOG_FILE [file join $::quartus(qip_path) "fifo_1941/synth/tic_uart_sync_tx_la_fifo_1k_fifo_1941_oyfkwki.v"]
-set_global_assignment -library "tic_uart_sync_tx_la_fifo_1k" -name VHDL_FILE [file join $::quartus(qip_path) "synth/tic_uart_sync_tx_la_fifo_1k.vhd"]
+set_global_assignment -library "tic_uart_sync_tx_la_fifo_1k" -name VERILOG_FILE [file join $::quartus(qip_path) "synth/tic_uart_sync_tx_la_fifo_1k.v"]
 
 
 set_global_assignment -entity "tic_uart_sync_tx_la_fifo_1k_fifo_1941_oyfkwki" -library "fifo_1941" -name IP_TOOL_NAME "fifo"

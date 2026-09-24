@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2025.11.11.10:53:53"
- outputDirectory="F:/projects/uchicago/artic_data_sync/hw/src/altera/reset/reset_release/">
+ date="2026.08.25.16:17:18"
+ outputDirectory="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/reset/reset_release/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -56,21 +56,21 @@
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="4" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\reset\reset_release\synth\reset_release.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\reset\reset_release\synth\reset_release.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\reset\reset_release\synth\reset_release.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\reset\reset_release\synth\reset_release.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="F:/projects/uchicago/artic_data_sync/hw/src/altera/reset/reset_release.ip" />
+       path="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/reset/reset_release.ip" />
   </sourceFiles>
   <childSourceFiles>
    <file
-       path="F:/quartus/25.1.1_pro/ip/altera/pgm/intel_user_rst_clkgate/intel_user_rst_clkgate_hw.tcl" />
+       path="C:/altera_pro/25.1.1/ip/altera/pgm/intel_user_rst_clkgate/intel_user_rst_clkgate_hw.tcl" />
   </childSourceFiles>
   <messages>
    <message level="Info" culprit="reset_release">"Generating: reset_release"</message>
@@ -86,23 +86,23 @@
   <parameter name="outputType" value="Reset Interface" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\reset\reset_release\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\reset\reset_release\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate.sv"
        attributes="TOP_LEVEL_FILE" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\reset\reset_release\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate_agilex.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\reset\reset_release\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate_agilex.sdc"
        attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\reset\reset_release\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\reset\reset_release\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate.sv"
        attributes="TOP_LEVEL_FILE" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\reset\reset_release\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate_agilex.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\reset\reset_release\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate_agilex.sdc"
        attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="F:/quartus/25.1.1_pro/ip/altera/pgm/intel_user_rst_clkgate/intel_user_rst_clkgate_hw.tcl" />
+       path="C:/altera_pro/25.1.1/ip/altera/pgm/intel_user_rst_clkgate/intel_user_rst_clkgate_hw.tcl" />
   </sourceFiles>
   <childSourceFiles/>
   <instantiator instantiator="reset_release" as="intel_user_rst_clkgate_0" />

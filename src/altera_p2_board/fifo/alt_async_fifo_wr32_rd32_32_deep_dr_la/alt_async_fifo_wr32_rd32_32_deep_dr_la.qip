@@ -46,7 +46,7 @@ set_global_assignment -entity "alt_async_fifo_wr32_rd32_32_deep_dr_la" -library 
 
 set_global_assignment -library "fifo_1941" -name VERILOG_FILE [file join $::quartus(qip_path) "fifo_1941/synth/alt_async_fifo_wr32_rd32_32_deep_dr_la_fifo_1941_4gmv4ey.v"]
 set_instance_assignment -entity "alt_async_fifo_wr32_rd32_32_deep_dr_la_fifo_1941_4gmv4ey" -library "fifo_1941" -name SDC_ENTITY_FILE [file join $::quartus(qip_path) "fifo_1941/synth/alt_async_fifo_wr32_rd32_32_deep_dr_la_fifo_1941_4gmv4ey.sdc"] -no_sdc_promotion  -no_auto_inst_discovery 
-set_global_assignment -library "alt_async_fifo_wr32_rd32_32_deep_dr_la" -name VHDL_FILE [file join $::quartus(qip_path) "synth/alt_async_fifo_wr32_rd32_32_deep_dr_la.vhd"]
+set_global_assignment -library "alt_async_fifo_wr32_rd32_32_deep_dr_la" -name VERILOG_FILE [file join $::quartus(qip_path) "synth/alt_async_fifo_wr32_rd32_32_deep_dr_la.v"]
 
 
 set_global_assignment -entity "alt_async_fifo_wr32_rd32_32_deep_dr_la_fifo_1941_4gmv4ey" -library "fifo_1941" -name IP_TOOL_NAME "fifo"

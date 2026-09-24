@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2025.11.11.10:55:39"
- outputDirectory="F:/projects/uchicago/artic_data_sync/hw/src/altera/fifo/alt_async_fifo_wr32_rd32_32_deep_dr_la/">
+ date="2026.08.25.16:17:11"
+ outputDirectory="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/fifo/alt_async_fifo_wr32_rd32_32_deep_dr_la/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -74,20 +74,20 @@
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="4" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\fifo\alt_async_fifo_wr32_rd32_32_deep_dr_la\synth\alt_async_fifo_wr32_rd32_32_deep_dr_la.vhd"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\fifo\alt_async_fifo_wr32_rd32_32_deep_dr_la\synth\alt_async_fifo_wr32_rd32_32_deep_dr_la.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\fifo\alt_async_fifo_wr32_rd32_32_deep_dr_la\synth\alt_async_fifo_wr32_rd32_32_deep_dr_la.vhd"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\fifo\alt_async_fifo_wr32_rd32_32_deep_dr_la\synth\alt_async_fifo_wr32_rd32_32_deep_dr_la.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="F:/projects/uchicago/artic_data_sync/hw/src/altera/fifo/alt_async_fifo_wr32_rd32_32_deep_dr_la.ip" />
+       path="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/fifo/alt_async_fifo_wr32_rd32_32_deep_dr_la.ip" />
   </sourceFiles>
   <childSourceFiles>
-   <file path="F:/quartus/25.1.1_pro/ip/altera/megafunctions/fifo/fifo_hw.tcl" />
+   <file path="C:/altera_pro/25.1.1/ip/altera/megafunctions/fifo/fifo_hw.tcl" />
   </childSourceFiles>
   <messages>
    <message level="Info" culprit="alt_async_fifo_wr32_rd32_32_deep_dr_la">"Generating: alt_async_fifo_wr32_rd32_32_deep_dr_la"</message>
@@ -144,22 +144,22 @@
   <parameter name="GUI_Width" value="32" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\fifo\alt_async_fifo_wr32_rd32_32_deep_dr_la\fifo_1941\synth\alt_async_fifo_wr32_rd32_32_deep_dr_la_fifo_1941_4gmv4ey.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\fifo\alt_async_fifo_wr32_rd32_32_deep_dr_la\fifo_1941\synth\alt_async_fifo_wr32_rd32_32_deep_dr_la_fifo_1941_4gmv4ey.v"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\fifo\alt_async_fifo_wr32_rd32_32_deep_dr_la\fifo_1941\synth\alt_async_fifo_wr32_rd32_32_deep_dr_la_fifo_1941_4gmv4ey.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\fifo\alt_async_fifo_wr32_rd32_32_deep_dr_la\fifo_1941\synth\alt_async_fifo_wr32_rd32_32_deep_dr_la_fifo_1941_4gmv4ey.sdc"
        attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\fifo\alt_async_fifo_wr32_rd32_32_deep_dr_la\fifo_1941\synth\alt_async_fifo_wr32_rd32_32_deep_dr_la_fifo_1941_4gmv4ey.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\fifo\alt_async_fifo_wr32_rd32_32_deep_dr_la\fifo_1941\synth\alt_async_fifo_wr32_rd32_32_deep_dr_la_fifo_1941_4gmv4ey.v"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\fifo\alt_async_fifo_wr32_rd32_32_deep_dr_la\fifo_1941\synth\alt_async_fifo_wr32_rd32_32_deep_dr_la_fifo_1941_4gmv4ey.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\fifo\alt_async_fifo_wr32_rd32_32_deep_dr_la\fifo_1941\synth\alt_async_fifo_wr32_rd32_32_deep_dr_la_fifo_1941_4gmv4ey.sdc"
        attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION" />
   </childGeneratedFiles>
   <sourceFiles>
-   <file path="F:/quartus/25.1.1_pro/ip/altera/megafunctions/fifo/fifo_hw.tcl" />
+   <file path="C:/altera_pro/25.1.1/ip/altera/megafunctions/fifo/fifo_hw.tcl" />
   </sourceFiles>
   <childSourceFiles/>
   <instantiator instantiator="alt_async_fifo_wr32_rd32_32_deep_dr_la" as="fifo_0" />

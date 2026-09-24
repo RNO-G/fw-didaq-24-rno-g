@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2025.11.11.10:55:37"
- outputDirectory="F:/projects/uchicago/artic_data_sync/hw/src/altera/jesd/jesd_gts_reset_sequencer/">
+ date="2026.08.25.16:17:21"
+ outputDirectory="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/jesd/jesd_gts_reset_sequencer/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -104,21 +104,21 @@
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="4" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\jesd\jesd_gts_reset_sequencer\synth\jesd_gts_reset_sequencer.vhd"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd_gts_reset_sequencer\synth\jesd_gts_reset_sequencer.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\jesd\jesd_gts_reset_sequencer\synth\jesd_gts_reset_sequencer.vhd"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd_gts_reset_sequencer\synth\jesd_gts_reset_sequencer.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="F:/projects/uchicago/artic_data_sync/hw/src/altera/jesd/jesd_gts_reset_sequencer.ip" />
+       path="C:/Users/mob5419/RNO-G/git/fw-didaq-24-rno-g/src/altera_p2_board/jesd/jesd_gts_reset_sequencer.ip" />
   </sourceFiles>
   <childSourceFiles>
    <file
-       path="F:/quartus/25.1.1_pro/ip/altera/alt_xcvr/intel_monolithic/reset_control/intel_srcss_gts/tcl/intel_srcss_gts_hw.tcl" />
+       path="C:/altera_pro/25.1.1/ip/altera/alt_xcvr/intel_monolithic/reset_control/intel_srcss_gts/tcl/intel_srcss_gts_hw.tcl" />
   </childSourceFiles>
   <messages>
    <message level="Info" culprit="jesd_gts_reset_sequencer">"Generating: jesd_gts_reset_sequencer"</message>
@@ -141,41 +141,41 @@
   <parameter name="device" value="A5ED065BB32AE4SR0" />
   <generatedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\jesd_gts_reset_sequencer_intel_srcss_gts_401_467auiy.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\jesd_gts_reset_sequencer_intel_srcss_gts_401_467auiy.sv"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\jesd_gts_reset_sequencer_intel_srcss_gts_401_467auiy.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\jesd_gts_reset_sequencer_intel_srcss_gts_401_467auiy.sdc"
        attributes="NO_SDC_PROMOTION" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\intel_srcss_gts.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\intel_srcss_gts.sv"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\intel_ss_synchronizers.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\intel_ss_synchronizers.sv"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\sopc_synchronizer.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\sopc_synchronizer.v"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\jesd_gts_reset_sequencer_intel_srcss_gts_401_467auiy.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\jesd_gts_reset_sequencer_intel_srcss_gts_401_467auiy.sv"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\jesd_gts_reset_sequencer_intel_srcss_gts_401_467auiy.sdc"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\jesd_gts_reset_sequencer_intel_srcss_gts_401_467auiy.sdc"
        attributes="NO_SDC_PROMOTION" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\intel_srcss_gts.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\intel_srcss_gts.sv"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\intel_ss_synchronizers.sv"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\intel_ss_synchronizers.sv"
        attributes="" />
    <file
-       path="F:\projects\uchicago\artic_data_sync\hw\src\altera\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\sopc_synchronizer.v"
+       path="C:\Users\mob5419\RNO-G\git\fw-didaq-24-rno-g\src\altera_p2_board\jesd\jesd_gts_reset_sequencer\intel_srcss_gts_401\synth\sopc_synchronizer.v"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="F:/quartus/25.1.1_pro/ip/altera/alt_xcvr/intel_monolithic/reset_control/intel_srcss_gts/tcl/intel_srcss_gts_hw.tcl" />
+       path="C:/altera_pro/25.1.1/ip/altera/alt_xcvr/intel_monolithic/reset_control/intel_srcss_gts/tcl/intel_srcss_gts_hw.tcl" />
   </sourceFiles>
   <childSourceFiles/>
   <instantiator instantiator="jesd_gts_reset_sequencer" as="intel_srcss_gts_0" />
