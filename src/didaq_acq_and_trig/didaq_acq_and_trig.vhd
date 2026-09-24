@@ -582,7 +582,7 @@ inst_ring_buffer : ring_buffer
 	   wrclock    	=> clk_wr,                                                                           
       rdclock    	=> clk_rd,
       wren			=> internal_ram_wr_en when (internal_ram_connected_in='0') else '0',
-		rden			=> '1' when (internal_ram_wr_adr = "0000000001") else adc_fifo_rd_ack(i), -- reread 0 when 1 is written
+		rden			=> '1' when (internal_ram_connected_out = '0') else '0',
       rdaddress	=> internal_ram_rd_adr(i),
       wraddress	=> internal_ram_wr_adr,
 		data			=> internal_pretrig_data(i,191), --internal_ram_wr_data(i),
@@ -594,7 +594,7 @@ inst_ring_buffer_2 : ring_buffer
 	   wrclock    	=> clk_wr,                                                                           
       rdclock    	=> clk_rd,
       wren			=> internal_ram_wr_en when (internal_ram_connected_in='1') else '0',
-		rden			=> '1' when (internal_ram_wr_adr = "0000000001") else adc_fifo_rd_ack(i), -- reread 0 when 1 is written
+		rden			=> '1' when (internal_ram_connected_out = '1') else '0',
       rdaddress	=> internal_ram_rd_adr(i),
       wraddress	=> internal_ram_wr_adr,
 		data			=> internal_pretrig_data(i,191), --internal_ram_wr_data_2(i),
