@@ -155,11 +155,16 @@ signal internal_trig_data	  		: trig_data_type; --to trigger
 signal internal_trig_data_mf	  	: trig_data_type; --to trigger
 
 signal internal_ram_rd_data	  : wfm_data_type;
-signal internal_ram_wr_adr		  : std_logic_vector(9 downto 0); 
+signal internal_ram_rd_data_2	  : wfm_data_type;
+signal internal_ram_wr_adr		  : std_logic_vector(9 downto 0);
+signal internal_ram_connected_out: std_logic := '0';
+signal internal_ram_connected_in: std_logic := '0';
+signal internal_ram_has_data    : std_logic_vector(1 downto 0); 
 signal internal_posttrig_wr_adr : std_logic_vector(9 downto 0); --counter for saving post-trig data to ram
 signal internal_ram_rd_adr		  : ram_address_type;
 signal internal_ram_rd_adr_counter :  ram_address_type;
 signal last_event_trigger_ram_wr_adr : std_logic_vector(9 downto 0);   
+signal last_event_trigger_ram_wr_adr_2 : std_logic_vector(9 downto 0); 
 signal internal_ram_wr_state	  : std_logic_Vector(1 downto 0); 
 signal internal_ram_rd_state	  : std_logic_Vector(1 downto 0); 
 signal save_internal_event_metadata_flag : std_logic;                                   
@@ -196,11 +201,13 @@ signal posttrig_length					: std_logic_vector(31 downto 0);
 signal internal_trigger 		: std_logic_vector(7 downto 0); --for different trigger types 
 signal internal_trigger_last	: std_logic_vector(7 downto 0); --prev clock period version of above
 signal last_event_trigger_type: std_logic_vector(7 downto 0);
+signal last_event_trigger_type_2: std_logic_vector(7 downto 0);
 signal internal_trigger_or		: std_logic; --or of all triggers 
 signal internal_trigger_state : std_logic_vector(1 downto 0);
-signal internal_event_busy		: std_logic;  --event captured, don't accept new triggers until cleared by SBC
+signal internal_event_busy		: std_logic_vector(1 downto 0);  --event captured, don't accept new triggers until cleared by SBC
 signal internal_event_done		: std_logic;  --done signal comes from SBC to clear event_busy
-signal internal_event_ready	: std_logic;  --ready signal after data is in RAM, awaiting SBC read or clear
+signal internal_event_ready	: std_logic_vector(1 downto 0);  --ready signal after data is in RAM, awaiting SBC read or clear
+signal internal_event_switching: std_logic;
 signal internal_pps				: std_logic_vector(2 downto 0); --lsb is mf
 signal internal_pps_risedge	: std_logic; --rising edge capture
 signal internal_pps_trigclk	: std_logic_vector(2 downto 0); --lsb is mf
@@ -215,13 +222,21 @@ signal internal_clock_counter : std_logic_vector (31 downto 0);
 signal internal_clock_per_pps_counter_latched : std_logic_vector(31 downto 0); --//rolling count of wr clk cycles per pps cycle
 
 signal internal_event_counter	: std_logic_vector(31 downto 0);
+signal last_internal_event_counter	: std_logic_vector(31 downto 0);
+signal last_internal_event_counter_2	: std_logic_vector(31 downto 0);
 signal last_event_pps_counter	  : std_logic_vector(15 downto 0);
+signal last_event_pps_counter_2	  : std_logic_vector(15 downto 0);
 signal last_event_clock_counter : std_logic_vector (31 downto 0);
-signal last_coinc_trig_hit_pattern_trig_clk : std_logic_vector(23 downto 0);	
-signal last_coinc_trig_hit_pattern_wr_clk : std_logic_vector(23 downto 0);	
+signal last_event_clock_counter_2 : std_logic_vector (31 downto 0);
+signal last_coinc_trig_hit_pattern_trig_clk : std_logic_vector(23 downto 0);
+signal last_coinc_trig_hit_pattern_trig_clk_2 : std_logic_vector(23 downto 0);	
+signal last_coinc_trig_hit_pattern_wr_clk : std_logic_vector(23 downto 0);		
+signal last_coinc_trig_hit_pattern_wr_clk_2 : std_logic_vector(23 downto 0);		
 
 signal internal_last_beam_pattern_trig_clk : std_logic_vector(9 downto 0);
+signal internal_last_beam_pattern_trig_clk_2 : std_logic_vector(9 downto 0);
 signal internal_last_beam_pattern_wr_clk_latched : std_logic_vector(9 downto 0);
+signal internal_last_beam_pattern_wr_clk_latched_2 : std_logic_vector(9 downto 0);
 signal beam_trigs_for_scalers : std_logic_vector(9 downto 0); 
 signal beam_servos_for_scalers : std_logic_vector(9 downto 0); 
 
@@ -230,7 +245,7 @@ signal coinc_trig1_hit_singles : std_logic_vector(11 downto 0);
 
 begin
 ----------------------------------------------------------------
-event_ready_o <= internal_event_ready;
+event_ready_o <= internal_event_ready(0) and internal_event_ready(1);
 ----------------------------------------------------------------
 --clock input stuff into the clk_wr domain
 process(clk_wr,arstn)
@@ -285,6 +300,7 @@ begin
 		internal_trigger<= (others=>'0');
 		internal_trigger_last <= (others=>'0');
 		last_event_trigger_type <= (others=>'0');
+		last_event_trigger_type_2 <= (others=>'0');
 		internal_trigger_or <= '0';
 		internal_trigger_state <= "00";
 		internal_coinc_trig <= (others=>'0');
@@ -293,6 +309,7 @@ begin
 		internal_trigger<= (others=>'0');
 		internal_trigger_last <= (others=>'0');
 		last_event_trigger_type <= (others=>'0');
+		last_event_trigger_type_2 <= (others=>'0');
 		internal_trigger_or <= '0';
 		internal_trigger_state <= "00";
 		internal_coinc_trig <= (others=>'0');
@@ -307,31 +324,36 @@ begin
 											internal_coinc_trig(0) & internal_coinc_trig(1) & internal_phased_trig &
 											internal_swtrg_riseedge; 
 		
-		case internal_trigger_state is
+				case internal_trigger_state is
 			when "00" => --accept triggers
 										  
 				internal_trigger_or <= '0';	
-				last_event_trigger_type <= last_event_trigger_type;
+				--last_event_trigger_type <= last_event_trigger_type;
 				
-				if internal_trigger > 0 and internal_event_busy = '0' then
+				if internal_trigger > 0 and ((internal_event_busy(0) = '0' and internal_ram_connected_in = '0') or (internal_event_busy(1) = '0' and internal_ram_connected_in = '1')) then
 					internal_trigger_state <= internal_trigger_state + 1;
 				end if;
 			
 			when "01" =>  --sends event trigger, pulsed for two clock cycles
 				internal_trigger_or <= '1'; --trigger event
-				last_event_trigger_type <= internal_trigger_last;
+				if internal_ram_connected_in = '0' then
+					last_event_trigger_type <= internal_trigger_last;
+				else -- if internal_ram_connected_in = '1' then
+					last_event_trigger_type_2 <= internal_trigger_last;
+				end if;
+				
 				internal_trigger_state <= internal_trigger_state + 1;
 
 			when "10" => 	
 				internal_trigger_or <= '1'; --trigger event
-				last_event_trigger_type <= last_event_trigger_type;
+				--last_event_trigger_type <= last_event_trigger_type;
 				internal_trigger_state <= internal_trigger_state + 1;
 				
 			when "11" => 	--wait until event is cleared by sw
 				internal_trigger_or <= '0'; --trigger event
-				last_event_trigger_type <= last_event_trigger_type;
+				--last_event_trigger_type <= last_event_trigger_type;
 
-				if internal_event_busy = '0' then --//if trigger started event capture, wait until event is cleared to re-start
+				if ((internal_event_busy(0) = '0' and internal_ram_connected_in = '0') or (internal_event_busy(1) = '0' and internal_ram_connected_in = '1')) then --//if trigger started event capture, wait until event is cleared to re-start
 					internal_trigger_state <= internal_trigger_state + 1;	
 				end if;
 			when others=>
@@ -350,9 +372,12 @@ begin
 		last_event_trigger_ram_wr_adr <= (others=>'0'); --latched address when trigger occurs
 		internal_ram_wr_state <= "00";
 		internal_ram_wr_en <= '0';
-		internal_event_busy <= '0';
+		internal_event_busy <= "00";
 		internal_event_done <= '0';
-		internal_event_ready <= '0';
+		internal_event_ready <= "00";
+		internal_ram_connected_out <= '0';
+		internal_ram_connected_in <= '0';
+		internal_event_switching <= '0';
 		
 	elsif clk_wr'event and clk_wr = '1'and capture_ctrl_wr_domain(16) = '1' then	
 		internal_ram_wr_adr <= (others=>'0');
@@ -360,11 +385,14 @@ begin
 		last_event_trigger_ram_wr_adr <= (others=>'0'); --latched address when trigger occurs
 		internal_ram_wr_state <= "00";
 		internal_ram_wr_en <= '0';
-		internal_event_busy <= '0';
+		internal_event_busy <= "00";
 		internal_event_done <= '0';
-		internal_event_ready <= '0';
+		internal_event_ready <= "00";
+		internal_ram_connected_out <= '0';
+		internal_ram_connected_in <= '0';
+		internal_event_switching <= '0';
 
-	elsif clk_wr'event and clk_wr = '1' then	
+		elsif clk_wr'event and clk_wr = '1' then	
 		
 		internal_event_done <= capture_ctrl_wr_domain(8);
 		
@@ -373,55 +401,115 @@ begin
 				when "00"=> --//wait for trig
 					internal_ram_wr_adr <= (others=>'0');
 					internal_posttrig_wr_adr <= (others=>'0');
-					last_event_trigger_ram_wr_adr <= internal_ram_wr_adr; --track address until trigger
+					--last_event_trigger_ram_wr_adr <= internal_ram_wr_adr; --track address until trigger
 					internal_ram_wr_en <= '0';
-					internal_event_busy <= '0';
-					internal_event_ready <= '0';
-
+					if internal_ram_connected_in = '0' then
+					  internal_event_busy(0) <= '0';
+					  internal_event_ready(0) <= '0';
+					else -- if internal_ram_connected_in = '1' then
+						internal_event_busy(1) <= '0';
+						internal_event_ready(1) <= '0';
+					end if;
 					if internal_trigger_or = '1' then 
 						internal_ram_wr_state <= internal_ram_wr_state + 1;	
+						internal_ram_wr_en <= '1';
 					end if;
 					
 				when "01"=> --//write to ram
 					internal_ram_wr_adr <= internal_ram_wr_adr + 1;
 					internal_posttrig_wr_adr <= internal_posttrig_wr_adr + 1;
-					last_event_trigger_ram_wr_adr <= last_event_trigger_ram_wr_adr; 
+					--last_event_trigger_ram_wr_adr <= last_event_trigger_ram_wr_adr; //unchanged
 					internal_ram_wr_en <= '1';
-					internal_event_busy <= '1';
-					internal_event_ready <= '0';
+					if internal_ram_connected_in = '0' then
+					  internal_event_busy(0) <= '1';
+					  internal_event_ready(0) <= '0';
+					else -- if internal_ram_connected_in = '1' then
+						internal_event_busy(1) <= '1';
+						internal_event_ready(1) <= '0';
+					end if;
 
 					if internal_posttrig_wr_adr = 1023 then --fixed post trigger rn, eventually programmable maybe
 						internal_ram_wr_state <= internal_ram_wr_state + 1;	
+						internal_ram_wr_en <= '0';
 					end if;
 					
 				when "10"=> --// hold, wait until ready for next event	
 					internal_ram_wr_adr <= internal_ram_wr_adr;
 					internal_posttrig_wr_adr <= (others=>'0');
-					last_event_trigger_ram_wr_adr <= last_event_trigger_ram_wr_adr; 
+					--last_event_trigger_ram_wr_adr <= last_event_trigger_ram_wr_adr; //unchanged
 					internal_ram_wr_en <= '0';
-					internal_event_busy <= '1';
-					internal_event_ready <= '1'; --//ready for SBC 
+					if internal_ram_connected_in = '0' then
+					  internal_event_busy(0) <= '1';
+					  internal_event_ready(0) <= '1';
+					  last_event_trigger_ram_wr_adr <= internal_ram_wr_adr; --track address until trigger
+					else -- if internal_ram_connected_in = '1' then
+						internal_event_busy(1) <= '1';
+						internal_event_ready(1) <= '1';--//ready for SBC
+						last_event_trigger_ram_wr_adr_2 <= internal_ram_wr_adr; --track address until trigger
+					end if; 
 					
-					if internal_event_done = '1' then
-						internal_ram_wr_state <= internal_ram_wr_state + 1;
+					-- switch banks if free
+					if internal_ram_connected_in = '0' then
+						if internal_event_busy(1) = '0' then --if other bank is free
+							internal_ram_connected_in <= '1'; --switch banks
+							internal_ram_wr_state <= "00";
+						end if;
+					else -- if internal_ram_connected_in = '1' then
+						if internal_event_busy(0) = '0' then
+							internal_ram_connected_in <= '0'; --switch banks
+							internal_ram_wr_state <= "00";
+						end if;
 					end if;
 					
-				when "11"=> --//wait until event_done is cleared to re-start
-					internal_ram_wr_adr <= (others=>'0');
-					internal_posttrig_wr_adr <= (others=>'0');
-					last_event_trigger_ram_wr_adr <= last_event_trigger_ram_wr_adr;
-					internal_ram_wr_en <= '0';
-					internal_event_busy <= '1';
-					internal_event_ready <= '0';
-
-					--wait until event_done is cleared to go back to start
-					if internal_event_done = '0' then
-						internal_ram_wr_state <= internal_ram_wr_state + 1;	
-					end if;
+					--//original code for 1 ram bank
+					--if internal_event_done = '1' then
+					--	internal_ram_wr_state <= internal_ram_wr_state + 1;
+					--end if;
+					
+				--when "11"=> --//wait until event_done is cleared to re-start
+				--	internal_ram_wr_adr <= (others=>'0');
+				--	internal_posttrig_wr_adr <= (others=>'0');
+				--	--last_event_trigger_ram_wr_adr <= last_event_trigger_ram_wr_adr; //unchanged
+				--	if internal_ram_connected_in = '0' then
+				--	  internal_ram_wr_en(0) <= '0'
+				--	  internal_event_busy(0) <= '1';
+				--	  internal_event_ready(0) <= '0';
+				--	else
+				--		internal_ram_wr_en(1) <= '0';
+				--		internal_event_busy(1) <= '1';
+				--		internal_event_ready(1) <= '0';--//ready for SBC
+				--	end if;
+				--
+				--	--wait until event_done is cleared to go back to start
+				--	--if internal_event_done = '0' then
+				--	--	internal_ram_wr_state <= internal_ram_wr_state + 1;	
+				--	--end if;
 					
 				when others=>
 					internal_ram_wr_state  <= "00";
 			end case;
+			
+			--process reads
+			if internal_event_done = '1' and internal_event_switching = '0' then
+				if internal_ram_connected_out = '0' then
+					if internal_event_busy(0) = '1' and internal_event_ready(0) = '1' then
+						internal_event_ready(0) <= '0';
+						internal_event_busy(0) <= '0';
+						internal_ram_connected_out <= '1';
+						internal_event_switching <= '1';
+					end if;
+				else --if internal_ram_connected_out = '1' then
+					if internal_event_busy(1) = '1' and internal_event_ready(1) = '1' then
+						internal_event_ready(1) <= '0';
+						internal_event_busy(1) <= '0';
+						internal_ram_connected_out <= '0';
+						internal_event_switching <= '1';
+					end if;
+				end if;
+			elsif internal_event_done = '0' and internal_event_switching = '1' then
+				internal_event_switching <= '0';
+			end if;
+			
 	end if;
 end process;
 ----------------------------------------------------------------					
@@ -434,10 +522,14 @@ begin
 		internal_clock_counter 	<= (others=>'0');
 		internal_pps_counter		<= (others=>'0');
 		last_event_clock_counter<= (others=>'0');
+		last_event_clock_counter_2<= (others=>'0');
 		last_event_pps_counter	<= (others=>'0');
+		last_event_pps_counter_2	<= (others=>'0');
 		last_coinc_trig_hit_pattern_wr_clk <= (others=>'0');
+		last_coinc_trig_hit_pattern_wr_clk_2 <= (others=>'0');
 		internal_clock_per_pps_counter_latched  <= (others=>'0');
 		internal_last_beam_pattern_wr_clk_latched <= (others=>'0');
+		internal_last_beam_pattern_wr_clk_latched_2 <= (others=>'0');
 		
 	--//software run reset
 	elsif (clk_wr'event and clk_wr = '1') and capture_ctrl_wr_domain(16) = '1' then	
@@ -464,11 +556,21 @@ begin
 		
 		--latch meta data on trigger that initiates event
 		if internal_trigger_state = "10" then 
-			last_event_clock_counter <= internal_clock_counter;
-			last_event_pps_counter <= internal_pps_counter;
-			internal_event_counter <= internal_event_counter + 1;
-			last_coinc_trig_hit_pattern_wr_clk <= last_coinc_trig_hit_pattern_trig_clk;
-			internal_last_beam_pattern_wr_clk_latched <= internal_last_beam_pattern_trig_clk;
+		   if internal_ram_connected_in = '0' then
+				last_event_clock_counter <= internal_clock_counter;
+				last_event_pps_counter <= internal_pps_counter;
+				internal_event_counter <= internal_event_counter + 1;
+				last_internal_event_counter <= internal_event_counter + 1;
+				last_coinc_trig_hit_pattern_wr_clk <= last_coinc_trig_hit_pattern_trig_clk;
+				internal_last_beam_pattern_wr_clk_latched <= internal_last_beam_pattern_trig_clk;
+			else -- if internal_ram_connected_in = '1'
+				last_event_clock_counter_2 <= internal_clock_counter;
+				last_event_pps_counter_2 <= internal_pps_counter;
+				internal_event_counter <= internal_event_counter + 1;
+				last_internal_event_counter_2 <= internal_event_counter + 1;
+				last_coinc_trig_hit_pattern_wr_clk_2 <= last_coinc_trig_hit_pattern_trig_clk;
+				internal_last_beam_pattern_wr_clk_latched_2 <= internal_last_beam_pattern_trig_clk;
+			end if;
 		end if;
 	end if;
 end process;
@@ -479,12 +581,24 @@ inst_ring_buffer : ring_buffer
    port map(
 	   wrclock    	=> clk_wr,                                                                           
       rdclock    	=> clk_rd,
-      wren			=> internal_ram_wr_en,
-		rden			=> adc_fifo_rd_ack(i),
+      wren			=> internal_ram_wr_en when (internal_ram_connected_in='0') else '0',
+		rden			=> '1' when (internal_ram_connected_out = '0') else '0',
+      rdaddress	=> internal_ram_rd_adr(i),
+      wraddress	=> internal_ram_wr_adr,
+		data			=> internal_pretrig_data(i,191), --internal_ram_wr_data(i),
+		q				=> internal_ram_rd_data(i));
+end generate;
+gen_ring_buffer_rams_2 : for i in 0 to 23 generate 
+inst_ring_buffer_2 : ring_buffer
+  port map(
+	   wrclock    	=> clk_wr,                                                                           
+      rdclock    	=> clk_rd,
+      wren			=> internal_ram_wr_en when (internal_ram_connected_in='1') else '0',
+		rden			=> '1' when (internal_ram_connected_out = '1') else '0',
       rdaddress	=> internal_ram_rd_adr(i),
       wraddress	=> internal_ram_wr_adr,
 		data			=> internal_pretrig_data(i,191), --internal_ram_wr_data_2(i),
-		q				=> internal_ram_rd_data(i));
+		q				=> internal_ram_rd_data_2(i));
 end generate;
 ----------------------------------------------------------------
 --read ram ctrl
@@ -519,42 +633,84 @@ begin
 		last_evt_trig_adr_reg_o		<= (others=>'0');
 		capture_stat_reg_o			<= (others=>'0');
 	elsif clk_rd'event and clk_rd = '1' then
-		last_evt_evt_count_reg_o	<= internal_event_counter;  
-		last_evt_trig_count_reg_o	<= internal_event_counter;     
-		last_evt_deadtime_reg_o		<= (others=>'0');    
-		last_evt_clkcount_reg_o		<= last_event_clock_counter;   
-		last_evt_ppscount_reg_o		<= x"0000" & last_event_pps_counter;    
-		last_evt_metamisc1_reg_o	<= x"00" & last_coinc_trig_hit_pattern_wr_clk;     
-		last_evt_metamisc2_reg_o	<= x"0000" & "000000" & internal_last_beam_pattern_wr_clk_latched; --//beam trigger details here eventually
-		last_evt_trig_adr_reg_o		<= x"00" & last_event_trigger_type & "000000" & last_event_trigger_ram_wr_adr;
-		capture_stat_reg_o			<= x"000000" & "000000" & internal_event_ready & internal_event_busy;
+		if(internal_ram_connected_out = '0') then
+			last_evt_evt_count_reg_o	<= last_internal_event_counter;  
+			last_evt_trig_count_reg_o	<= last_internal_event_counter;     
+			last_evt_deadtime_reg_o		<= (others=>'0');    
+			last_evt_clkcount_reg_o		<= last_event_clock_counter;   
+			last_evt_ppscount_reg_o		<= x"0000" & last_event_pps_counter;    
+			last_evt_metamisc1_reg_o	<= x"00" & last_coinc_trig_hit_pattern_wr_clk;     
+			last_evt_metamisc2_reg_o	<= x"00000" & "00" & internal_last_beam_pattern_wr_clk_latched; --//beam trigger details here eventually
+			last_evt_trig_adr_reg_o		<= x"00" & last_event_trigger_type & "000000" & last_event_trigger_ram_wr_adr;
+			capture_stat_reg_o			<= x"000000" & "000000" & (internal_event_ready(0) or internal_event_ready(1)) & (internal_event_busy(0) and internal_event_busy(1));
+		else -- if(internal_ram_connected_out = '1') then
+			last_evt_evt_count_reg_o	<= last_internal_event_counter_2;  
+			last_evt_trig_count_reg_o	<= last_internal_event_counter_2;     
+			last_evt_deadtime_reg_o		<= (others=>'0');    
+			last_evt_clkcount_reg_o		<= last_event_clock_counter_2;   
+			last_evt_ppscount_reg_o		<= x"0000" & last_event_pps_counter_2;    
+			last_evt_metamisc1_reg_o	<= x"00" & last_coinc_trig_hit_pattern_wr_clk_2;     
+			last_evt_metamisc2_reg_o	<= x"00000" & "00" & internal_last_beam_pattern_wr_clk_latched_2; --//beam trigger details here eventually
+			last_evt_trig_adr_reg_o		<= x"00" & last_event_trigger_type_2 & "000000" & last_event_trigger_ram_wr_adr_2;
+			capture_stat_reg_o			<= x"000000" & "000000" & (internal_event_ready(0) or internal_event_ready(1)) & (internal_event_busy(0) and internal_event_busy(1));	
+		end if;
 	end if;
 end process;
 ----------------------------------------------------------------
-adc_0_fifo_data <= internal_ram_rd_data(0);
-adc_1_fifo_data <= internal_ram_rd_data(1);
-adc_2_fifo_data <= internal_ram_rd_data(2);
-adc_3_fifo_data <= internal_ram_rd_data(3);
-adc_4_fifo_data <= internal_ram_rd_data(4);
-adc_5_fifo_data <= internal_ram_rd_data(5);
-adc_6_fifo_data <= internal_ram_rd_data(6);
-adc_7_fifo_data <= internal_ram_rd_data(7);
-adc_8_fifo_data <= internal_ram_rd_data(8);
-adc_9_fifo_data <= internal_ram_rd_data(9);
-adc_10_fifo_data <= internal_ram_rd_data(10);
-adc_11_fifo_data <= internal_ram_rd_data(11);
-adc_12_fifo_data <= internal_ram_rd_data(12);
-adc_13_fifo_data <= internal_ram_rd_data(13);
-adc_14_fifo_data <= internal_ram_rd_data(14);
-adc_15_fifo_data <= internal_ram_rd_data(15);
-adc_16_fifo_data <= internal_ram_rd_data(16);
-adc_17_fifo_data <= internal_ram_rd_data(17);
-adc_18_fifo_data <= internal_ram_rd_data(18);
-adc_19_fifo_data <= internal_ram_rd_data(19);
-adc_20_fifo_data <= internal_ram_rd_data(20);
-adc_21_fifo_data <= internal_ram_rd_data(21);
-adc_22_fifo_data <= internal_ram_rd_data(22);
-adc_23_fifo_data <= internal_ram_rd_data(23);
+process(clk_rd,internal_ram_connected_out)
+begin
+	if internal_ram_connected_out = '0' then
+		adc_0_fifo_data <= internal_ram_rd_data(0);
+		adc_1_fifo_data <= internal_ram_rd_data(1);
+		adc_2_fifo_data <= internal_ram_rd_data(2);
+		adc_3_fifo_data <= internal_ram_rd_data(3);
+		adc_4_fifo_data <= internal_ram_rd_data(4);
+		adc_5_fifo_data <= internal_ram_rd_data(5);
+		adc_6_fifo_data <= internal_ram_rd_data(6);
+		adc_7_fifo_data <= internal_ram_rd_data(7);
+		adc_8_fifo_data <= internal_ram_rd_data(8);
+		adc_9_fifo_data <= internal_ram_rd_data(9);
+		adc_10_fifo_data <= internal_ram_rd_data(10);
+		adc_11_fifo_data <= internal_ram_rd_data(11);
+		adc_12_fifo_data <= internal_ram_rd_data(12);
+		adc_13_fifo_data <= internal_ram_rd_data(13);
+		adc_14_fifo_data <= internal_ram_rd_data(14);
+		adc_15_fifo_data <= internal_ram_rd_data(15);
+		adc_16_fifo_data <= internal_ram_rd_data(16);
+		adc_17_fifo_data <= internal_ram_rd_data(17);
+		adc_18_fifo_data <= internal_ram_rd_data(18);
+		adc_19_fifo_data <= internal_ram_rd_data(19);
+		adc_20_fifo_data <= internal_ram_rd_data(20);
+		adc_21_fifo_data <= internal_ram_rd_data(21);
+		adc_22_fifo_data <= internal_ram_rd_data(22);
+		adc_23_fifo_data <= internal_ram_rd_data(23);
+	else -- if internal_ram_connected_out = '1' then
+		adc_0_fifo_data <= internal_ram_rd_data_2(0);
+		adc_1_fifo_data <= internal_ram_rd_data_2(1);
+		adc_2_fifo_data <= internal_ram_rd_data_2(2);
+		adc_3_fifo_data <= internal_ram_rd_data_2(3);
+		adc_4_fifo_data <= internal_ram_rd_data_2(4);
+		adc_5_fifo_data <= internal_ram_rd_data_2(5);
+		adc_6_fifo_data <= internal_ram_rd_data_2(6);
+		adc_7_fifo_data <= internal_ram_rd_data_2(7);
+		adc_8_fifo_data <= internal_ram_rd_data_2(8);
+		adc_9_fifo_data <= internal_ram_rd_data_2(9);
+		adc_10_fifo_data <= internal_ram_rd_data_2(10);
+		adc_11_fifo_data <= internal_ram_rd_data_2(11);
+		adc_12_fifo_data <= internal_ram_rd_data_2(12);
+		adc_13_fifo_data <= internal_ram_rd_data_2(13);
+		adc_14_fifo_data <= internal_ram_rd_data_2(14);
+		adc_15_fifo_data <= internal_ram_rd_data_2(15);
+		adc_16_fifo_data <= internal_ram_rd_data_2(16);
+		adc_17_fifo_data <= internal_ram_rd_data_2(17);
+		adc_18_fifo_data <= internal_ram_rd_data_2(18);
+		adc_19_fifo_data <= internal_ram_rd_data_2(19);
+		adc_20_fifo_data <= internal_ram_rd_data_2(20);
+		adc_21_fifo_data <= internal_ram_rd_data_2(21);
+		adc_22_fifo_data <= internal_ram_rd_data_2(22);
+		adc_23_fifo_data <= internal_ram_rd_data_2(23);
+	end if;
+end process;
 ----------------------------------------------------------------
 process(clk_wr,arstn)
 begin
