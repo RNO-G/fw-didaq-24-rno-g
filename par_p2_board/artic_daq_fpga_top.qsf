@@ -1,9 +1,7 @@
-set_global_assignment -name TOP_LEVEL_ENTITY artic_daq_fpga_top
 set_location_assignment PIN_BC29 -to clk_gts_pll_ref[2] -disable
 set_location_assignment PIN_BC111 -to clk_gts_pll_ref[3] -disable
 set_location_assignment PIN_AY120 -to clk_gts_pll_ref[4] -disable
 set_location_assignment PIN_AT120 -to clk_gts_pll_ref[5] -disable
-set_global_assignment -name TOP_LEVEL_ENTITY artic_daq_fpga_top
 set_location_assignment PIN_BC29 -to clk_gts_pll_ref[2] -disable
 set_location_assignment PIN_BC111 -to clk_gts_pll_ref[3] -disable
 set_location_assignment PIN_AY120 -to clk_gts_pll_ref[4] -disable
