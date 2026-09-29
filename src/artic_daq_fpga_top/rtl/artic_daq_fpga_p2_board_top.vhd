@@ -77,7 +77,7 @@ use ieee.std_logic_unsigned.all;
 
 entity artic_daq_fpga_top is
    generic(
-      g_chip_rev             : std_logic_vector(31 downto 0) := X"7EA7002E";
+      g_chip_rev             : std_logic_vector(31 downto 0) := X"7EA80030";
       g_sample_width         : natural := 8;  -- Set to 8 or 9
       g_ser_debug_mult_sim   : natural := 1   -- will use faster baud rate by this factor
    );   
@@ -365,9 +365,11 @@ component spi_slave_reg_intfc is
       clk_pll_clkin_sel                  : out std_logic;
                                                                                    
       capture_ctrl           : out std_logic_vector(31 downto 0);      
-      capture_stat           : in  std_logic_vector(31 downto 0); 
+		capture_stat           : in  std_logic_vector(31 downto 0); 
       trigger_ctrl1				: out std_logic_vector(31 downto 0);  
-		trigger_ctrl2				: out std_logic_vector(31 downto 0);   
+		trigger_mask1				: out std_logic_vector(31 downto 0);
+		trigger_ctrl2				: out std_logic_vector(31 downto 0); 
+		trigger_mask2				: out std_logic_vector(31 downto 0);		
 		ptrigger_ctrl				: out std_logic_vector(31 downto 0); 
 		readout_ctrl				: out std_logic_vector(31 downto 0); 
 		posttrig_ctrl				: out std_logic_vector(31 downto 0); 
@@ -393,6 +395,8 @@ component spi_slave_reg_intfc is
 		beam_trig_thresh7		: out   std_logic_vector(31 downto 0);
 		beam_trig_thresh8		: out   std_logic_vector(31 downto 0);
 		beam_trig_thresh9		: out   std_logic_vector(31 downto 0);
+		beam_trig_thresh10	: out   std_logic_vector(31 downto 0);
+		beam_trig_thresh11	: out   std_logic_vector(31 downto 0);
 		last_evt_evt_count		: in  std_logic_vector(31 downto 0);      
 		last_evt_trig_count		: in  std_logic_vector(31 downto 0);      
 		last_evt_deadtime		: in  std_logic_vector(31 downto 0);     
@@ -470,8 +474,8 @@ component niosv_pd is
         reset_reset_n                                          : in  std_logic;         
         clk_clk                                                : in  std_logic;         
 
-        pd_debug_uart_txd                                      : out std_logic;                                         
-        pd_debug_uart_rxd                                      : in  std_logic;       
+        --pd_debug_uart_txd                                      : out std_logic;                                         
+        --pd_debug_uart_rxd                                      : in  std_logic;       
         
         --qspi_flash_dclk                                        : out   std_logic;                  
         --qspi_flash_ncs                                         : out   std_logic;                  
@@ -487,15 +491,25 @@ component niosv_pd is
         i2c_master_0_avl_mm_readdatavalid                      : in  std_logic;             
         i2c_master_0_avl_reset_reset                           : out std_logic;                                         
         
-        ser_debug_master_address                               : in  std_logic_vector(31 downto 0);
-        ser_debug_master_waitrequest                           : out std_logic;                                       
-        ser_debug_master_write                                 : in  std_logic;            
-        ser_debug_master_writedata                             : in  std_logic_vector(31 downto 0);
-        ser_debug_master_read                                  : in  std_logic;            
-        ser_debug_master_readdata                              : out std_logic_vector(31 downto 0);                   
-        ser_debug_master_readdatavalid                         : out std_logic;                                       
-        ser_debug_master_byteenable                            : in  std_logic_vector(3 downto 0);
-        ser_debug_master_reset_reset                           : out std_logic;                                       
+        tectonics_ser_debug_0_avalon_master_address             : in  std_logic_vector(31 downto 0);
+        tectonics_ser_debug_0_avalon_master_waitrequest         : out std_logic;                                       
+        tectonics_ser_debug_0_avalon_master_write               : in  std_logic;            
+        tectonics_ser_debug_0_avalon_master_writedata           : in  std_logic_vector(31 downto 0);
+        tectonics_ser_debug_0_avalon_master_read                : in  std_logic;            
+        tectonics_ser_debug_0_avalon_master_readdata            : out std_logic_vector(31 downto 0);                   
+        tectonics_ser_debug_0_avalon_master_readdatavalid       : out std_logic;                                       
+        tectonics_ser_debug_0_avalon_master_byteenable          : in  std_logic_vector(3 downto 0);
+        tectonics_ser_debug_0_reset_sink_reset                  : out std_logic;   
+
+        tectonics_ser_debug_1_avalon_master_address             : in  std_logic_vector(31 downto 0);
+        tectonics_ser_debug_1_avalon_master_waitrequest         : out std_logic;                                       
+        tectonics_ser_debug_1_avalon_master_write               : in  std_logic;            
+        tectonics_ser_debug_1_avalon_master_writedata           : in  std_logic_vector(31 downto 0);
+        tectonics_ser_debug_1_avalon_master_read                : in  std_logic;            
+        tectonics_ser_debug_1_avalon_master_readdata            : out std_logic_vector(31 downto 0);                   
+        tectonics_ser_debug_1_avalon_master_readdatavalid       : out std_logic;                                       
+        tectonics_ser_debug_1_avalon_master_byteenable          : in  std_logic_vector(3 downto 0);
+        tectonics_ser_debug_1_reset_sink_reset                  : out std_logic;  		  
                                                                                                                                      
         spi_master_0_avl_mm_address                            : out std_logic_vector(7 downto 0);                  
         spi_master_0_avl_mm_chipselect                         : out std_logic;                                     
@@ -762,9 +776,12 @@ component didaq_acq_and_trig is
       adc_22_fifo_data                   : out std_logic_vector(31 downto 0);                                           
       adc_23_fifo_data                   : out std_logic_vector(31 downto 0);  	
 		capture_ctrl_reg_i         : in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
-		capture_stat_reg_o         : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      				capture_stat               : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      
-		trigger_ctrl1_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
+		capture_stat_reg_o         : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      				
+		--capture_stat               : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      
+		trigger_ctrl1_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed) 
+		trigger_mask1_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed) 
 		trigger_ctrl2_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
+		trigger_mask2_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed) 
 		ptrigger_ctrl_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed) 
 		readout_ctrl_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain 
 		posttrig_ctrl_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)
@@ -790,6 +807,8 @@ component didaq_acq_and_trig is
 		beam_trig_thresh7_reg_i		: in   std_logic_vector(31 downto 0);
 		beam_trig_thresh8_reg_i		: in   std_logic_vector(31 downto 0);
 		beam_trig_thresh9_reg_i		: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh10_reg_i		: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh11_reg_i		: in   std_logic_vector(31 downto 0);
 		--event metadata:
 		last_evt_evt_count_reg_o	: out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)     
 		last_evt_trig_count_reg_o	: out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)     
@@ -849,7 +868,17 @@ signal ser_debug_master_readdata        : std_logic_vector(31 downto 0);
 signal ser_debug_master_readdatavalid   : std_logic;                    
 signal ser_debug_master_byteenable      : std_logic_vector(3 downto 0); 
 signal ser_debug_master_reset_reset     : std_logic;                    
-                                        
+                       
+signal ser_debug2_master_address         : std_logic_vector(31 downto 0);
+signal ser_debug2_master_waitrequest     : std_logic;                    
+signal ser_debug2_master_write           : std_logic;                    
+signal ser_debug2_master_writedata       : std_logic_vector(31 downto 0);
+signal ser_debug2_master_read            : std_logic;                    
+signal ser_debug2_master_readdata        : std_logic_vector(31 downto 0);
+signal ser_debug2_master_readdatavalid   : std_logic;                    
+signal ser_debug2_master_byteenable      : std_logic_vector(3 downto 0); 
+signal ser_debug2_master_reset_reset     : std_logic; 
+							  
 signal i2c_master_avl_reset_reset       : std_logic;    
 signal i2c_master_avl_address           : std_logic_vector(7 downto 0);                     
 signal i2c_master_avl_chipselect        : std_logic;                                        
@@ -943,7 +972,9 @@ type threshold_array_data_type          is array (0 to 11) of std_logic_vector(3
 signal capture_ctrl_reg          : std_logic_vector(31 downto 0);      
 signal capture_stat_reg          :  std_logic_vector(31 downto 0); 
 signal trigger_ctrl1_reg			:  std_logic_vector(31 downto 0);  
-signal trigger_ctrl2_reg			:  std_logic_vector(31 downto 0);   
+signal trigger_mask1_reg			:  std_logic_vector(31 downto 0);
+signal trigger_ctrl2_reg			:  std_logic_vector(31 downto 0);
+signal trigger_mask2_reg			:  std_logic_vector(31 downto 0);   
 signal ptrigger_ctrl_reg			:  std_logic_vector(31 downto 0); 
 signal readout_ctrl_reg				:  std_logic_vector(31 downto 0); 
 signal posttrig_ctrl_reg			:  std_logic_vector(31 downto 0); 
@@ -1142,23 +1173,34 @@ inst_nios_pd : niosv_pd
         reset_reset_n                                          => sys_reset_n,
         clk_clk                                                => clk_avl,
         
-        pd_debug_uart_txd                                      => sbc_uart_txd,
-        pd_debug_uart_rxd                                      => sbc_uart_rxd, 
+        --pd_debug_uart_txd                                      => sbc_uart_txd,
+        --pd_debug_uart_rxd                                      => sbc_uart_rxd, 
         
         --qspi_flash_dclk                                        => aux_qspi_flash_dclk,   
         --qspi_flash_ncs                                         => aux_qspi_flash_ncs, 
         --qspi_flash_data                                        => aux_qspi_flash_data,
-               
-        ser_debug_master_reset_reset                           => ser_debug_master_reset_reset,
-        ser_debug_master_address                               => ser_debug_master_address,      
-        ser_debug_master_waitrequest                           => ser_debug_master_waitrequest,  
-        ser_debug_master_write                                 => ser_debug_master_write,        
-        ser_debug_master_writedata                             => ser_debug_master_writedata,    
-        ser_debug_master_read                                  => ser_debug_master_read,         
-        ser_debug_master_readdata                              => ser_debug_master_readdata,     
-        ser_debug_master_readdatavalid                         => ser_debug_master_readdatavalid,
-        ser_debug_master_byteenable                            => ser_debug_master_byteenable,           
+              
+
+        tectonics_ser_debug_0_reset_sink_reset                  => ser_debug_master_reset_reset,
+        tectonics_ser_debug_0_avalon_master_address             => ser_debug_master_address,      
+        tectonics_ser_debug_0_avalon_master_waitrequest         => ser_debug_master_waitrequest,  
+        tectonics_ser_debug_0_avalon_master_write               => ser_debug_master_write,        
+        tectonics_ser_debug_0_avalon_master_writedata           => ser_debug_master_writedata,    
+        tectonics_ser_debug_0_avalon_master_read                => ser_debug_master_read,         
+        tectonics_ser_debug_0_avalon_master_readdata            => ser_debug_master_readdata,     
+        tectonics_ser_debug_0_avalon_master_readdatavalid       => ser_debug_master_readdatavalid,
+        tectonics_ser_debug_0_avalon_master_byteenable          => ser_debug_master_byteenable,           
         
+        tectonics_ser_debug_1_reset_sink_reset                  => ser_debug2_master_reset_reset,
+        tectonics_ser_debug_1_avalon_master_address             => ser_debug2_master_address,      
+        tectonics_ser_debug_1_avalon_master_waitrequest         => ser_debug2_master_waitrequest,  
+        tectonics_ser_debug_1_avalon_master_write               => ser_debug2_master_write,        
+        tectonics_ser_debug_1_avalon_master_writedata           => ser_debug2_master_writedata,    
+        tectonics_ser_debug_1_avalon_master_read                => ser_debug2_master_read,         
+        tectonics_ser_debug_1_avalon_master_readdata            => ser_debug2_master_readdata,     
+        tectonics_ser_debug_1_avalon_master_readdatavalid       => ser_debug2_master_readdatavalid,
+        tectonics_ser_debug_1_avalon_master_byteenable          => ser_debug2_master_byteenable,  
+		  
         i2c_master_0_avl_reset_reset                           => i2c_master_avl_reset_reset,
         i2c_master_0_avl_mm_address                            => i2c_master_avl_address,      
         i2c_master_0_avl_mm_chipselect                         => i2c_master_avl_chipselect,   
@@ -1442,8 +1484,10 @@ inst_spi_slave_reg_intfc : spi_slave_reg_intfc
       -- Interface to the RX ADC data buffer module
 		capture_ctrl       => capture_ctrl_reg,     
 		capture_stat       => capture_stat_reg,        
-		trigger_ctrl1		 => trigger_ctrl1_reg,	 
-		trigger_ctrl2		 => trigger_ctrl2_reg,		  
+		trigger_ctrl1		 => trigger_ctrl1_reg,	
+		trigger_mask1		 => trigger_mask1_reg,		
+		trigger_ctrl2		 => trigger_ctrl2_reg,
+		trigger_mask2		 => trigger_mask2_reg,			
 		ptrigger_ctrl		 => ptrigger_ctrl_reg,	 
 		readout_ctrl		=> readout_ctrl_reg,	
 		posttrig_ctrl		=> posttrig_ctrl_reg,
@@ -1469,6 +1513,8 @@ inst_spi_slave_reg_intfc : spi_slave_reg_intfc
 		beam_trig_thresh7		=> beam_trig_thresh_regs(7),
 		beam_trig_thresh8		=> beam_trig_thresh_regs(8),
 		beam_trig_thresh9		=> beam_trig_thresh_regs(9),
+		beam_trig_thresh10	=> beam_trig_thresh_regs(10),
+		beam_trig_thresh11	=> beam_trig_thresh_regs(11),
 		--event metadata:
 		last_evt_evt_count	=>   open, 
 		last_evt_trig_count	=>   last_evt_trig_count_reg,   
@@ -1697,7 +1743,33 @@ inst_tectonics_ser_debug : tectonics_ser_debug
       ser_rx                       =>  usb_uart_ser_in                     
                                                            
    );                                                       
-                                                                                         
+         
+inst_tectonics_ser_debug2 : tectonics_ser_debug
+   generic map(
+   
+      g_arst_pol           => '1',
+      g_ser_debug_mult_sim => g_ser_debug_mult_sim                            
+   )        
+   port map(
+   
+      arst                         => ser_debug2_master_reset_reset,                    
+      clk                          => clk_avl,                   
+      
+      -- Interface to the Avalon fabfic for writing as master device                                                     
+      avl_mstr_port_waitrequest    => ser_debug2_master_waitrequest,   
+      avl_mstr_port_byteenable     => ser_debug2_master_byteenable,       
+      avl_mstr_port_writedata      => ser_debug2_master_writedata,   
+      avl_mstr_port_address        => ser_debug2_master_address,         
+      avl_mstr_port_write          => ser_debug2_master_write,     
+      avl_mstr_port_read           => ser_debug2_master_read,          
+      avl_mstr_port_readdata       => ser_debug2_master_readdata,      
+      avl_mstr_port_readdatavalid  => ser_debug2_master_readdatavalid, 
+                                                                                                                     
+      -- The serial interface                                                                                                             
+      ser_tx                       =>  sbc_uart_txd,                     
+      ser_rx                       =>  sbc_uart_rxd                     
+                                                           
+   );  			
 
 -- This should be fine to use this async reset.
 adc_data_buffer_rstn <= not spi_slave_avl_reset_reset; 
@@ -1765,8 +1837,10 @@ inst_adc_data_and_trig_handler : didaq_acq_and_trig
 
 		capture_ctrl_reg_i       => capture_ctrl_reg,     
 		capture_stat_reg_o       => capture_stat_reg,        
-		trigger_ctrl1_reg_i		 => trigger_ctrl1_reg,	 
-		trigger_ctrl2_reg_i		 => trigger_ctrl2_reg,		  
+		trigger_ctrl1_reg_i		 => trigger_ctrl1_reg,
+		trigger_mask1_reg_i		 => trigger_mask1_reg,		
+		trigger_ctrl2_reg_i		 => trigger_ctrl2_reg,	
+		trigger_mask2_reg_i		 => trigger_mask2_reg,		
 		ptrigger_ctrl_reg_i		 => ptrigger_ctrl_reg,	 
 		readout_ctrl_reg_i		=> readout_ctrl_reg,	
 		posttrig_ctrl_reg_i		=> posttrig_ctrl_reg,
@@ -1792,6 +1866,8 @@ inst_adc_data_and_trig_handler : didaq_acq_and_trig
 		beam_trig_thresh7_reg_i		=> beam_trig_thresh_regs(7),
 		beam_trig_thresh8_reg_i		=> beam_trig_thresh_regs(8),
 		beam_trig_thresh9_reg_i		=> beam_trig_thresh_regs(9),
+		beam_trig_thresh10_reg_i	=> beam_trig_thresh_regs(10),
+		beam_trig_thresh11_reg_i	=> beam_trig_thresh_regs(11),
 		--event metadata:
 		last_evt_evt_count_reg_o	=>   open, 
 		last_evt_trig_count_reg_o	=>   last_evt_trig_count_reg,   

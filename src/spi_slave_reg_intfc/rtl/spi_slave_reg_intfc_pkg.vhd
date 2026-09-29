@@ -113,31 +113,34 @@ package spi_slave_reg_intfc_pkg is
    constant c_avl_scratch_pad_reg_addr         : natural  := 16#0036#;
 	--------------------------
 	--trigger stuff
-	constant c_trigger_ctrl_1_addr				: natural	:= 16#0038#;
-	constant c_trigger_ctrl_2_addr				: natural	:= 16#0039#;
-	constant c_trigger_thresh_00_addr			: natural	:= 16#003A#;
-	constant c_trigger_thresh_01_addr			: natural	:= 16#003B#;
-	constant c_trigger_thresh_02_addr			: natural	:= 16#003C#;
-	constant c_trigger_thresh_03_addr			: natural	:= 16#003D#;
-	constant c_trigger_thresh_04_addr			: natural	:= 16#003E#;
-	constant c_trigger_thresh_05_addr			: natural	:= 16#003F#;
-	constant c_trigger_thresh_06_addr			: natural	:= 16#0040#;
-	constant c_trigger_thresh_07_addr			: natural	:= 16#0041#;
-	constant c_trigger_thresh_08_addr			: natural	:= 16#0042#;
-	constant c_trigger_thresh_09_addr			: natural	:= 16#0043#;
-	constant c_trigger_thresh_10_addr			: natural	:= 16#0044#;
-	constant c_trigger_thresh_11_addr			: natural	:= 16#0045#;
-	constant c_phased_trig_ctrl_addr				: natural	:= 16#0046#;
-	constant c_beam_thresh_0_addr					: natural	:= 16#0047#;
-	constant c_beam_thresh_1_addr					: natural	:= 16#0048#;
-	constant c_beam_thresh_2_addr					: natural	:= 16#0049#;
-	constant c_beam_thresh_3_addr					: natural	:= 16#004A#;
-	constant c_beam_thresh_4_addr					: natural	:= 16#004B#;
-	constant c_beam_thresh_5_addr					: natural	:= 16#004C#;
-	constant c_beam_thresh_6_addr					: natural	:= 16#004D#;
- 	constant c_beam_thresh_7_addr					: natural	:= 16#004E#;
-	constant c_beam_thresh_8_addr					: natural	:= 16#004F#;
-	constant c_beam_thresh_9_addr					: natural	:= 16#0050#;
+	constant c_trigger_ctrl_1_addr				: natural	:= 16#0037#;
+	constant c_trigger_ctrl_2_addr				: natural	:= 16#0038#;
+	constant c_trigger_thresh_00_addr			: natural	:= 16#0039#;
+	constant c_trigger_thresh_01_addr			: natural	:= 16#003A#;
+	constant c_trigger_thresh_02_addr			: natural	:= 16#003B#;
+	constant c_trigger_thresh_03_addr			: natural	:= 16#003C#;
+	constant c_trigger_thresh_04_addr			: natural	:= 16#003D#;
+	constant c_trigger_thresh_05_addr			: natural	:= 16#003E#;
+	constant c_trigger_thresh_06_addr			: natural	:= 16#003F#;
+	constant c_trigger_thresh_07_addr			: natural	:= 16#0040#;
+	constant c_trigger_thresh_08_addr			: natural	:= 16#0041#;
+	constant c_trigger_thresh_09_addr			: natural	:= 16#0042#;
+	constant c_trigger_thresh_10_addr			: natural	:= 16#0043#;
+	constant c_trigger_thresh_11_addr			: natural	:= 16#0044#;
+	constant c_phased_trig_ctrl_addr				: natural	:= 16#0045#;
+	constant c_beam_thresh_0_addr					: natural	:= 16#0046#;
+	constant c_beam_thresh_1_addr					: natural	:= 16#0047#;
+	constant c_beam_thresh_2_addr					: natural	:= 16#0048#;
+	constant c_beam_thresh_3_addr					: natural	:= 16#0049#;
+	constant c_beam_thresh_4_addr					: natural	:= 16#004A#;
+	constant c_beam_thresh_5_addr					: natural	:= 16#004B#;
+	constant c_beam_thresh_6_addr					: natural	:= 16#004C#;
+ 	constant c_beam_thresh_7_addr					: natural	:= 16#004D#;
+	constant c_beam_thresh_8_addr					: natural	:= 16#004E#;
+	constant c_beam_thresh_9_addr					: natural	:= 16#004F#;
+	constant c_beam_thresh_10_addr				: natural	:= 16#0050#;
+	constant c_beam_thresh_11_addr				: natural	:= 16#0051#;
+
   	--event header stuff
 	constant c_lastevt_event_counter_addr		: natural	:= 16#0052#;
 	constant c_lastevt_trig_counter_addr		: natural	:= 16#0053#;
@@ -152,6 +155,9 @@ package spi_slave_reg_intfc_pkg is
 	--scalers
 	constant c_scaler_readout_addr				: natural	:= 16#005C#;
 	constant c_scaler_select_addr					: natural	:= 16#005D#;
+	
+	constant c_trigger_mask_1_addr				: natural	:= 16#0062#;
+	constant c_trigger_mask_2_addr				: natural	:= 16#0063#;
 
 
    
