@@ -55,7 +55,7 @@ architecture rtl of power_integration is
 	  end function;
   
 	 signal num_div: integer := get_div_val(INTERP_FACTOR);--can be calculated using -> integer(log2(real(phased_sum_length)));
-    constant round_val : unsigned(num_div-1 downto 0) :=  "10000";-- for 5 --"1000" for 4;
+    constant round_val : unsigned(num_div-1 downto 0) :=  "1000";-- "10000" for 5 --"1000" for 4;
 	 
     type phased_arr is array (NUM_BEAMS-1 downto 0,phased_sum_length-1 downto 0) of signed(phased_sum_bits-1 downto 0);-- range 0 to 2**phased_sum_bits-1; --phased sum... log2(16*8)=7bits
     signal phased_beam_waves: phased_arr:= (others=>(others=>(others=>'0')));

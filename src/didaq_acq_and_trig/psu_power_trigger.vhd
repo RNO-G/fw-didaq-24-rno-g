@@ -271,15 +271,37 @@ begin
     --    end generate;
     --end generate;
 
-    --connect upsampling to beamforming
-    --beaming_i<=upsampling_o;
-	 
-	 assign_beamforming_io: for ch in 0 to NUM_PA_CHANNELS-1 generate
+    xLowpass: entity work.lowpass
+    generic map(
+        SAMPLE_LENGTH   => SAMPLE_LENGTH,
+   	    NUM_SAMPLES     => NUM_SAMPLES,
+	    NUM_PA_CHANNELS => NUM_PA_CHANNELS
+    )
+    port map (
+        rst_i       => rst_i,
+        clk_data_i  => clk_data_i,
+        enable_i    => internal_phased_trig_en,
+        ch_data_i   => upsampling_i,
+        ch_data_o   => upsampling_o
+    );
+
+    --comment these generates if using dedispersion
+    assign_upsampling_io: for ch in 0 to NUM_PA_CHANNELS-1 generate
         assign_sams_i: for i in 0 to NUM_SAMPLES-1 generate
-            beaming_i(ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*(i+1)-1 downto ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*i)
+            upsampling_i(ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*(i+1)-1 downto ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*i)
                 <= std_logic_vector(streaming_data(ch,i));
         end generate;
     end generate;
+
+    --connect upsampling to beamforming
+    beaming_i<=upsampling_o;
+	 
+	-- assign_beamforming_io: for ch in 0 to NUM_PA_CHANNELS-1 generate
+    --    assign_sams_i: for i in 0 to NUM_SAMPLES-1 generate
+    --        beaming_i(ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*(i+1)-1 downto ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*i)
+    --            <= std_logic_vector(streaming_data(ch,i));
+    --    end generate;
+    --end generate;
 
     xBeamforming: entity work.beamforming
     generic map (
@@ -456,7 +478,7 @@ begin
 	 
     internal_trigger_channel_mask <= channel_mask_i;
 
-	 trig_bits_o <= servoing_beam & phased_servo_reg(0) & triggering_beam & phased_trigger_reg(0);
+	trig_bits_o <= servoing_beam & phased_servo_reg(0) & triggering_beam & phased_trigger_reg(0);
 	 
 	 -- they're all on the same clock so lets just ignore the sync
 	 /*
