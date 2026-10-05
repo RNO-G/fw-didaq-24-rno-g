@@ -100,7 +100,7 @@ begin
 				end loop;
 			end loop;
 
-		  if rst_i = '1' or enable_i = '1' then
+		  if rst_i = '1' or enable_i = '0' then
 				int_up <= (others=>(others=>(others=>(others=>'0'))));
 				interp_data <= (others=>(others=>(others=>'0')));
 				int_up_first <= (others=>(others=>(others=>'0')));
