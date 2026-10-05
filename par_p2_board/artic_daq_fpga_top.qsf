@@ -526,6 +526,7 @@ set_global_assignment -name IP_FILE ../src/altera_p2_board/ram/ring_buffer.ip
 set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/psu_upsampling.vhdl
 set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/psu_power_trigger.vhd
 set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/psu_power_lut_8.vhdl
+set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/psu_lowpass.vhdl
 set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/psu_power_integration.vhdl
 set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/psu_beamforming.vhdl
 set_global_assignment -name VHDL_FILE ../src/didaq_acq_and_trig/didaq_acq_and_trig.vhd
