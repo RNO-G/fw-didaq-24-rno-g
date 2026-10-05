@@ -1093,11 +1093,11 @@ inst_coinc_trig1 : entity work.coinc_trig
     generic map(
         station_number      => x"0b",
         SAMPLE_LENGTH       => 8,
-		  NUM_SAMPLES         => 8, 
-		  NUM_PA_CHANNELS     => 4, 
-		  INTERP_FACTOR       => 2, 
+		NUM_SAMPLES         => 8, 
+		NUM_PA_CHANNELS     => 4, 
+		INTERP_FACTOR       => 1, 
         INT_SAMPLE_LENGTH   => 8,
-        NUM_POWERS          => 4, 
+        NUM_POWERS          => 2, 
         POWER_LENGTH        => 16, 
         SWAP_CHANNELS       => '1' 
     )
