@@ -5,11 +5,9 @@ par_p2_board/GTS_system_PLL/*
 par_p2_board/qdb/*
 par_p2_board/tmp-clearbox/*
 par_p2_board/output_files/*
-src/altera_p2_board/jesd/jesd204b_core/hal_top_2100/synth/*
-src/altera_p2_board/jesd/jesd204b_core/intel_directphy_gts_900/synth/*
-src/altera_p2_board/jesd/jesd204b_core/intel_jesd204b_gts_400/synth/*
-src/altera_p2_board/jesd/jesd204b_core/intel_directphy_gts_900/sim/*
-src/altera_p2_board/jesd/jesd204b_core/intel_jesd204b_gts_400/sim/*
+
+sim/
+synth/
 
 *.rpt
 *.bak
@@ -34,8 +32,7 @@ src/altera_p2_board/jesd/jesd204b_core/intel_jesd204b_gts_400/sim/*
 *.legacy
 *.json
 
-src/altera_p2_board/niosv/ip/niosv_pd/niosv_pd_intel_generic_serial_flash_interface_top_0/altera_avalon_sc_fifo_1932/sim/*
-src/altera_p2_board/niosv/ip/niosv_pd/niosv_pd_intel_generic_serial_flash_interface_top_0/altera_avalon_sc_fifo_1932/synth/*
+src/altera_p2_board/niosv/ip/niosv_pd/niosv_pd_intel_generic_serial_flash_interface_top_0
 src/altera_p2_board/niosv/ip/*
 
 par_p2_board/artic_daq_fpga_top.qptc

@@ -71,9 +71,12 @@ entity didaq_acq_and_trig is
       adc_23_fifo_data                   : out std_logic_vector(31 downto 0);  
 		
 		capture_ctrl_reg_i         : in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
-		capture_stat_reg_o         : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      				capture_stat               : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      
+		capture_stat_reg_o         : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      				
+		--capture_stat               : out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)      
 		trigger_ctrl1_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
+		trigger_mask1_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
 		trigger_ctrl2_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
+		trigger_mask2_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)  
 		ptrigger_ctrl_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed) 
 		readout_ctrl_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain 
 		posttrig_ctrl_reg_i			: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)
@@ -89,16 +92,18 @@ entity didaq_acq_and_trig is
 		coinc_trigger_thresh9_reg_i : in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)	
 		coinc_trigger_thresh10_reg_i: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed)
 		coinc_trigger_thresh11_reg_i: in   std_logic_vector(31 downto 0); -- In clk_avs domain (this module will convert to other domain as needed) 
-		beam_trig_thresh0_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh1_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh2_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh3_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh4_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh5_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh6_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh7_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh8_reg_i		: in   std_logic_vector(31 downto 0);
-		beam_trig_thresh9_reg_i		: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh0_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh1_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh2_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh3_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh4_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh5_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh6_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh7_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh8_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh9_reg_i			: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh10_reg_i		: in   std_logic_vector(31 downto 0);
+		beam_trig_thresh11_reg_i		: in   std_logic_vector(31 downto 0);
 		--event metadata:
 		last_evt_evt_count_reg_o	: out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)     
 		last_evt_trig_count_reg_o	: out  std_logic_vector(31 downto 0); -- In clk_avs domain (this module converts to this domain before sending)     
@@ -139,8 +144,8 @@ constant pre_trig_depth : integer := 192;
 type wfm_data_type is array (0 to 23) of std_logic_vector(31 downto 0);   
 type pre_trig_wfm_data_type is array(0 to 23, 0 to pre_trig_depth-1) of std_logic_vector(31 downto 0);
 type trig_data_type is array (0 to 23) of std_logic_vector(63 downto 0);  
-type coinc_threshold_type is array(0 to 23) of std_logic_vector(7 downto 0);
-type beam_threshold_type is array(0 to 9) of std_logic_vector(15 downto 0);                 
+type coinc_threshold_type is array(0 to 23) of std_logic_vector(15 downto 0);
+type beam_threshold_type is array(11 downto 0) of std_logic_vector(15 downto 0);                 
 type ram_address_type is array(0 to 23) of std_logic_vector(9 downto 0);                 
                
 --
@@ -155,11 +160,16 @@ signal internal_trig_data	  		: trig_data_type; --to trigger
 signal internal_trig_data_mf	  	: trig_data_type; --to trigger
 
 signal internal_ram_rd_data	  : wfm_data_type;
-signal internal_ram_wr_adr		  : std_logic_vector(9 downto 0); 
+signal internal_ram_rd_data_2	  : wfm_data_type;
+signal internal_ram_wr_adr		  : std_logic_vector(9 downto 0);
+signal internal_ram_connected_out: std_logic := '0';
+signal internal_ram_connected_in: std_logic := '0';
+signal internal_ram_has_data    : std_logic_vector(1 downto 0); 
 signal internal_posttrig_wr_adr : std_logic_vector(9 downto 0); --counter for saving post-trig data to ram
 signal internal_ram_rd_adr		  : ram_address_type;
 signal internal_ram_rd_adr_counter :  ram_address_type;
 signal last_event_trigger_ram_wr_adr : std_logic_vector(9 downto 0);   
+signal last_event_trigger_ram_wr_adr_2 : std_logic_vector(9 downto 0); 
 signal internal_ram_wr_state	  : std_logic_Vector(1 downto 0); 
 signal internal_ram_rd_state	  : std_logic_Vector(1 downto 0); 
 signal save_internal_event_metadata_flag : std_logic;                                   
@@ -179,16 +189,20 @@ signal capture_ctrl_trig_domain_mf		: std_logic_vector(31 downto 0);
 signal capture_ctrl_trig_domain			: std_logic_vector(31 downto 0);
 signal trigger_ctrl1_trig_domain_mf 	: std_logic_vector(31 downto 0);
 signal trigger_ctrl1_trig_domain    	: std_logic_vector(31 downto 0);
+signal trigger_mask1_trig_domain_mf 	: std_logic_vector(31 downto 0);
+signal trigger_mask1_trig_domain    	: std_logic_vector(31 downto 0);
 signal trigger_ctrl2_trig_domain_mf 	: std_logic_vector(31 downto 0);
 signal trigger_ctrl2_trig_domain    	: std_logic_vector(31 downto 0);
+signal trigger_mask2_trig_domain_mf 	: std_logic_vector(31 downto 0);
+signal trigger_mask2_trig_domain    	: std_logic_vector(31 downto 0);
 signal ptrigger_ctrl_trig_domain_mf 	: std_logic_vector(31 downto 0);
 signal ptrigger_ctrl_trig_domain    	: std_logic_vector(31 downto 0);
 signal coinc_trig_threshold_mf		: coinc_threshold_type;
 signal coinc_trig_threshold			: coinc_threshold_type;
-signal beam_trig_threshold_mf			: beam_threshold_type;
-signal beam_trig_threshold				: beam_threshold_type;
-signal beam_servo_threshold_mf		: beam_threshold_type;
-signal beam_servo_threshold			: beam_threshold_type;
+signal beam_trig_threshold_mf			: beam_threshold_type := (others=>(others=>'0'));
+signal beam_trig_threshold				: beam_threshold_type := (others=>(others=>'0'));
+signal beam_servo_threshold_mf		: beam_threshold_type := (others=>(others=>'0'));
+signal beam_servo_threshold			: beam_threshold_type := (others=>(others=>'0'));
 
 signal posttrig_length_mf				: std_logic_vector(31 downto 0);
 signal posttrig_length					: std_logic_vector(31 downto 0);
@@ -196,41 +210,64 @@ signal posttrig_length					: std_logic_vector(31 downto 0);
 signal internal_trigger 		: std_logic_vector(7 downto 0); --for different trigger types 
 signal internal_trigger_last	: std_logic_vector(7 downto 0); --prev clock period version of above
 signal last_event_trigger_type: std_logic_vector(7 downto 0);
+signal last_event_trigger_type_2: std_logic_vector(7 downto 0);
 signal internal_trigger_or		: std_logic; --or of all triggers 
 signal internal_trigger_state : std_logic_vector(1 downto 0);
-signal internal_event_busy		: std_logic;  --event captured, don't accept new triggers until cleared by SBC
+signal internal_event_busy		: std_logic_vector(1 downto 0);  --event captured, don't accept new triggers until cleared by SBC
 signal internal_event_done		: std_logic;  --done signal comes from SBC to clear event_busy
-signal internal_event_ready	: std_logic;  --ready signal after data is in RAM, awaiting SBC read or clear
+signal internal_event_ready	: std_logic_vector(1 downto 0);  --ready signal after data is in RAM, awaiting SBC read or clear
+signal internal_event_switching: std_logic;
 signal internal_pps				: std_logic_vector(2 downto 0); --lsb is mf
 signal internal_pps_risedge	: std_logic; --rising edge capture
 signal internal_pps_trigclk	: std_logic_vector(2 downto 0); --lsb is mf
 signal internal_ext_risedge	: std_logic; --rising edge capture 
 signal internal_swtrg_riseedge: std_logic; --rising edge capture of sw trig
 signal internal_ext				: std_logic_vector(2 downto 0); --lsb is mf
-signal internal_coinc_trig		: std_logic_vector(1 downto 0); --left and right coinc. trig options
-signal internal_coinc_trig_mf	: std_logic_vector(1 downto 0); --left and right coinc. trig options
-signal internal_phased_trig	: std_logic;
+
 signal internal_pps_counter	: std_logic_vector(15 downto 0);
 signal internal_clock_counter : std_logic_vector (31 downto 0);
 signal internal_clock_per_pps_counter_latched : std_logic_vector(31 downto 0); --//rolling count of wr clk cycles per pps cycle
 
 signal internal_event_counter	: std_logic_vector(31 downto 0);
+signal last_internal_event_counter	: std_logic_vector(31 downto 0);
+signal last_internal_event_counter_2	: std_logic_vector(31 downto 0);
 signal last_event_pps_counter	  : std_logic_vector(15 downto 0);
+signal last_event_pps_counter_2	  : std_logic_vector(15 downto 0);
 signal last_event_clock_counter : std_logic_vector (31 downto 0);
-signal last_coinc_trig_hit_pattern_trig_clk : std_logic_vector(23 downto 0);	
-signal last_coinc_trig_hit_pattern_wr_clk : std_logic_vector(23 downto 0);	
+signal last_event_clock_counter_2 : std_logic_vector (31 downto 0);
 
-signal internal_last_beam_pattern_trig_clk : std_logic_vector(9 downto 0);
-signal internal_last_beam_pattern_wr_clk_latched : std_logic_vector(9 downto 0);
-signal beam_trigs_for_scalers : std_logic_vector(9 downto 0); 
-signal beam_servos_for_scalers : std_logic_vector(9 downto 0); 
+signal internal_coinc_trig		: std_logic_vector(1 downto 0); --left and right coinc. trig options
+signal internal_coinc_trig_last		: std_logic_vector(1 downto 0); --left and right coinc. trig options
+signal coinc_hit_pattern_trig_clk : std_logic_vector(23 downto 0);
+signal coinc_hit_pattern_wr_clk : std_logic_vector(23 downto 0);
+signal coinc_hit_pattern_wr_clk_latched : std_logic_vector(23 downto 0);
+signal coinc_hit_pattern_wr_clk_latched_2 : std_logic_vector(23 downto 0);
 
+signal internal_phased_trig	: std_logic;
+signal internal_phased_trig_last	: std_logic;
+signal beam_pattern_trig_clk : std_logic_vector(11 downto 0);
+signal beam_pattern_wr_clk : std_logic_vector(11 downto 0);
+signal beam_pattern_wr_clk_latched : std_logic_vector(11 downto 0);
+signal beam_pattern_wr_clk_latched_2 : std_logic_vector(11 downto 0);
+
+signal beam_trigs_for_scalers : std_logic_vector(11 downto 0) := (others=>'0'); 
+signal beam_servos_for_scalers : std_logic_vector(11 downto 0) := (others=>'0'); 
 signal coinc_trig0_hit_singles : std_logic_vector(11 downto 0);
 signal coinc_trig1_hit_singles : std_logic_vector(11 downto 0);
+signal coinc_hit_singles : std_logic_vector(23 downto 0);
+
+signal psu_trig_thresholds : std_logic_vector(12*16-1 downto 0) := (others=>'1');
+signal psu_servo_thresholds : std_logic_vector(12*16-1 downto 0) := (others=> '1');
+
+signal psu_scalers : std_logic_vector(25 downto 0) := (others=>'0');
+signal psu_beam_pattern : std_logic_vector(11 downto 0) := (others=>'0');
+
+signal psu_coinc_ch_data_24 : std_logic_vector(24*8*8-1 downto 0) := (others=>'0');
+signal psu_coinc_trig_thresholds : std_logic_vector(24*16-1 downto 0) := (others=>'0');
 
 begin
 ----------------------------------------------------------------
-event_ready_o <= internal_event_ready;
+event_ready_o <= internal_event_ready(0) and internal_event_ready(1);
 ----------------------------------------------------------------
 --clock input stuff into the clk_wr domain
 process(clk_wr,arstn)
@@ -285,53 +322,106 @@ begin
 		internal_trigger<= (others=>'0');
 		internal_trigger_last <= (others=>'0');
 		last_event_trigger_type <= (others=>'0');
+		last_event_trigger_type_2 <= (others=>'0');
 		internal_trigger_or <= '0';
 		internal_trigger_state <= "00";
-		internal_coinc_trig <= (others=>'0');
+		internal_coinc_trig_last <= (others=>'0');
+		internal_phased_trig_last <= '0';
+		coinc_hit_pattern_wr_clk <= (others=>'0');
+		coinc_hit_pattern_wr_clk_latched <= (others=>'0');
+		beam_pattern_wr_clk <= (others=>'0');
+		beam_pattern_wr_clk_latched <= (others=>'0');
+		
 	--//software run reset
 	elsif clk_wr'event and clk_wr = '1' and capture_ctrl_wr_domain(16) = '1' then	
 		internal_trigger<= (others=>'0');
 		internal_trigger_last <= (others=>'0');
 		last_event_trigger_type <= (others=>'0');
+		last_event_trigger_type_2 <= (others=>'0');
 		internal_trigger_or <= '0';
 		internal_trigger_state <= "00";
-		internal_coinc_trig <= (others=>'0');
-		
+		internal_coinc_trig_last <= (others=>'0');
+		internal_coinc_trig_last <= (others=>'0');
+		internal_phased_trig_last <= '0';
+		coinc_hit_pattern_wr_clk <= (others=>'0');
+		coinc_hit_pattern_wr_clk_latched <= (others=>'0');
+		beam_pattern_wr_clk <= (others=>'0');
+		beam_pattern_wr_clk_latched <= (others=>'0');
+	
 	elsif clk_wr'event and clk_wr = '1' then	
 		
-		internal_coinc_trig <= internal_coinc_trig_mf; --//from coinc. trig modules
-		
-		internal_trigger_last <= internal_trigger;
 		internal_trigger <= "00" & (internal_pps_risedge and capture_ctrl_wr_domain(24)) &
 											(internal_ext_risedge and capture_ctrl_wr_domain(25)) &
 											internal_coinc_trig(0) & internal_coinc_trig(1) & internal_phased_trig &
 											internal_swtrg_riseedge; 
+		internal_trigger_last <= internal_trigger;
+		
+		internal_coinc_trig_last <= internal_coinc_trig;
+		internal_phased_trig_last <= internal_phased_trig;
+
+		coinc_hit_pattern_wr_clk <= coinc_hit_pattern_trig_clk;
+		beam_pattern_wr_clk <= beam_pattern_trig_clk;
 		
 		case internal_trigger_state is
 			when "00" => --accept triggers
 										  
 				internal_trigger_or <= '0';	
-				last_event_trigger_type <= last_event_trigger_type;
+				--last_event_trigger_type <= last_event_trigger_type;
 				
-				if internal_trigger > 0 and internal_event_busy = '0' then
+				if internal_trigger > 0 and ((internal_event_busy(0) = '0' and internal_ram_connected_in = '0') or (internal_event_busy(1) = '0' and internal_ram_connected_in = '1')) then
 					internal_trigger_state <= internal_trigger_state + 1;
+					last_event_trigger_type <= internal_trigger;
+
+					if internal_ram_connected_in = '0' then
+						if internal_coinc_trig_last(0) = '1' or internal_coinc_trig_last(1) = '1' then
+							coinc_hit_pattern_wr_clk_latched <= coinc_hit_pattern_wr_clk;
+						else
+							coinc_hit_pattern_wr_clk_latched <= (others=>'0');
+						end if;
+
+						if internal_phased_trig_last = '1' then
+							beam_pattern_wr_clk_latched <= beam_pattern_wr_clk;
+						else
+							beam_pattern_wr_clk_latched <= (others=>'0');
+						end if;
+					else -- if internal_ram_connected_in = '1'
+						if internal_coinc_trig_last(0) = '1' or internal_coinc_trig_last(1) = '1' then
+							coinc_hit_pattern_wr_clk_latched_2 <= coinc_hit_pattern_wr_clk;
+						else
+							coinc_hit_pattern_wr_clk_latched_2 <= (others=>'0');
+						end if;
+
+						if internal_phased_trig_last = '1' then
+							beam_pattern_wr_clk_latched_2 <= beam_pattern_wr_clk;
+						else
+							beam_pattern_wr_clk_latched_2 <= (others=>'0');
+						end if;
+					end if;
+				else
+					last_event_trigger_type <= last_event_trigger_type;
 				end if;
 			
 			when "01" =>  --sends event trigger, pulsed for two clock cycles
 				internal_trigger_or <= '1'; --trigger event
-				last_event_trigger_type <= internal_trigger_last;
+
+				if internal_ram_connected_in = '0' then
+					last_event_trigger_type <= last_event_trigger_type;
+				else -- if internal_ram_connected_in = '1' then
+					last_event_trigger_type_2 <= last_event_trigger_type;
+				end if;
+
 				internal_trigger_state <= internal_trigger_state + 1;
 
 			when "10" => 	
 				internal_trigger_or <= '1'; --trigger event
-				last_event_trigger_type <= last_event_trigger_type;
+				--last_event_trigger_type <= last_event_trigger_type;
 				internal_trigger_state <= internal_trigger_state + 1;
 				
 			when "11" => 	--wait until event is cleared by sw
 				internal_trigger_or <= '0'; --trigger event
-				last_event_trigger_type <= last_event_trigger_type;
+				--last_event_trigger_type <= last_event_trigger_type;
 
-				if internal_event_busy = '0' then --//if trigger started event capture, wait until event is cleared to re-start
+				if ((internal_event_busy(0) = '0' and internal_ram_connected_in = '0') or (internal_event_busy(1) = '0' and internal_ram_connected_in = '1')) then --//if trigger started event capture, wait until event is cleared to re-start
 					internal_trigger_state <= internal_trigger_state + 1;	
 				end if;
 			when others=>
@@ -350,9 +440,12 @@ begin
 		last_event_trigger_ram_wr_adr <= (others=>'0'); --latched address when trigger occurs
 		internal_ram_wr_state <= "00";
 		internal_ram_wr_en <= '0';
-		internal_event_busy <= '0';
+		internal_event_busy <= "00";
 		internal_event_done <= '0';
-		internal_event_ready <= '0';
+		internal_event_ready <= "00";
+		internal_ram_connected_out <= '0';
+		internal_ram_connected_in <= '0';
+		internal_event_switching <= '0';
 		
 	elsif clk_wr'event and clk_wr = '1'and capture_ctrl_wr_domain(16) = '1' then	
 		internal_ram_wr_adr <= (others=>'0');
@@ -360,11 +453,14 @@ begin
 		last_event_trigger_ram_wr_adr <= (others=>'0'); --latched address when trigger occurs
 		internal_ram_wr_state <= "00";
 		internal_ram_wr_en <= '0';
-		internal_event_busy <= '0';
+		internal_event_busy <= "00";
 		internal_event_done <= '0';
-		internal_event_ready <= '0';
+		internal_event_ready <= "00";
+		internal_ram_connected_out <= '0';
+		internal_ram_connected_in <= '0';
+		internal_event_switching <= '0';
 
-	elsif clk_wr'event and clk_wr = '1' then	
+		elsif clk_wr'event and clk_wr = '1' then	
 		
 		internal_event_done <= capture_ctrl_wr_domain(8);
 		
@@ -373,55 +469,91 @@ begin
 				when "00"=> --//wait for trig
 					internal_ram_wr_adr <= (others=>'0');
 					internal_posttrig_wr_adr <= (others=>'0');
-					last_event_trigger_ram_wr_adr <= internal_ram_wr_adr; --track address until trigger
+					--last_event_trigger_ram_wr_adr <= internal_ram_wr_adr; --track address until trigger
 					internal_ram_wr_en <= '0';
-					internal_event_busy <= '0';
-					internal_event_ready <= '0';
-
+					if internal_ram_connected_in = '0' then
+					  internal_event_busy(0) <= '0';
+					  internal_event_ready(0) <= '0';
+					else -- if internal_ram_connected_in = '1' then
+						internal_event_busy(1) <= '0';
+						internal_event_ready(1) <= '0';
+					end if;
 					if internal_trigger_or = '1' then 
 						internal_ram_wr_state <= internal_ram_wr_state + 1;	
+						internal_ram_wr_en <= '1';
 					end if;
 					
 				when "01"=> --//write to ram
 					internal_ram_wr_adr <= internal_ram_wr_adr + 1;
 					internal_posttrig_wr_adr <= internal_posttrig_wr_adr + 1;
-					last_event_trigger_ram_wr_adr <= last_event_trigger_ram_wr_adr; 
+					--last_event_trigger_ram_wr_adr <= last_event_trigger_ram_wr_adr; //unchanged
 					internal_ram_wr_en <= '1';
-					internal_event_busy <= '1';
-					internal_event_ready <= '0';
+					if internal_ram_connected_in = '0' then
+					  internal_event_busy(0) <= '1';
+					  internal_event_ready(0) <= '0';
+					else -- if internal_ram_connected_in = '1' then
+						internal_event_busy(1) <= '1';
+						internal_event_ready(1) <= '0';
+					end if;
 
 					if internal_posttrig_wr_adr = 1023 then --fixed post trigger rn, eventually programmable maybe
 						internal_ram_wr_state <= internal_ram_wr_state + 1;	
+						internal_ram_wr_en <= '0';
 					end if;
 					
 				when "10"=> --// hold, wait until ready for next event	
 					internal_ram_wr_adr <= internal_ram_wr_adr;
 					internal_posttrig_wr_adr <= (others=>'0');
-					last_event_trigger_ram_wr_adr <= last_event_trigger_ram_wr_adr; 
+					--last_event_trigger_ram_wr_adr <= last_event_trigger_ram_wr_adr; //unchanged
 					internal_ram_wr_en <= '0';
-					internal_event_busy <= '1';
-					internal_event_ready <= '1'; --//ready for SBC 
+					if internal_ram_connected_in = '0' then
+					  internal_event_busy(0) <= '1';
+					  internal_event_ready(0) <= '1';
+					  last_event_trigger_ram_wr_adr <= internal_ram_wr_adr; --track address until trigger
+					else -- if internal_ram_connected_in = '1' then
+						internal_event_busy(1) <= '1';
+						internal_event_ready(1) <= '1';--//ready for SBC
+						last_event_trigger_ram_wr_adr_2 <= internal_ram_wr_adr; --track address until trigger
+					end if; 
 					
-					if internal_event_done = '1' then
-						internal_ram_wr_state <= internal_ram_wr_state + 1;
+					-- switch banks if free
+					if internal_ram_connected_in = '0' then
+						if internal_event_busy(1) = '0' then --if other bank is free
+							internal_ram_connected_in <= '1'; --switch banks
+							internal_ram_wr_state <= "00";
+						end if;
+					else -- if internal_ram_connected_in = '1' then
+						if internal_event_busy(0) = '0' then
+							internal_ram_connected_in <= '0'; --switch banks
+							internal_ram_wr_state <= "00";
+						end if;
 					end if;
-					
-				when "11"=> --//wait until event_done is cleared to re-start
-					internal_ram_wr_adr <= (others=>'0');
-					internal_posttrig_wr_adr <= (others=>'0');
-					last_event_trigger_ram_wr_adr <= last_event_trigger_ram_wr_adr;
-					internal_ram_wr_en <= '0';
-					internal_event_busy <= '1';
-					internal_event_ready <= '0';
 
-					--wait until event_done is cleared to go back to start
-					if internal_event_done = '0' then
-						internal_ram_wr_state <= internal_ram_wr_state + 1;	
-					end if;
-					
 				when others=>
 					internal_ram_wr_state  <= "00";
 			end case;
+			
+			--process reads
+			if internal_event_done = '1' and internal_event_switching = '0' then
+				if internal_ram_connected_out = '0' then
+					if internal_event_busy(0) = '1' and internal_event_ready(0) = '1' then
+						internal_event_ready(0) <= '0';
+						internal_event_busy(0) <= '0';
+						internal_ram_connected_out <= '1';
+						internal_event_switching <= '1';
+					end if;
+				else --if internal_ram_connected_out = '1' then
+					if internal_event_busy(1) = '1' and internal_event_ready(1) = '1' then
+						internal_event_ready(1) <= '0';
+						internal_event_busy(1) <= '0';
+						internal_ram_connected_out <= '0';
+						internal_event_switching <= '1';
+					end if;
+				end if;
+			elsif internal_event_done = '0' and internal_event_switching = '1' then
+				internal_event_switching <= '0';
+			end if;
+			
 	end if;
 end process;
 ----------------------------------------------------------------					
@@ -430,25 +562,25 @@ end process;
 process(clk_wr,arstn)
 begin
    if arstn = '0' then
-		internal_event_counter 	<= (others=>'0');
-		internal_clock_counter 	<= (others=>'0');
+		internal_event_counter 		<= (others=>'0');
+		internal_clock_counter 		<= (others=>'0');
 		internal_pps_counter		<= (others=>'0');
-		last_event_clock_counter<= (others=>'0');
-		last_event_pps_counter	<= (others=>'0');
-		last_coinc_trig_hit_pattern_wr_clk <= (others=>'0');
+		last_event_clock_counter	<= (others=>'0');
+		last_event_clock_counter_2	<= (others=>'0');
+		last_event_pps_counter		<= (others=>'0');
+		last_event_pps_counter_2	<= (others=>'0');
 		internal_clock_per_pps_counter_latched  <= (others=>'0');
-		internal_last_beam_pattern_wr_clk_latched <= (others=>'0');
-		
+
 	--//software run reset
 	elsif (clk_wr'event and clk_wr = '1') and capture_ctrl_wr_domain(16) = '1' then	
-		internal_event_counter 	<= (others=>'0');
-		internal_clock_counter 	<= (others=>'0');
+		internal_event_counter 		<= (others=>'0');
+		internal_clock_counter 		<= (others=>'0');
 		internal_pps_counter		<= (others=>'0');
-		last_event_clock_counter<= (others=>'0');
-		last_event_pps_counter	<= (others=>'0');
-		last_coinc_trig_hit_pattern_wr_clk <= (others=>'0');
+		last_event_clock_counter 	<= (others=>'0');
+		last_event_clock_counter_2 	<= (others=>'0');
+		last_event_pps_counter		<= (others=>'0');
+		last_event_pps_counter_2	<= (others=>'0');
 		internal_clock_per_pps_counter_latched  <= (others=>'0');
-		internal_last_beam_pattern_wr_clk_latched <= (others=>'0');
 
 	elsif clk_wr'event and clk_wr = '1' then
 		--increment/reset timing counters on rising edge of pps
@@ -462,13 +594,19 @@ begin
 			internal_clock_counter <= internal_clock_counter + 1; 
 		end if;
 		
-		--latch meta data on trigger that initiates event
+		--latch counter meta data on trigger that initiates event
 		if internal_trigger_state = "10" then 
-			last_event_clock_counter <= internal_clock_counter;
-			last_event_pps_counter <= internal_pps_counter;
-			internal_event_counter <= internal_event_counter + 1;
-			last_coinc_trig_hit_pattern_wr_clk <= last_coinc_trig_hit_pattern_trig_clk;
-			internal_last_beam_pattern_wr_clk_latched <= internal_last_beam_pattern_trig_clk;
+		   if internal_ram_connected_in = '0' then
+				last_event_clock_counter <= internal_clock_counter;
+				last_event_pps_counter <= internal_pps_counter;
+				internal_event_counter <= internal_event_counter + 1;
+				last_internal_event_counter <= internal_event_counter + 1;
+			else -- if internal_ram_connected_in = '1'
+				last_event_clock_counter_2 <= internal_clock_counter;
+				last_event_pps_counter_2 <= internal_pps_counter;
+				internal_event_counter <= internal_event_counter + 1;
+				last_internal_event_counter_2 <= internal_event_counter + 1;
+			end if;
 		end if;
 	end if;
 end process;
@@ -479,12 +617,24 @@ inst_ring_buffer : ring_buffer
    port map(
 	   wrclock    	=> clk_wr,                                                                           
       rdclock    	=> clk_rd,
-      wren			=> internal_ram_wr_en,
-		rden			=> adc_fifo_rd_ack(i),
+      wren			=> internal_ram_wr_en when (internal_ram_connected_in='0') else '0',
+		rden			=> '1' when (internal_ram_connected_out = '0') else '0',
+      rdaddress	=> internal_ram_rd_adr(i),
+      wraddress	=> internal_ram_wr_adr,
+		data			=> internal_pretrig_data(i,191), --internal_ram_wr_data(i),
+		q				=> internal_ram_rd_data(i));
+end generate;
+gen_ring_buffer_rams_2 : for i in 0 to 23 generate 
+inst_ring_buffer_2 : ring_buffer
+  port map(
+	   wrclock    	=> clk_wr,                                                                           
+      rdclock    	=> clk_rd,
+      wren			=> internal_ram_wr_en when (internal_ram_connected_in='1') else '0',
+		rden			=> '1' when (internal_ram_connected_out = '1') else '0',
       rdaddress	=> internal_ram_rd_adr(i),
       wraddress	=> internal_ram_wr_adr,
 		data			=> internal_pretrig_data(i,191), --internal_ram_wr_data_2(i),
-		q				=> internal_ram_rd_data(i));
+		q				=> internal_ram_rd_data_2(i));
 end generate;
 ----------------------------------------------------------------
 --read ram ctrl
@@ -519,42 +669,84 @@ begin
 		last_evt_trig_adr_reg_o		<= (others=>'0');
 		capture_stat_reg_o			<= (others=>'0');
 	elsif clk_rd'event and clk_rd = '1' then
-		last_evt_evt_count_reg_o	<= internal_event_counter;  
-		last_evt_trig_count_reg_o	<= internal_event_counter;     
-		last_evt_deadtime_reg_o		<= (others=>'0');    
-		last_evt_clkcount_reg_o		<= last_event_clock_counter;   
-		last_evt_ppscount_reg_o		<= x"0000" & last_event_pps_counter;    
-		last_evt_metamisc1_reg_o	<= x"00" & last_coinc_trig_hit_pattern_wr_clk;     
-		last_evt_metamisc2_reg_o	<= x"0000" & "000000" & internal_last_beam_pattern_wr_clk_latched; --//beam trigger details here eventually
-		last_evt_trig_adr_reg_o		<= x"00" & last_event_trigger_type & "000000" & last_event_trigger_ram_wr_adr;
-		capture_stat_reg_o			<= x"000000" & "000000" & internal_event_ready & internal_event_busy;
+		if(internal_ram_connected_out = '0') then
+			last_evt_evt_count_reg_o	<= last_internal_event_counter;  
+			last_evt_trig_count_reg_o	<= last_internal_event_counter;     
+			last_evt_deadtime_reg_o		<= (others=>'0');    
+			last_evt_clkcount_reg_o		<= last_event_clock_counter;   
+			last_evt_ppscount_reg_o		<= x"0000" & last_event_pps_counter;    
+			last_evt_metamisc1_reg_o	<= x"00" & coinc_hit_pattern_wr_clk_latched;     
+			last_evt_metamisc2_reg_o	<= x"00000" & beam_pattern_wr_clk_latched; --//beam trigger details here eventually
+			last_evt_trig_adr_reg_o		<= x"00" & last_event_trigger_type & "000000" & last_event_trigger_ram_wr_adr;
+			capture_stat_reg_o			<= x"000000" & "000000" & (internal_event_ready(0) or internal_event_ready(1)) & (internal_event_busy(0) and internal_event_busy(1));
+		else -- if(internal_ram_connected_out = '1') then
+			last_evt_evt_count_reg_o	<= last_internal_event_counter_2;  
+			last_evt_trig_count_reg_o	<= last_internal_event_counter_2;     
+			last_evt_deadtime_reg_o		<= (others=>'0');    
+			last_evt_clkcount_reg_o		<= last_event_clock_counter_2;   
+			last_evt_ppscount_reg_o		<= x"0000" & last_event_pps_counter_2;    
+			last_evt_metamisc1_reg_o	<= x"00" & coinc_hit_pattern_wr_clk_latched_2;     
+			last_evt_metamisc2_reg_o	<= x"00000" & beam_pattern_wr_clk_latched_2; --//beam trigger details here eventually
+			last_evt_trig_adr_reg_o		<= x"00" & last_event_trigger_type_2 & "000000" & last_event_trigger_ram_wr_adr_2;
+			capture_stat_reg_o			<= x"000000" & "000001" & (internal_event_ready(0) or internal_event_ready(1)) & (internal_event_busy(0) and internal_event_busy(1));	
+		end if;
 	end if;
 end process;
 ----------------------------------------------------------------
-adc_0_fifo_data <= internal_ram_rd_data(0);
-adc_1_fifo_data <= internal_ram_rd_data(1);
-adc_2_fifo_data <= internal_ram_rd_data(2);
-adc_3_fifo_data <= internal_ram_rd_data(3);
-adc_4_fifo_data <= internal_ram_rd_data(4);
-adc_5_fifo_data <= internal_ram_rd_data(5);
-adc_6_fifo_data <= internal_ram_rd_data(6);
-adc_7_fifo_data <= internal_ram_rd_data(7);
-adc_8_fifo_data <= internal_ram_rd_data(8);
-adc_9_fifo_data <= internal_ram_rd_data(9);
-adc_10_fifo_data <= internal_ram_rd_data(10);
-adc_11_fifo_data <= internal_ram_rd_data(11);
-adc_12_fifo_data <= internal_ram_rd_data(12);
-adc_13_fifo_data <= internal_ram_rd_data(13);
-adc_14_fifo_data <= internal_ram_rd_data(14);
-adc_15_fifo_data <= internal_ram_rd_data(15);
-adc_16_fifo_data <= internal_ram_rd_data(16);
-adc_17_fifo_data <= internal_ram_rd_data(17);
-adc_18_fifo_data <= internal_ram_rd_data(18);
-adc_19_fifo_data <= internal_ram_rd_data(19);
-adc_20_fifo_data <= internal_ram_rd_data(20);
-adc_21_fifo_data <= internal_ram_rd_data(21);
-adc_22_fifo_data <= internal_ram_rd_data(22);
-adc_23_fifo_data <= internal_ram_rd_data(23);
+process(clk_rd,internal_ram_connected_out)
+begin
+	if internal_ram_connected_out = '0' then
+		adc_0_fifo_data <= internal_ram_rd_data(0);
+		adc_1_fifo_data <= internal_ram_rd_data(1);
+		adc_2_fifo_data <= internal_ram_rd_data(2);
+		adc_3_fifo_data <= internal_ram_rd_data(3);
+		adc_4_fifo_data <= internal_ram_rd_data(4);
+		adc_5_fifo_data <= internal_ram_rd_data(5);
+		adc_6_fifo_data <= internal_ram_rd_data(6);
+		adc_7_fifo_data <= internal_ram_rd_data(7);
+		adc_8_fifo_data <= internal_ram_rd_data(8);
+		adc_9_fifo_data <= internal_ram_rd_data(9);
+		adc_10_fifo_data <= internal_ram_rd_data(10);
+		adc_11_fifo_data <= internal_ram_rd_data(11);
+		adc_12_fifo_data <= internal_ram_rd_data(12);
+		adc_13_fifo_data <= internal_ram_rd_data(13);
+		adc_14_fifo_data <= internal_ram_rd_data(14);
+		adc_15_fifo_data <= internal_ram_rd_data(15);
+		adc_16_fifo_data <= internal_ram_rd_data(16);
+		adc_17_fifo_data <= internal_ram_rd_data(17);
+		adc_18_fifo_data <= internal_ram_rd_data(18);
+		adc_19_fifo_data <= internal_ram_rd_data(19);
+		adc_20_fifo_data <= internal_ram_rd_data(20);
+		adc_21_fifo_data <= internal_ram_rd_data(21);
+		adc_22_fifo_data <= internal_ram_rd_data(22);
+		adc_23_fifo_data <= internal_ram_rd_data(23);
+	else -- if internal_ram_connected_out = '1' then
+		adc_0_fifo_data <= internal_ram_rd_data_2(0);
+		adc_1_fifo_data <= internal_ram_rd_data_2(1);
+		adc_2_fifo_data <= internal_ram_rd_data_2(2);
+		adc_3_fifo_data <= internal_ram_rd_data_2(3);
+		adc_4_fifo_data <= internal_ram_rd_data_2(4);
+		adc_5_fifo_data <= internal_ram_rd_data_2(5);
+		adc_6_fifo_data <= internal_ram_rd_data_2(6);
+		adc_7_fifo_data <= internal_ram_rd_data_2(7);
+		adc_8_fifo_data <= internal_ram_rd_data_2(8);
+		adc_9_fifo_data <= internal_ram_rd_data_2(9);
+		adc_10_fifo_data <= internal_ram_rd_data_2(10);
+		adc_11_fifo_data <= internal_ram_rd_data_2(11);
+		adc_12_fifo_data <= internal_ram_rd_data_2(12);
+		adc_13_fifo_data <= internal_ram_rd_data_2(13);
+		adc_14_fifo_data <= internal_ram_rd_data_2(14);
+		adc_15_fifo_data <= internal_ram_rd_data_2(15);
+		adc_16_fifo_data <= internal_ram_rd_data_2(16);
+		adc_17_fifo_data <= internal_ram_rd_data_2(17);
+		adc_18_fifo_data <= internal_ram_rd_data_2(18);
+		adc_19_fifo_data <= internal_ram_rd_data_2(19);
+		adc_20_fifo_data <= internal_ram_rd_data_2(20);
+		adc_21_fifo_data <= internal_ram_rd_data_2(21);
+		adc_22_fifo_data <= internal_ram_rd_data_2(22);
+		adc_23_fifo_data <= internal_ram_rd_data_2(23);
+	end if;
+end process;
 ----------------------------------------------------------------
 process(clk_wr,arstn)
 begin
@@ -647,8 +839,12 @@ begin
 		capture_ctrl_trig_domain			<= (others => '0');
 		trigger_ctrl1_trig_domain_mf 	<= (others => '0');
 		trigger_ctrl1_trig_domain    	<= (others => '0');
+		trigger_mask1_trig_domain_mf 	<= (others => '0');
+		trigger_mask1_trig_domain    	<= (others => '0');
 		trigger_ctrl2_trig_domain_mf 	<= (others => '0');
 		trigger_ctrl2_trig_domain    	<= (others => '0');
+		trigger_mask2_trig_domain_mf 	<= (others => '0');
+		trigger_mask2_trig_domain    	<= (others => '0');
 		ptrigger_ctrl_trig_domain_mf 	<= (others => '0');
 		ptrigger_ctrl_trig_domain    	<= (others => '0');
 		internal_pps_trigclk				<= (others => '0');
@@ -659,7 +855,7 @@ begin
 			internal_trig_data(i)				<= (others => '0');
 			internal_trig_data_mf(i)			<= (others => '0');
 		end loop;
-		for i in 0 to 9 loop
+		for i in 0 to 11 loop
 			beam_trig_threshold_mf(i)			<= (others => '0');
 			beam_trig_threshold(i)				<= (others => '0');
 			beam_servo_threshold_mf(i)			<= (others => '0');
@@ -673,35 +869,39 @@ begin
 		
 		trigger_ctrl1_trig_domain_mf 	<= trigger_ctrl1_reg_i;
 		trigger_ctrl1_trig_domain 		<= trigger_ctrl1_trig_domain_mf;
+		trigger_mask1_trig_domain_mf 	<= trigger_mask1_reg_i;
+		trigger_mask1_trig_domain 		<= trigger_mask1_trig_domain_mf;
 		trigger_ctrl2_trig_domain_mf 	<= trigger_ctrl2_reg_i;
 		trigger_ctrl2_trig_domain 		<= trigger_ctrl2_trig_domain_mf;
+		trigger_mask2_trig_domain_mf 	<= trigger_mask2_reg_i;
+		trigger_mask2_trig_domain 		<= trigger_mask2_trig_domain_mf;
 		ptrigger_ctrl_trig_domain_mf 	<= ptrigger_ctrl_reg_i;
 		ptrigger_ctrl_trig_domain 		<= ptrigger_ctrl_trig_domain_mf;
 		
-		coinc_trig_threshold_mf(0)	<= coinc_trigger_thresh0_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(1)	<= coinc_trigger_thresh0_reg_i(23 downto 16);
- 		coinc_trig_threshold_mf(2)	<= coinc_trigger_thresh1_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(3)	<= coinc_trigger_thresh1_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(4)	<= coinc_trigger_thresh2_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(5)	<= coinc_trigger_thresh2_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(6)	<= coinc_trigger_thresh3_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(7)	<= coinc_trigger_thresh3_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(8)	<= coinc_trigger_thresh4_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(9)	<= coinc_trigger_thresh4_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(10)	<= coinc_trigger_thresh5_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(11)	<= coinc_trigger_thresh5_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(12)	<= coinc_trigger_thresh6_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(13)	<= coinc_trigger_thresh6_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(14)	<= coinc_trigger_thresh7_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(15)	<= coinc_trigger_thresh7_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(16)	<= coinc_trigger_thresh8_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(17)	<= coinc_trigger_thresh8_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(18)	<= coinc_trigger_thresh9_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(19)	<= coinc_trigger_thresh9_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(20)	<= coinc_trigger_thresh10_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(21)	<= coinc_trigger_thresh10_reg_i(23 downto 16);
-		coinc_trig_threshold_mf(22)	<= coinc_trigger_thresh11_reg_i(7 downto 0);
-		coinc_trig_threshold_mf(23)	<= coinc_trigger_thresh11_reg_i(23 downto 16);
+		coinc_trig_threshold_mf(0)	<= coinc_trigger_thresh0_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(1)	<= coinc_trigger_thresh0_reg_i(31 downto 16);
+ 		coinc_trig_threshold_mf(2)	<= coinc_trigger_thresh1_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(3)	<= coinc_trigger_thresh1_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(4)	<= coinc_trigger_thresh2_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(5)	<= coinc_trigger_thresh2_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(6)	<= coinc_trigger_thresh3_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(7)	<= coinc_trigger_thresh3_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(8)	<= coinc_trigger_thresh4_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(9)	<= coinc_trigger_thresh4_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(10)	<= coinc_trigger_thresh5_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(11)	<= coinc_trigger_thresh5_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(12)	<= coinc_trigger_thresh6_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(13)	<= coinc_trigger_thresh6_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(14)	<= coinc_trigger_thresh7_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(15)	<= coinc_trigger_thresh7_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(16)	<= coinc_trigger_thresh8_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(17)	<= coinc_trigger_thresh8_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(18)	<= coinc_trigger_thresh9_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(19)	<= coinc_trigger_thresh9_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(20)	<= coinc_trigger_thresh10_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(21)	<= coinc_trigger_thresh10_reg_i(31 downto 16);
+		coinc_trig_threshold_mf(22)	<= coinc_trigger_thresh11_reg_i(15 downto 0);
+		coinc_trig_threshold_mf(23)	<= coinc_trigger_thresh11_reg_i(31 downto 16);
 		for i in 0 to 23 loop
 			coinc_trig_threshold(i)	<= coinc_trig_threshold_mf(i);
 			internal_trig_data(i) <= internal_trig_data_mf(i);
@@ -729,13 +929,61 @@ begin
 		beam_servo_threshold_mf(8) 	<= beam_trig_thresh8_reg_i(31 downto 16);
 		beam_trig_threshold_mf(9) 		<= beam_trig_thresh9_reg_i(15 downto 0);
 		beam_servo_threshold_mf(9) 	<= beam_trig_thresh9_reg_i(31 downto 16);
-		for i in 0 to 9 loop
+		beam_trig_threshold_mf(10) 	<= beam_trig_thresh10_reg_i(15 downto 0);
+		beam_servo_threshold_mf(10) 	<= beam_trig_thresh10_reg_i(31 downto 16);
+		beam_trig_threshold_mf(11) 	<= beam_trig_thresh11_reg_i(15 downto 0);
+		beam_servo_threshold_mf(11) 	<= beam_trig_thresh11_reg_i(31 downto 16);
+		for i in 0 to 11 loop
 			beam_trig_threshold(i)	<= beam_trig_threshold_mf(i);
 			beam_servo_threshold(i)	<= beam_servo_threshold_mf(i);
 		end loop;
 	end if;
 end process;
 --------------------------------------
+
+xWaveformMap : for i in 0 to 23 generate
+	psu_coinc_ch_data_24((i+1)*8*8-1 downto i*8*8) <= internal_trig_data(i);
+	psu_coinc_trig_thresholds((i+1)*16-1 downto i*16) <= coinc_trig_threshold(i);
+end generate;
+
+inst_coinc_pow_trig : entity work.coinc_triggers_24_ch
+	generic map(
+		NUM_CHANNELS => 24,
+		SAMPLE_LENGTH => 8,
+		NUM_SAMPLES => 8
+		)
+	port map(
+		rst_i						=> not arstn,
+		clk_i						=> clk_trig,
+		ch_data_i				=> psu_coinc_ch_data_24,
+		ch_data_valid_i		=> (others=>'1'),
+
+		trig_0_enable_i		=> trigger_ctrl1_trig_domain(0),
+		trig_0_out_en_i		=> trigger_ctrl1_trig_domain(1),
+		trig_0_ch_mask_i		=> trigger_mask1_trig_domain(23 downto 0),
+
+		trig_1_enable_i		=> trigger_ctrl2_trig_domain(0),
+		trig_1_out_en_i		=> trigger_ctrl2_trig_domain(1),
+		trig_1_ch_mask_i		=> trigger_mask2_trig_domain(23 downto 0),
+
+		trig_0_coinc_window_i	=>	trigger_ctrl1_trig_domain(11 downto 7),
+		trig_1_coinc_window_i	=> trigger_ctrl2_trig_domain(11 downto 7),
+		trig_0_num_coinc_i		=> trigger_ctrl1_trig_domain(6 downto 2),	
+		trig_1_num_coinc_i		=> trigger_ctrl2_trig_domain(6 downto 2),
+
+		trig_0_num_over_t_i => trigger_ctrl1_trig_domain(15 downto 12),
+		trig_1_num_over_t_i => trigger_ctrl2_trig_domain(15 downto 12),
+
+		trig_thresholds_i	=> psu_coinc_trig_thresholds,
+
+		trig_bits_o			=> coinc_hit_singles,
+		trig_0_o				=> internal_coinc_trig(0),
+		trig_metadata_o	=> coinc_hit_pattern_trig_clk,
+		trig_1_o				=> internal_coinc_trig(1)
+	);
+	
+
+/*
 inst_coinc_trig0 : entity work.coinc_trig
 	port map(
 		arstn        => arstn,
@@ -775,69 +1023,123 @@ inst_coinc_trig0 : entity work.coinc_trig
 --------------------------------------
 inst_coinc_trig1 : entity work.coinc_trig
 	port map(
-		arstn        => arstn,
-      clk			 => clk_trig,
-		data0			 => internal_trig_data(12),	--8 samples of 8 bit data (64 bits wide)
-		data1			 => internal_trig_data(13),				
-		data2			 => internal_trig_data(14),
-		data3			 => internal_trig_data(15),	
-		data4			 => internal_trig_data(16),					
-		data5			 => internal_trig_data(17),	
-		data6			 => internal_trig_data(18),
-		data7			 => internal_trig_data(19),					
-		data8			 => internal_trig_data(20),
-		data9			 => internal_trig_data(21),
-		data10		 => internal_trig_data(22),
-		data11		 => internal_trig_data(23),	
-		trig_en		 => trigger_ctrl2_trig_domain(1 downto 0),
-		trig_mode	 => trigger_ctrl2_trig_domain(5),
-		trig_mask	 => trigger_ctrl2_trig_domain(27 downto 16),
-		trig_hit_rq	 => trigger_ctrl2_trig_domain(4 downto 2),
-		trig_window	 => trigger_ctrl2_trig_domain(11 downto 8),
-		thresh0	 	 => coinc_trig_threshold(12),
-		thresh1	 	 => coinc_trig_threshold(13),
-		thresh2	 	 => coinc_trig_threshold(14),
-		thresh3	 	 => coinc_trig_threshold(15),
-		thresh4	 	 => coinc_trig_threshold(16),
-		thresh5	 	 => coinc_trig_threshold(17),
-		thresh6	 	 => coinc_trig_threshold(18),
-		thresh7	 	 => coinc_trig_threshold(19),
-		thresh8	 	 => coinc_trig_threshold(20),
-		thresh9	 	 => coinc_trig_threshold(21),
-		thresh10	 	 => coinc_trig_threshold(22),
-		thresh11	 	 => coinc_trig_threshold(23),
+		arstn		=> arstn,
+    	clk			=> clk_trig,
+		data0		=> internal_trig_data(12),	--8 samples of 8 bit data (64 bits wide)
+		data1		=> internal_trig_data(13),				
+		data2		=> internal_trig_data(14),
+		data3		=> internal_trig_data(15),	
+		data4		=> internal_trig_data(16),					
+		data5		=> internal_trig_data(17),	
+		data6		=> internal_trig_data(18),
+		data7		=> internal_trig_data(19),					
+		data8		=> internal_trig_data(20),
+		data9		=> internal_trig_data(21),
+		data10		=> internal_trig_data(22),
+		data11		=> internal_trig_data(23),	
+		trig_en		=> trigger_ctrl2_trig_domain(1 downto 0),
+		trig_mode	=> trigger_ctrl2_trig_domain(5),
+		trig_mask	=> trigger_ctrl2_trig_domain(27 downto 16),
+		trig_hit_rq	=> trigger_ctrl2_trig_domain(4 downto 2),
+		trig_window	=> trigger_ctrl2_trig_domain(11 downto 8),
+		thresh0	 	=> coinc_trig_threshold(12),
+		thresh1	 	=> coinc_trig_threshold(13),
+		thresh2	 	=> coinc_trig_threshold(14),
+		thresh3	 	=> coinc_trig_threshold(15),
+		thresh4	 	=> coinc_trig_threshold(16),
+		thresh5	 	=> coinc_trig_threshold(17),
+		thresh6	 	=> coinc_trig_threshold(18),
+		thresh7	 	=> coinc_trig_threshold(19),
+		thresh8	 	=> coinc_trig_threshold(20),
+		thresh9	 	=> coinc_trig_threshold(21),
+		thresh10	=> coinc_trig_threshold(22),
+		thresh11	=> coinc_trig_threshold(23),
 		last_trigger_hit_pattern_o	=> last_coinc_trig_hit_pattern_trig_clk(23 downto 12),
 		singles_o	 => coinc_trig1_hit_singles, --//for scalers. Note that singles are still active even if channel masked from trig
 		trig_o		 => internal_coinc_trig_mf(1));
+*/
 --------------------------------------
-inst_beam_trig : entity work.beamforming_trig
-	port map(
-		arstn        => arstn,
-      clk			 => clk_trig,							
-		data0			 => internal_trig_data(0),	--8 samples of 8 bit data
-		data1			 => internal_trig_data(1),					
-		data2			 => internal_trig_data(2),
-		data3			 => internal_trig_data(3),	
-		beamform_en	 => ptrigger_ctrl_trig_domain(1 downto 0),
-		beam_mask	 => ptrigger_ctrl_trig_domain(27 downto 16),
-		chan_mask	 => ptrigger_ctrl_trig_domain(15 downto 12),
-		gain_ctrl_sel=> ptrigger_ctrl_trig_domain(8),
-		pow_width_sel=> ptrigger_ctrl_trig_domain(4),
-		thresh0	 	 => beam_servo_threshold(0) & beam_trig_threshold(0),
-		thresh1	 	 => beam_servo_threshold(1) & beam_trig_threshold(1),
-		thresh2	 	 => beam_servo_threshold(2) & beam_trig_threshold(2),
-		thresh3	 	 => beam_servo_threshold(3) & beam_trig_threshold(3),
-		thresh4	 	 => beam_servo_threshold(4) & beam_trig_threshold(4),
-		thresh5	 	 => beam_servo_threshold(5) & beam_trig_threshold(5),
-		thresh6	 	 => beam_servo_threshold(6) & beam_trig_threshold(6),
-		thresh7	 	 => beam_servo_threshold(7) & beam_trig_threshold(7),
-		thresh8	 	 => beam_servo_threshold(8) & beam_trig_threshold(8),
-		thresh9	 	 => beam_servo_threshold(9) & beam_trig_threshold(9),
-		last_trigger_beam_power => open,
-		last_trigger_hit_pattern_o => internal_last_beam_pattern_trig_clk,
-		beamtrigs_o	 => beam_trigs_for_scalers,
-		beamservos_o => beam_servos_for_scalers,
-		trig_o		 => internal_phased_trig );
+
+--inst_beam_trig : entity work.beamforming_trig
+--	port map(
+--		arstn        => arstn,
+--      clk			 => clk_trig,							
+--		data0			 => internal_trig_data(0),	--8 samples of 8 bit data
+--		data1			 => internal_trig_data(1),					
+--		data2			 => internal_trig_data(2),
+--		data3			 => internal_trig_data(3),	
+--		beamform_en	 => ptrigger_ctrl_trig_domain(1 downto 0),
+--		beam_mask	 => ptrigger_ctrl_trig_domain(27 downto 16),
+--		chan_mask	 => ptrigger_ctrl_trig_domain(15 downto 12),
+--		gain_ctrl_sel=> ptrigger_ctrl_trig_domain(8),
+--		pow_width_sel=> ptrigger_ctrl_trig_domain(4),
+--		thresh0	 	 => beam_servo_threshold(0) & beam_trig_threshold(0),
+--		thresh1	 	 => beam_servo_threshold(1) & beam_trig_threshold(1),
+--		thresh2	 	 => beam_servo_threshold(2) & beam_trig_threshold(2),
+--		thresh3	 	 => beam_servo_threshold(3) & beam_trig_threshold(3),
+--		thresh4	 	 => beam_servo_threshold(4) & beam_trig_threshold(4),
+--		thresh5	 	 => beam_servo_threshold(5) & beam_trig_threshold(5),
+--		thresh6	 	 => beam_servo_threshold(6) & beam_trig_threshold(6),
+--		thresh7	 	 => beam_servo_threshold(7) & beam_trig_threshold(7),
+--		thresh8	 	 => beam_servo_threshold(8) & beam_trig_threshold(8),
+--		thresh9	 	 => beam_servo_threshold(9) & beam_trig_threshold(9),
+--		last_trigger_beam_power => open,
+--		last_trigger_hit_pattern_o => internal_last_beam_pattern_trig_clk,
+--		beamtrigs_o	 => beam_trigs_for_scalers,
+--		beamservos_o => beam_servos_for_scalers,
+--		trig_o		 => internal_phased_trig );
+--		
+	power : entity work.power_trigger
+    generic map(
+        station_number      => x"0b",
+        SAMPLE_LENGTH       => 8,
+		NUM_SAMPLES         => 8, 
+		NUM_PA_CHANNELS     => 4, 
+		INTERP_FACTOR       => 1, 
+        INT_SAMPLE_LENGTH   => 8,
+        NUM_POWERS          => 4, 
+        POWER_LENGTH        => 16, 
+        SWAP_CHANNELS       => '1' 
+    )
+    port map(
+            rst_i			        => not arstn,
+        
+            clk_data_i	            => clk_trig,
+            ch0_data_i	            => internal_trig_data(0),
+            ch1_data_i  	        => internal_trig_data(1), 
+            ch2_data_i	            => internal_trig_data(2), 
+            ch3_data_i	            => internal_trig_data(3),
+            data_valid_i            => "1111",
+
+            clk_reg_i               => clk_trig,
+            enable_i                => ptrigger_ctrl_trig_domain(0),
+            beam_mask_i             => ptrigger_ctrl_trig_domain(27 downto 16),
+            channel_mask_i          => ptrigger_ctrl_trig_domain(15 downto 12),
+            trig_thresholds_i       => psu_trig_thresholds,
+            servo_thresholds_i      => psu_servo_thresholds,
+
+            trig_bits_o             => psu_scalers,
+            trig_o                  => internal_phased_trig,
+            trig_metadata_o         => psu_beam_pattern,
+            power_o => open
+        );
+		  
+
+psu_trig_thresholds <= beam_trig_threshold(11) & beam_trig_threshold(10) & beam_trig_threshold(9) 
+								& beam_trig_threshold(8) & beam_trig_threshold(7) & beam_trig_threshold(6)
+								& beam_trig_threshold(5) & beam_trig_threshold(4) & beam_trig_threshold(3)
+								& beam_trig_threshold(2) & beam_trig_threshold(1) & beam_trig_threshold(0);
+
+psu_servo_thresholds <= beam_servo_threshold(11) & beam_servo_threshold(10) & beam_servo_threshold(9) 
+								& beam_servo_threshold(8) & beam_servo_threshold(7) & beam_servo_threshold(6)
+								& beam_servo_threshold(5) & beam_servo_threshold(4) & beam_servo_threshold(3)
+								& beam_servo_threshold(2) & beam_servo_threshold(1) & beam_servo_threshold(0);
+
+beam_pattern_trig_clk <= psu_beam_pattern(11 downto 0);
+beam_trigs_for_scalers(11 downto 0) <= psu_scalers(12 downto 1);
+beam_servos_for_scalers(11 downto 0) <= psu_scalers(25 downto 14);
+
+	
 --------------------------------------		
 inst_scalers : entity work.scalers_top
 	port map(
@@ -845,8 +1147,8 @@ inst_scalers : entity work.scalers_top
 		clk_i						=> clk_trig,
 		rdclk_i					=> clk_rd,
 		gate_i					=> internal_pps_trigclk(2),
-		coinc_trig_singles 	=> coinc_trig1_hit_singles & coinc_trig0_hit_singles,
-		coinc_trigs				=> internal_coinc_trig_mf,
+		coinc_trig_singles 	=> coinc_hit_singles,
+		coinc_trigs				=> internal_coinc_trig,
 		beam_trigs  			=> beam_trigs_for_scalers,
 		beam_trig_servos 		=> beam_servos_for_scalers,
 		total_beam_trig		=> internal_phased_trig,
