@@ -1,0 +1,233 @@
+--
+--
+--
+--
+-- Input is mapped like Ch3 data (S7, S6, S5, S4, S3, S2, S1, S0) -> Ch0 data (S7, S6, S5, S4, S3, S2, S1, S0) at n-bit samples each
+-- Output is mapped like Bm11 data (S7, S6, S5, S4, S3, S2, S1, S0) -> Bm0 (S7, S6, S5, S4, S3, S2, S1, S0) at n-bit samples each
+--
+-- Input samples are first divided by 2 (drop the LSB, rounds toward -inf) and saturated to 5 bits (-16..15).
+-- The coherent sum of 4 channels is then at most -64..60, so it always fits in 7 bits and needs no saturation.
+-- The beam output keeps its SAMPLE_LENGTH-bit width; the 7-bit sum is sign extended into it.
+--
+--
+-- Ryan Krebs (claude assisted)
+
+
+
+library IEEE;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity beamforming_red is
+    generic(
+        station_number_i : std_logic_vector(7 downto 0);
+		SAMPLE_LENGTH   : integer := 8;
+		NUM_SAMPLES     : integer := 4;
+		NUM_PA_CHANNELS : integer := 4;
+		INTERP_FACTOR   : integer := 2;
+		NUM_BEAMS : integer := 12);
+    
+    port(
+            rst_i : in std_logic:='0';
+            clk_data_i : in	std_logic:='0'; --data clock
+            enable_i : in std_logic:='0';
+            ch_data_i : in std_logic_vector(NUM_PA_CHANNELS*NUM_SAMPLES*SAMPLE_LENGTH*INTERP_FACTOR-1 downto 0):=(others=>'0');
+            beam_data_o : out std_logic_vector(NUM_BEAMS*NUM_SAMPLES*SAMPLE_LENGTH*INTERP_FACTOR-1 downto 0):=(others=>'0')
+            );
+    end beamforming_red;
+    
+architecture rtl of beamforming_red is
+
+constant beamforming_buffer_length: integer := 60+NUM_SAMPLES*INTERP_FACTOR; -- atleast 4 (1x up), or 8 (2x up) larger than highest delay
+constant baseline: unsigned(7 downto 0) := x"80";
+constant scaled_bits: integer := 5; -- input samples after divide by 2 and saturation
+constant scaled_max: integer := 2**(scaled_bits-1)-1;  -- 15
+constant scaled_min: integer := -2**(scaled_bits-1);   -- -16
+constant phased_sum_bits: integer := scaled_bits+2; -- 7 bits, sum of 4 channels of 5 bit samples cannot overflow
+constant phased_sum_length: integer := NUM_SAMPLES*INTERP_FACTOR;
+constant num_stations: integer:=8;
+
+--input samples divided by 2 and saturated to 5 bits, one register stage before the beamforming buffer
+type scaled_data_array is array(NUM_PA_CHANNELS-1 downto 0, NUM_SAMPLES*INTERP_FACTOR-1 downto 0) of signed(scaled_bits-1 downto 0);
+signal scaled_data: scaled_data_array:= (others=>(others=>(others=>'0')));
+
+--buffer to store the interpolated sample for being pulled when doing the beamforming / summation (now 5 bit samples)
+type interpolated_data_array is array(NUM_PA_CHANNELS-1 downto 0, beamforming_buffer_length-1 downto 0) of signed(scaled_bits-1 downto 0);
+signal interp_data: interpolated_data_array:= (others=>(others=>(others=>'0')));
+
+--async coherent sum, 7 bits
+type phased_arr_buff is array (NUM_BEAMS-1 downto 0, phased_sum_length-1 downto 0) of signed(phased_sum_bits-1 downto 0);
+signal phased_beam_waves_buff: phased_arr_buff:= (others=>(others=>(others=>'0')));
+
+--7 bit coherent sum for power LUT
+type phased_arr is array (NUM_BEAMS-1 downto 0, phased_sum_length-1 downto 0) of signed(phased_sum_bits-1 downto 0);-- range 0 to 2**phased_sum_bits-1; --phased sum... log2(16*8)=7bits
+signal phased_beam_waves: phased_arr:= (others=>(others=>(others=>'0')));
+
+type antenna_delays is array (num_stations-1 downto 0, 12-1 downto 0, NUM_PA_CHANNELS-1 downto 0) of integer range 0 to 127;
+--12 beams equally spaced between -60 and 60 generated with make_beams.py
+
+
+function convert_station_to_index(number:std_logic_vector)
+    return integer is
+    begin
+        if number = x"0b" then return 0;
+        elsif number = x"0c" then return 1;
+        elsif number = x"0d" then return 2;
+        elsif number = x"0e" then return 3;
+        elsif number = x"15" then return 4;
+        elsif number = x"16" then return 5;
+        elsif number = x"17" then return 6;
+        elsif number = x"18" then return 7;
+        else return -1;
+        end if;
+    end function;
+
+
+constant station_index: integer :=convert_station_to_index(station_number_i);
+--station indexed in this order = [24 (7 ind), 23, 22, 21, 14, 13, 12, 11 (0 ind)]
+--beams 11 to 0 w/ beam 11 pointing down, and 0 pointing up
+
+--using db detector with group delays. the lab-measured signal chain keeps the cal pulser at most within 0.5ns when comparing to measured events
+--beam delays for all stations will be station 11 delays =>  ie firmware will be tagged with 11 but used on XX
+-- 1x upsampling (no upsampling)
+constant beam_delays_1x: antenna_delays :=
+    (((0,0,0,1),(2,1,0,0),(5,3,1,0),(7,5,2,0),(10,7,3,0),(13,9,4,0),(16,11,5,0),(18,12,6,0),(21,14,7,0),(24,16,8,0),(27,18,9,0),(30,20,10,0)),
+    ((0,1,0,1),(2,2,1,0),(5,3,2,0),(7,5,2,0),(10,7,3,0),(13,9,4,0),(16,11,5,0),(18,13,6,0),(21,14,7,0),(24,16,8,0),(27,18,9,0),(29,20,10,0)),
+    ((0,1,1,1),(2,2,1,0),(5,3,1,0),(7,5,2,0),(10,7,3,0),(13,9,4,0),(16,11,5,0),(18,13,6,0),(21,15,7,0),(24,16,8,0),(27,18,9,0),(29,20,10,0)),
+    ((0,1,1,1),(2,2,0,0),(4,3,1,0),(7,5,2,0),(10,7,3,0),(13,9,4,0),(15,11,5,0),(18,13,6,0),(21,15,7,0),(24,16,8,0),(27,18,9,0),(29,20,10,0)),
+    ((0,0,0,1),(2,1,0,0),(5,3,1,0),(7,5,2,0),(10,7,3,0),(13,9,4,0),(16,10,5,0),(19,12,6,0),(22,14,7,0),(24,16,8,0),(27,18,9,0),(30,20,9,0)),
+    ((0,1,1,1),(2,2,1,0),(4,3,1,0),(7,5,2,0),(10,7,3,0),(13,9,4,0),(16,11,5,0),(18,13,6,0),(21,14,7,0),(24,16,8,0),(27,18,9,0),(30,20,10,0)),
+    ((0,1,1,1),(2,2,2,0),(5,4,3,0),(8,6,4,0),(10,7,4,0),(13,9,5,0),(16,11,6,0),(18,13,7,0),(21,15,8,0),(24,16,9,0),(27,18,10,0),(29,20,11,0)),
+    ((0,1,1,1),(2,1,0,0),(4,3,1,0),(7,5,2,0),(10,7,3,0),(13,9,4,0),(16,11,5,0),(18,13,6,0),(21,15,7,0),(24,16,8,0),(27,18,9,0),(30,20,10,0)));
+
+-- 2x upsampling
+constant beam_delays_2x: antenna_delays :=
+    (((0,1,1,2),(4,3,1,0),(9,6,2,0),(15,10,4,0),(20,14,6,0),(26,17,8,0),(31,21,10,0),(37,25,12,0),(43,28,14,0),(48,32,16,0),(54,36,17,0),(59,39,19,0)),
+    ((0,1,1,2),(4,3,1,0),(9,7,3,0),(15,11,5,0),(20,14,7,0),(26,18,8,0),(31,21,10,0),(37,25,12,0),(42,29,14,0),(48,32,15,0),(53,36,17,0),(59,40,19,0)),
+    ((0,1,1,2),(4,3,1,0),(9,7,3,0),(15,11,5,0),(20,14,7,0),(26,18,9,0),(31,22,10,0),(37,25,12,0),(42,29,14,0),(48,33,16,0),(53,36,18,0),(59,40,20,0)),
+    ((0,2,1,2),(3,3,1,0),(9,7,3,0),(14,11,5,0),(20,14,6,0),(25,18,8,0),(31,22,10,0),(36,25,12,0),(42,29,14,0),(47,33,16,0),(53,37,17,0),(59,40,19,0)),
+    ((0,0,0,2),(4,2,0,0),(9,6,2,0),(15,10,4,0),(21,13,6,0),(26,17,8,0),(32,21,10,0),(37,24,11,0),(43,28,13,0),(49,32,15,0),(54,36,17,0),(60,39,19,0)),
+    ((0,2,1,2),(3,3,1,0),(9,7,3,0),(15,10,5,0),(20,14,7,0),(26,18,8,0),(31,21,10,0),(37,25,12,0),(43,29,14,0),(48,33,16,0),(54,36,18,0),(59,40,20,0)),
+    ((0,1,3,1),(4,4,3,0),(10,8,5,0),(15,11,7,0),(21,15,9,0),(26,18,11,0),(31,22,12,0),(37,26,14,0),(42,29,16,0),(48,33,18,0),(53,36,19,0),(59,40,21,0)),
+    ((0,2,1,2),(3,3,1,0),(9,7,3,0),(14,10,5,0),(20,14,6,0),(26,18,8,0),(31,22,10,0),(37,25,12,0),(43,29,14,0),(48,33,16,0),(54,37,18,0),(59,40,20,0)));
+
+    function get_delays(factor:integer)
+    return antenna_delays is
+    begin
+        if factor = 1 then return beam_delays_1x;
+        elsif factor = 2 then return beam_delays_2x;
+        else return beam_delays_1x;
+        end if;
+    end function;
+
+constant beam_delays: antenna_delays := get_delays(INTERP_FACTOR);
+
+
+begin
+
+    -- divide each input sample by 2 and saturate to 5 bits
+    proc_scale_input: process(clk_data_i, rst_i)
+        variable sample : signed(SAMPLE_LENGTH-1 downto 0);
+        variable halved : signed(SAMPLE_LENGTH-2 downto 0);
+    begin
+            if rst_i = '1' then
+                scaled_data <= (others=>(others=>(others=>'0')));
+
+            elsif rising_edge(clk_data_i) then
+                if enable_i='0' then
+                    scaled_data <= (others=>(others=>(others=>'0')));
+                else
+                    for ch in 0 to NUM_PA_CHANNELS-1 loop
+                        for sam in 0 to NUM_SAMPLES*INTERP_FACTOR-1 loop
+                            sample := signed(ch_data_i(ch*NUM_SAMPLES*SAMPLE_LENGTH*INTERP_FACTOR+(sam+1)*SAMPLE_LENGTH-1 downto ch*NUM_SAMPLES*SAMPLE_LENGTH*INTERP_FACTOR+sam*SAMPLE_LENGTH));
+                            halved := sample(SAMPLE_LENGTH-1 downto 1); -- divide by 2: drop the LSB, the sign bit stays on top
+                            if halved > scaled_max then
+                                scaled_data(ch,sam) <= to_signed(scaled_max, scaled_bits); --saturate max
+                            elsif halved < scaled_min then
+                                scaled_data(ch,sam) <= to_signed(scaled_min, scaled_bits); --saturate min
+                            else
+                                scaled_data(ch,sam) <= resize(halved, scaled_bits);
+                            end if;
+                        end loop;
+                    end loop;
+                end if;
+            end if;
+    end process;
+
+    proc_pipeline_data: process(clk_data_i,enable_i)
+    begin
+            if rst_i = '1' then
+                for ch in 0 to NUM_PA_CHANNELS-1 loop
+                        for sam in 0 to beamforming_buffer_length-1 loop
+                            interp_data(ch,sam) <= (others=>'0');
+                    end loop;
+                end loop;
+
+            elsif rising_edge(clk_data_i) then
+					if enable_i='0' then
+						for ch in 0 to NUM_PA_CHANNELS-1 loop
+							for sam in 0 to beamforming_buffer_length-1 loop
+								interp_data(ch,sam) <= "10000";
+                            end loop;
+						end loop;
+					else
+                        for ch in 0 to NUM_PA_CHANNELS-1 loop
+                            -- recieve new samples
+                            for sam in 0 to NUM_SAMPLES*INTERP_FACTOR-1 loop
+                                    interp_data(ch,sam)<=scaled_data(ch,sam);
+                            end loop;
+                            -- shift sample along buffer
+                            for sam in NUM_SAMPLES*INTERP_FACTOR to beamforming_buffer_length-1 loop
+                                    interp_data(ch,sam)<=interp_data(ch,sam-NUM_SAMPLES*INTERP_FACTOR);
+                            end loop;
+                        end loop;
+					end if;
+            end if;
+    end process;
+
+    --do phasing to calculate the coherently summed waveforms
+    proc_phasing: process(clk_data_i,enable_i)
+    begin
+
+        for i in 0 to NUM_BEAMS-1 loop --loop over beams
+            for j in 0 to NUM_SAMPLES*INTERP_FACTOR-1 loop
+            
+					  phased_beam_waves_buff(i,j)<=resize(interp_data(0,beam_delays(station_index,i,0)+(j)),phased_sum_bits)
+					  +resize(interp_data(1,beam_delays(station_index,i,1)+(j)),phased_sum_bits)
+					  +resize(interp_data(2,beam_delays(station_index,i,2)+(j)),phased_sum_bits)
+					  +resize(interp_data(3,beam_delays(station_index,i,3)+(j)),phased_sum_bits);
+
+										  
+                --async add then clock saturation. adjustable station specific delays - keeping in case
+                --phased_beam_waves_buff(i,j)<=resize(interp_data(0,beam_delays(STATION_INDEX,i,0)+(j)+to_integer(specific_dels(i,0))),phased_sum_bits)
+                --+resize(interp_data(1,beam_delays(STATION_INDEX,i,1)+(j)+to_integer(specific_dels(i,1))),phased_sum_bits)
+                --+resize(interp_data(2,beam_delays(STATION_INDEX,i,2)+(j)+to_integer(specific_dels(i,2))),phased_sum_bits)
+                --+resize(interp_data(3,beam_delays(STATION_INDEX,i,3)+(j)+to_integer(specific_dels(i,3))),phased_sum_bits);
+
+
+
+                if rst_i ='1' then
+                    phased_beam_waves(i,j) <= (others=>'0');
+
+
+					 elsif rising_edge(clk_data_i) then 
+						if enable_i = '0' then
+							phased_beam_waves(i,j) <= (others=>'0');
+						else
+							  -- inputs are saturated to 5 bits, so the 4 channel sum (-64..60) always fits in 7 bits. no saturation needed
+							  phased_beam_waves(i,j)<=phased_beam_waves_buff(i,j);
+
+					   end if;
+                end if;
+            end loop;
+        end loop;
+    end process;
+
+    assign_beams_o: for bm in 0 to NUM_BEAMS-1 generate
+            assign_samples_o: for sam in 0 to NUM_SAMPLES*INTERP_FACTOR-1 generate
+                    beam_data_o(bm*NUM_SAMPLES*SAMPLE_LENGTH*INTERP_FACTOR+(sam+1)*SAMPLE_LENGTH-1 downto bm*NUM_SAMPLES*SAMPLE_LENGTH*INTERP_FACTOR+sam*SAMPLE_LENGTH)<=std_logic_vector(resize(phased_beam_waves(bm,sam),SAMPLE_LENGTH)); --7 bit sum sign extended
+            end generate;
+    end generate;
+
+end rtl;

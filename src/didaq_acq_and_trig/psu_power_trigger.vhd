@@ -131,8 +131,8 @@ signal last_phased_trig_metadata: std_logic_vector(NUM_BEAMS-1 downto 0):=(other
 
 signal dedispersion_i : std_logic_vector(SAMPLE_LENGTH*NUM_SAMPLES*NUM_PA_CHANNELS -1 downto 0):=(others=>'0');
 signal dedispersion_o : std_logic_vector(SAMPLE_LENGTH*NUM_SAMPLES*NUM_PA_CHANNELS -1 downto 0):=(others=>'0');
-signal upsampling_i : std_logic_vector(SAMPLE_LENGTH*NUM_SAMPLES*NUM_PA_CHANNELS -1 downto 0):=(others=>'0');
-signal upsampling_o : std_logic_vector(SAMPLE_LENGTH*NUM_SAMPLES*NUM_PA_CHANNELS*INTERP_FACTOR -1 downto 0):=(others=>'0');	
+signal filter_i : std_logic_vector(SAMPLE_LENGTH*NUM_SAMPLES*NUM_PA_CHANNELS -1 downto 0):=(others=>'0');
+signal filter_o : std_logic_vector(SAMPLE_LENGTH*NUM_SAMPLES*NUM_PA_CHANNELS*INTERP_FACTOR -1 downto 0):=(others=>'0');	
 signal beaming_i : std_logic_vector(SAMPLE_LENGTH*NUM_SAMPLES*NUM_PA_CHANNELS*INTERP_FACTOR -1 downto 0):=(others=>'0');
 signal beaming_o : std_logic_vector(NUM_BEAMS*SAMPLE_LENGTH*NUM_SAMPLES*INTERP_FACTOR-1 downto 0):=(others=>'0');
 signal power_integration_i : std_logic_vector(NUM_BEAMS*NUM_SAMPLES*INTERP_FACTOR*SAMPLE_LENGTH-1 downto 0):=(others=>'0');
@@ -224,29 +224,27 @@ begin
         end if;
     end process;
 
-
-
-    --uncomment for dedisperion
-    /*
     -- connect streaming data to dedispersion
-    assign_upsampling_io: for ch in 0 to NUM_PA_CHANNELS-1 generate
+    assign_filter_io: for ch in 0 to NUM_PA_CHANNELS-1 generate
         assign_sams_i: for i in 0 to NUM_PA_CHANNELS-1 generate
-            dedispersion_i(ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*(i+1)-1 downto ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*i)
+            filter_i(ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*(i+1)-1 downto ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*i)
                 <= std_logic_vector(streaming_data(ch,i));
         end generate;
     end generate;
     --
-    xDedispersion : entity work.dedispersion
+    xDedispersion : entity work.dedisperse
+    generic map(
+        SAMPLE_LENGTH   => 8,
+		NUM_SAMPLES     => 8,
+		NUM_PA_CHANNELS => 4
+    )
     port map (
         rst_i       => rst_i,
         clk_data_i  => clk_data_i,
-        enable      => internal_phased_trig_en,
-        ch_data_i   => dedispersion_i,
-        ch_data_o   => dedispersion_o
+        enable_i    => internal_phased_trig_en,
+        ch_data_i   => filter_i,
+        ch_data_o   => filter_o
     );
-    --connect dedispersion output to upsampling input
-    upsampling_i<=dedispersion_o;
-    */
 
     --xUpsampling : entity work.upsampling
     --generic map(
@@ -259,42 +257,27 @@ begin
     --    rst_i       => rst_i,
     --    clk_data_i  => clk_data_i,
     --    enable_i    => internal_phased_trig_en,
-    --    ch_data_i   => upsampling_i,
-    --    ch_data_o   => upsampling_o
+    --    ch_data_i   => filter_i,
+    --    ch_data_o   => filter_o
     --);
-
-    --comment these generates if using dedispersion
-    --assign_upsampling_io: for ch in 0 to NUM_PA_CHANNELS-1 generate
-    --    assign_sams_i: for i in 0 to NUM_SAMPLES-1 generate
-    --        upsampling_i(ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*(i+1)-1 downto ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*i)
-    --            <= std_logic_vector(streaming_data(ch,i));
-    --    end generate;
-    --end generate;
-
-    xLowpass: entity work.lowpass
-    generic map(
-        SAMPLE_LENGTH   => SAMPLE_LENGTH,
-   	    NUM_SAMPLES     => NUM_SAMPLES,
-	    NUM_PA_CHANNELS => NUM_PA_CHANNELS
-    )
-    port map (
-        rst_i       => rst_i,
-        clk_data_i  => clk_data_i,
-        enable_i    => internal_phased_trig_en,
-        ch_data_i   => upsampling_i,
-        ch_data_o   => upsampling_o
-    );
-
-    --comment these generates if using dedispersion
-    assign_upsampling_io: for ch in 0 to NUM_PA_CHANNELS-1 generate
-        assign_sams_i: for i in 0 to NUM_SAMPLES-1 generate
-            upsampling_i(ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*(i+1)-1 downto ch*SAMPLE_LENGTH*NUM_SAMPLES+SAMPLE_LENGTH*i)
-                <= std_logic_vector(streaming_data(ch,i));
-        end generate;
-    end generate;
-
+    
+    --xLowpass: entity work.lowpass
+    --generic map(
+    --    SAMPLE_LENGTH   => SAMPLE_LENGTH,
+   	--    NUM_SAMPLES     => NUM_SAMPLES,
+	--    NUM_PA_CHANNELS => NUM_PA_CHANNELS
+    --)
+    --port map (
+    --    rst_i       => rst_i,
+    --    clk_data_i  => clk_data_i,
+    --    enable_i    => internal_phased_trig_en,
+    --    ch_data_i   => filter_i,
+    --    ch_data_o   => filter_o
+    --);
+    
+    
     --connect upsampling to beamforming
-    beaming_i<=upsampling_o;
+    beaming_i<=filter_o;
 	 
 	-- assign_beamforming_io: for ch in 0 to NUM_PA_CHANNELS-1 generate
     --    assign_sams_i: for i in 0 to NUM_SAMPLES-1 generate
@@ -303,7 +286,7 @@ begin
     --    end generate;
     --end generate;
 
-    xBeamforming: entity work.beamforming
+    xBeamforming: entity work.beamforming_red
     generic map (
         station_number_i => station_number,
         SAMPLE_LENGTH   => SAMPLE_LENGTH,
@@ -322,7 +305,7 @@ begin
     --connect beamforming output to power integration
     power_integration_i<=beaming_o;
 
-    xPower: entity work.power_integration
+    xPower: entity work.power_integration_4
     generic map(
         SAMPLE_LENGTH   => SAMPLE_LENGTH,
 		NUM_SAMPLES     => NUM_SAMPLES,

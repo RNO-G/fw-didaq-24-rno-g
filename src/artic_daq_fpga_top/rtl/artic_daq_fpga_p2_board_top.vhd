@@ -77,7 +77,7 @@ use ieee.std_logic_unsigned.all;
 
 entity artic_daq_fpga_top is
    generic(
-      g_chip_rev             : std_logic_vector(31 downto 0) := X"7EA80030";
+      g_chip_rev             : std_logic_vector(31 downto 0) := X"7EAA0030";
       g_sample_width         : natural := 8;  -- Set to 8 or 9
       g_ser_debug_mult_sim   : natural := 1   -- will use faster baud rate by this factor
    );   
